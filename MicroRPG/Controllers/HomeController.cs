@@ -17,8 +17,7 @@ namespace MicroRPG.Controllers
         [Route("")]
         public IActionResult Index()
         {
-            var x = services.GetPlayer();
-            return View(x);
+            return View(services.GetPlayer());
         }
         
     }
