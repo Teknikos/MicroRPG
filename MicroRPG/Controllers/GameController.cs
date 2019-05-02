@@ -8,10 +8,35 @@ namespace MicroRPG.Controllers
 {
     public class GameController : Controller
     {
-        [Route("environments")]
-        public IActionResult Index()
+        [Route("Main")]
+        public IActionResult Main()
         {
-            return Content ("Nu 'är vi i game controllern");
+            return View ();
+        }
+
+        public IActionResult _PlayerDetails()
+        {
+            return PartialView();
+        }
+
+        public IActionResult _Creatures()
+        {
+            return PartialView();
+        }
+
+        public IActionResult _CreatureDetails()
+        {
+            return PartialView();
+        }
+
+        public IActionResult _Obstacles()
+        {
+            return PartialView();
+        }
+
+        public IActionResult _Puzzles()
+        {
+            return PartialView();
         }
     }
 }

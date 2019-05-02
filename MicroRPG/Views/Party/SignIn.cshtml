@@ -1,0 +1,20 @@
+﻿
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<h1>SignIn here</h1><br /><br />
+
+<a asp-controller="Party" asp-action="_CreateOrLoad">
+    <p>Facebook login</p><br />
+</a>
+<a asp-controller="Party" asp-action="_CreateOrLoad">
+    <p>Google login</p><br /><br />
+</a>
+<a asp-controller="Party" asp-action="Create">
+    <p>Continue Without Logging in</p><br />
+</a>
+
+<a asp-controller="Home" asp-action="Index">
+    <p>Back to home</p>
+</a>

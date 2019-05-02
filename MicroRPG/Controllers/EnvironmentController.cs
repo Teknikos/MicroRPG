@@ -13,6 +13,7 @@ namespace MicroRPG.Controllers
         {
             return View();
         }
+        [Route("environment/Zoomed")]
         public IActionResult Zoomed()
         {
             return PartialView();

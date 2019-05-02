@@ -1,9 +1,16 @@
 ﻿
-    <div>
-        <div class="Grid">  Environment </div>
-        <div class="Grid">  Party </div>
-    </div>
+<div>
+    <a asp-controller="Environment" asp-action="Choose">
+        <div class="Grid"> Environment </div>
+    </a>
+    <a asp-controller="Party" asp-action="SignIn">
+        <div class="Grid"> Party </div>
+    </a>
+</div>
 
-<div>  Start </div>
-
-<div>  Join </div>
+<a asp-controller="Game" asp-action="Main">
+    <div> Start </div>
+</a>
+<a asp-controller="Game" asp-action="_PlayerDetails">
+    <div> Join </div>
+    </a>

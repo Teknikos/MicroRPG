@@ -3,5 +3,22 @@
     ViewData["Title"] = "Spells";
 }
 
-<h1>Spells</h1>
+@* Left side: partial view spell list  *@
+<h1>[Player] Choose [amountOfSpells] Spells</h1>
 
+<ul>
+    <li>Spell 1</li>
+    <li>Spell 2</li>
+    <li>Spell 3</li>
+    <li>Spell 4</li>
+    <li>Spell 5</li>
+</ul>
+<br /> <br />
+
+@* RIght side: partial view spell description  *@
+
+<p>Spell Descriptions bla bla very cool <br />Spell Descriptions bla bla very cool Spell <br />Descriptions bla bla very cool</p>
+
+<a asp-controller="Home" asp-action="Index">
+    <div> Done </div>
+</a>
