@@ -14,6 +14,7 @@ namespace MicroRPG.Controllers
             return View ();
         }
 
+        [Route("PlayerDetails")]
         public IActionResult _PlayerDetails()
         {
             return PartialView();
