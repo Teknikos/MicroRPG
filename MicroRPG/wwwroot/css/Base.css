@@ -10,13 +10,19 @@
     width: 100%;
 }
 
-#environmentTable a {
-}
-
 #environmentTable {
     width: 95%;
     margin: 2%;
 }
+
+#environmentHeader {
+    width: auto;
+    height: 15%;
+}
+
+    #environmentHeader img {
+        width: 25%;
+    }
 
 .buttons {
     margin: 0, 0, 20px, 20px;
@@ -53,10 +59,10 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal * {
-    padding-top: 1%;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    width: 90%;
-}
+    .modal * {
+        padding-top: 1%;
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        width: 90%;
+    }
