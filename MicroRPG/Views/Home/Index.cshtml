@@ -1,16 +1,24 @@
 ﻿
 <div>
     <a asp-controller="Environment" asp-action="Choose">
-        <div class="Grid"> Environment </div>
+        <img src="~/img/home/Your Environment.jpg" alt="Your Environment" />
+        <label>
+            Environment
+        </label>
     </a>
+
+</div>
+<div>
     <a asp-controller="Party" asp-action="SignIn">
-        <div class="Grid"> Party </div>
+        <img src="~/img/home/Your Party.png" alt="Your Party" />
+        <label>
+            Party
+        </label>
     </a>
 </div>
+<a asp-controller="Game" asp-action="Main"><input type="button" value="Start" /></a>
+<br />
 
-<a asp-controller="Game" asp-action="Main">
-    <div> Start </div>
-</a>
-<a asp-controller="Game" asp-action="_PlayerDetails">
-    <div> Join </div>
-    </a>
+<label>ID:</label>
+<input type="text" name="sessionId" value="" />
+<a asp-controller="Game" asp-action="_PlayerDetails"><input type="button" value="Join" /></a>

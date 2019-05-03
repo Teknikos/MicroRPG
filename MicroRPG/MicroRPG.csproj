@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\img\monsters\" />
+    <Folder Include="wwwroot\img\home\" />
   </ItemGroup>
 
 </Project>
