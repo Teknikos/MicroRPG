@@ -1,6 +1,55 @@
-﻿<p> Character Details</p>
+﻿<div class="container">
+    <header><button>Wolfgang</button><button>Cedrik</button><button>Hagrid</button></header>
 
+    <h1>Potato Man</h1>
+    <div class="charRow" id="stats">
+        <ul>
+            <li>Attack: 15</li>
+            <li>Wizdom: 10</li>
+            <li>Armor: 2</li>
+        </ul>
+    </div>
+    <div class="charRow crop" id="characterImg">
+        <img src="~/img/player/female-silhouette.png" alt="Female" />
+    </div>
+    <div class="charRow" id="spells">
+        <ul>
+            <li>Fireball</li>
+            <li>Cure Light Wounds</li>
+            <li>Control Weather</li>
+        </ul>
+    </div>
+    <div id="resourceBars">
+        <ul>
+            <li>Health bar</li>
+            <li>Mana bar</li>
+        </ul>
 
+    </div>
+</div>
 <a asp-controller="Game" asp-action="Main">
     <div> Done </div>
 </a>
+<style>
+    li{
+        list-style:none;
+    }
+    .container {
+        text-align: center;
+    }
+
+    .charRow {
+        display: inline-block;
+    }
+
+    .crop {
+        height: 300px;
+        width: 400px;
+        overflow: hidden;
+    }
+
+        .crop img {
+            height: 400px;
+            width: auto;
+        }
+</style>
