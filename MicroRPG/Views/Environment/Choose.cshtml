@@ -2,34 +2,54 @@
 
 
 <table id="environmentTable">
-    
+
     <tr>
         <td>
-            <a asp-controller="Environment" asp-action="Zoomed">
+            <div class="enlargeImg">
                 <img src="~/img/environments/desert.jpg" alt="Desert">
-            </a>
+            </div>
+            
+            
         </td>
         <td>
-            <a asp-controller="Environment" asp-action="Zoomed">
+            <div class="enlargeImg">
                 <img src="~/img/environments/forest.jpg" alt="Forest">
-            </a>
+            </div>
         </td>
     </tr>
     <tr>
         <td>
-            <a asp-controller="Environment" asp-action="Zoomed">
+            <div class="enlargeImg">
                 <img src="~/img/environments/ruins.jpg" alt="Ruins">
-            </a>
+            </div>
         </td>
         <td>
-            <a asp-controller="Environment" asp-action="Zoomed">
-                <img  src="~/img/environments/village.jpg" alt="Village">
-            </a>
+            <div class="enlargeImg">
+                <img src="~/img/environments/village.jpg" alt="Village">
+            </div>
         </td>
     </tr>
 </table>
 
+<div class="modal">
+    <partial name="Zoomed" />
+</div>
+
 
 <a asp-controller="Home" asp-action="Index">
-    <input class="buttons" type=button Text="Button"  value="Home" style="font-size: 24px;"/>
+    <input class="buttons" type=button Text="Button" value="Home" style="font-size: 24px;" />
 </a>
+
+@section Scripts
+{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script>
+        $(".enlargeImg img").click(function() {
+            $("#imgContainer").html(this.cloneNode());
+            $(".modal").css("display", "block");
+        })
+        $(".modal").click(function () {
+            $(this).css("display", "none");
+        });
+    </script>
+}
