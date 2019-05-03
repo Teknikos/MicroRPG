@@ -1,24 +1,54 @@
-﻿
-<div>
-    <a asp-controller="Environment" asp-action="Choose">
-        <img src="~/img/home/Your Environment.jpg" alt="Your Environment" />
-        <label>
-            Environment
-        </label>
-    </a>
+﻿<div class="container">
+    <table id="environmentTable">
+        <tr>
+            <td class="crop">
+                <div>
+                    <a asp-controller="Environment" asp-action="Choose">
+                        <img src="~/img/home/Your Environment.jpg" alt="Alternate Text" />
+                        <label>Environment</label>
+                    </a>
+                </div>
+            </td>
 
-</div>
-<div>
-    <a asp-controller="Party" asp-action="SignIn">
-        <img src="~/img/home/Your Party.png" alt="Your Party" />
-        <label>
-            Party
-        </label>
-    </a>
-</div>
-<a asp-controller="Game" asp-action="Main"><input type="button" value="Start" /></a>
-<br />
+            <td class="crop">
+                <div>
+                    <a asp-controller="Party" asp-action="SignIn">
+                        <img src="~/img/home/Your Party.png" alt="Alternate Text" />
+                        <label>Party</label>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </table>
+    <div>
 
-<label>ID:</label>
-<input type="text" name="sessionId" value="" />
-<a asp-controller="Game" asp-action="_PlayerDetails"><input type="button" value="Join" /></a>
+        <a asp-controller="Game" asp-action="Main"><input type="button" value="Start" /></a>
+        <br />
+        <BR />
+        <label class="session">ID:</label>
+        <input class="session" type="text" name="sessionId" value="" />
+        <a asp-controller="Game" asp-action="_PlayerDetails"><input type="button" value="Join" /></a>
+    </div>
+</div>
+<style>
+    .container{
+       text-align:center;
+    }
+
+    .session {
+        display: inline-block;
+       text-align:center;
+
+    }
+
+    .crop {
+        height: 300px;
+        width: 400px;
+        overflow: hidden;
+    }
+
+        .crop img {
+            height: 400px;
+            width: auto;
+        }
+</style>
