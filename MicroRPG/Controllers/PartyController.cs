@@ -8,7 +8,43 @@ namespace MicroRPG.Controllers
 {
     public class PartyController : Controller
     {
-        public IActionResult Index()
+        [Route("SignIn")]
+        public IActionResult SignIn()
+        {
+            return View();
+        }
+
+        public IActionResult _CreateOrLoad()
+        {
+            return PartialView();
+        }
+
+        [Route("Load")]
+        public IActionResult Load()
+        {
+            return View();
+        }
+
+        [Route("Create")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [Route("Summary")]
+        public IActionResult Summary()
+        {
+            return View();
+        }
+
+        [Route("Backstory")]
+        public IActionResult Backstory()
+        {
+            return View();
+        }
+
+        [Route("Spells")]
+        public IActionResult Spells()
         {
             return View();
         }

@@ -27,9 +27,8 @@ namespace MicroRPG
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseStaticFiles();
             app.UseMvc();
-
         }
     }
 }

@@ -1,5 +1,16 @@
-﻿@model  PlayerVM
-<h1>Hej Fredrik!</h1>
-<p>@Model.Name</p>
-<br />
-<p>@Model.Health</p>
+﻿
+<div>
+    <a asp-controller="Environment" asp-action="Choose">
+        <div class="Grid"> Environment </div>
+    </a>
+    <a asp-controller="Party" asp-action="SignIn">
+        <div class="Grid"> Party </div>
+    </a>
+</div>
+
+<a asp-controller="Game" asp-action="Main">
+    <div> Start </div>
+</a>
+<a asp-controller="Game" asp-action="_PlayerDetails">
+    <div> Join </div>
+    </a>

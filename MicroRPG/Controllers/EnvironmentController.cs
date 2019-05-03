@@ -8,15 +8,15 @@ namespace MicroRPG.Controllers
 {
     public class EnvironmentController : Controller
     {
-
         [Route("environment")]
         public IActionResult Choose()
         {
             return View();
         }
+        [Route("environment/Zoomed")]
         public IActionResult Zoomed()
         {
-            return Content("This is the zoomed view of an environment");
+            return PartialView();
         }
     }
 }
