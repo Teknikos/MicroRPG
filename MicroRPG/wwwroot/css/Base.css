@@ -1,0 +1,23 @@
+﻿body {
+}
+
+.ViewHeader {
+    text-align: center;
+    font-size: 50px;
+}
+
+#environmentTable img {
+    width: 100%;
+}
+
+#environmentTable a {
+}
+
+#environmentTable {
+    width: 95%;
+    margin: 2%;
+}
+    
+.buttons{
+    margin: 10px;
+}
