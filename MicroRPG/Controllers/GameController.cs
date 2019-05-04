@@ -20,6 +20,7 @@ namespace MicroRPG.Controllers
             return PartialView();
         }
 
+        [Route("Creatures")]
         public IActionResult _Creatures()
         {
             return PartialView();
