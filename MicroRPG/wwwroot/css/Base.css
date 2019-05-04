@@ -3,18 +3,48 @@
 
 .ViewHeader {
     text-align: center;
-    font-size: 50px;
+    font-size: 5vh;
 }
 
-#environmentTable img {
-    width: 100%;
+
+/* Environment Choose view */
+#environmentAcceptBtn {
+    position: sticky;
+    left: 45%;
+    bottom: 10%;
+    background-color: lightgray;
+    width: 10vw;
+    height: 5vh;
+    font-size: 110%;
+    padding: 0;
+    text-align: center;
+    margin-top: 5vh;
 }
 
-#environmentTable {
-    width: 95%;
-    margin: 2%;
+#environmentTable .row {
+    display: flex;
+    text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
 }
 
+#environmentTable .column {
+    margin: 0;
+    padding-right: 3px;
+    padding-left: 3px;
+    flex: 50%;
+}
+
+    #environmentTable img {
+        width: 100%;
+        max-height: 30vh;
+        object-fit: cover;
+    }
+
+/*
+    Header for creatures/obstacles/puzzles 
+    --OBS! Detta id, 'environmentHeader', bör döpas om men vi ska ändå flytta detta till en partiell vy sen
+*/
 #environmentHeader {
     width: auto;
     height: 15%;
@@ -59,19 +89,20 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal > * {
-    margin: auto;
-    display: block;
-    width: 90%;
-    height: 90%;
-}
+    .modal > * {
+        margin: auto;
+        display: block;
+        width: 90%;
+        height: 90%;
+    }
 
-.modal .imgContainer img {
-    width: inherit;
-    height: inherit;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    user-select: none;
-}
+    .modal .imgContainer img {
+        width: inherit;
+        height: inherit;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        user-select: none;
+        object-fit: scale-down;
+    }

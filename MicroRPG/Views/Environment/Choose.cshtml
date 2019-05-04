@@ -1,41 +1,62 @@
 ﻿<h1 class="ViewHeader">Choose your environment</h1>
 
 
-<table id="environmentTable">
+@*<table id="environmentTable">
 
-    <tr>
-        <td>
-            <div class="enlargeImg">
-                <img src="~/img/environments/desert.jpg" alt="Desert">
-            </div>
-        </td>
-        <td>
-            <div class="enlargeImg">
-                <img src="~/img/environments/forest.jpg" alt="Forest">
-            </div>
-        </td>
-    </tr>
-    <tr>
-        <td>
-            <div class="enlargeImg">
-                <img src="~/img/environments/ruins.jpg" alt="Ruins">
-            </div>
-        </td>
-        <td>
-            <div class="enlargeImg">
-                <img src="~/img/environments/village.jpg" alt="Village">
-            </div>
-        </td>
-    </tr>
-</table>
+        <tr>
+            <td>
+                <div class="enlargeImg cropImg">
+                    <img src="~/img/environments/desert.jpg" alt="Desert">
+                </div>
+            </td>
+            <td>
+                <div class="enlargeImg cropImg">
+                    <img src="~/img/environments/forest.jpg" alt="Forest">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="enlargeImg cropImg">
+                    <img src="~/img/environments/ruins.jpg" alt="Ruins">
+                </div>
+            </td>
+            <td>
+                <div class="enlargeImg cropImg">
+                    <img src="~/img/environments/village.jpg" alt="Village">
+                </div>
+            </td>
+        </tr>
+    </table>*@
+<div id="environmentTable">
+    <div class="row">
+        <div class="enlargeImg column">
+            <img src="~/img/environments/desert.jpg" alt="Desert">
+        </div>
+        <div class="enlargeImg column">
+            <img src="~/img/environments/forest.jpg" alt="Forest">
+        </div>
+    </div>
+    <div class="row">
+        <div class="enlargeImg column">
+            <img src="~/img/environments/ruins.jpg" alt="Ruins">
+        </div>
+        <div class="enlargeImg column">
+            <img src="~/img/environments/village.jpg" alt="Village">
+        </div>
+    </div>
+    
+</div>
+
+<a asp-controller="Home" asp-action="Index">
+    <input id="environmentAcceptBtn" class="buttons" type=button Text="Button" value="Done" />
+</a>
 
 <div class="modal">
     <div class="imgContainer"></div>
 </div>
 
-<a asp-controller="Home" asp-action="Index">
-    <input class="buttons" type=button Text="Button" value="Home" style="font-size: 24px;" />
-</a>
+
 
 @section Scripts
 {
