@@ -32,7 +32,7 @@
 </table>
 
 <div class="modal">
-    <partial name="Zoomed" />
+    <div class="imgContainer"></div>
 </div>
 
 
@@ -43,13 +43,5 @@
 @section Scripts
 {
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script>
-        $(".enlargeImg img").click(function() {
-            $("#imgContainer").html(this.cloneNode());
-            $(".modal").css("display", "block");
-        })
-        $(".modal").click(function () {
-            $(this).css("display", "none");
-        });
-    </script>
+    <script src="~/scripts/EnlargeImage.js"></script>
 }

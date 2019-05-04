@@ -53,10 +53,19 @@
     background-color: rgba(0, 0, 0, 0.8);
 }
 
-.modal * {
-    padding-top: 1%;
-    margin-left: auto;
-    margin-right: auto;
+.modal > * {
+    margin: auto;
     display: block;
     width: 90%;
+    height: 90%;
+}
+
+.modal .imgContainer img {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    user-select: none;
 }
