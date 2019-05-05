@@ -23,12 +23,13 @@ namespace MicroRPG.Controllers
         [Route("Creatures")]
         public IActionResult _Creatures()
         {
-            return PartialView();
+            return View();
         }
 
-        public IActionResult _CreatureDetails()
+        [Route("Creatures/{id}")]
+        public IActionResult _CreatureDetails(string id)
         {
-            return PartialView();
+            return PartialView(nameof(_CreatureDetails), id);
         }
 
         public IActionResult _Obstacles()

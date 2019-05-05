@@ -63,6 +63,23 @@
         width: 25%;
     }
 
+/* Creature View */
+#creatureTable img {
+    cursor: pointer;
+}
+
+#creatureTable .crop {
+    height: 300px;
+    width: 200px;
+    overflow: hidden;
+}
+
+    #creatureTable .crop img {
+        height: 250px;
+        width: auto;
+    }
+
+/* Creature Details */
 .buttons {
     margin: 0, 0, 20px, 20px;
 }
@@ -103,6 +120,7 @@
         display: block;
         width: 90%;
         height: 90%;
+        background-color: white;
     }
 
     .modal .imgContainer img {
