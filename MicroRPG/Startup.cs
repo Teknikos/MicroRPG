@@ -18,6 +18,7 @@ namespace MicroRPG
         {
             services.AddMvc();
             services.AddSingleton<PlayersService>();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

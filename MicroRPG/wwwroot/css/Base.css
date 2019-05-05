@@ -64,6 +64,10 @@
     }
 
 /* Creature View */
+#creatureTable {
+    max-width: 80%;
+}
+
 #creatureTable img {
     cursor: pointer;
 }
@@ -79,7 +83,27 @@
         width: auto;
     }
 
-/* Creature Details */
+/* Obstacle View*/
+#obstacleTable {
+    max-width: 80%;
+}
+
+    #obstacleTable img {
+        cursor: pointer;
+    }
+
+    #obstacleTable .crop {
+        height: 300px;
+        width: 200px;
+        overflow: hidden;
+    }
+
+        #obstacleTable .crop img {
+            height: 250px;
+            width: auto;
+        }
+
+
 .buttons {
     margin: 0, 0, 20px, 20px;
 }
@@ -117,6 +141,7 @@
 
     .modal > * {
         margin: auto;
+        margin-top: 5%;
         display: block;
         width: 90%;
         height: 90%;

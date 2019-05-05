@@ -1,12 +1,37 @@
 ﻿
+<div id="environmentHeader">
+    <img style="width: 500px; height:100px;" src="~/img/environments/desert.jpg" alt="Desert">
+    <img style="width: 500px; height:100px;" src="~/img/environments/forest.jpg" alt="Forest">
+    <img style="width: 500px; height:100px;" src="~/img/environments/ruins.jpg" alt="Ruins">
+    <img style="width: 500px; height:100px;" src="~/img/environments/village.jpg" alt="Village">
+</div>
 
-<h1>Obstacles</h1><br />
+<h1>Vi får byta denna vy mot korrekta bilder osv, lägger enbart till för att modal ska fungera</h1>
 
-<h1>Obstacle 1</h1>
-<h1>Obstacle 2</h1>
-<h1>Obstacle 3</h1>
-
+<table id="obstacleTable">
+    <tr>
+        <td class="crop">
+            <img src="~/img/monsters/beetle.jpg" alt="Beetle" name="Beetle" class="getDetails">
+        </td>
+        <td class="crop">
+            <img src="~/img/monsters/cougar.png" alt="Cougar" name="Cougar" class="getDetails">
+        </td>
+        <td class="crop">
+            <img src="~/img/monsters/nymph.png" alt="Nymph" name="Nymph" class="getDetails">
+        </td>
+    </tr>
+</table>
 
 <a asp-controller="Game" asp-action="Main">
-    <div> Done </div>
+    <input class="buttons" type=button Text="Button" value="Back" style="font-size: 24px;" />
 </a>
+
+<div class="modal" data-route="Obstacles">
+    <div class="modalContainer"></div>
+</div>
+
+@section scripts
+{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/DetailsModal.js"></script>
+}

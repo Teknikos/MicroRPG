@@ -3,11 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 namespace MicroRPG.Controllers
 {
     public class PartyController : Controller
     {
+        IMemoryCache cache;
+        public PartyController(IMemoryCache cache)
+        {
+            this.cache = cache;
+        }
+
         [Route("SignIn")]
         public IActionResult SignIn()
         {
@@ -34,6 +41,7 @@ namespace MicroRPG.Controllers
         [Route("Summary")]
         public IActionResult Summary()
         {
+
             return View();
         }
 

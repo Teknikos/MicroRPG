@@ -32,14 +32,22 @@ namespace MicroRPG.Controllers
             return PartialView(nameof(_CreatureDetails), id);
         }
 
+        [Route("Obstacles")]
         public IActionResult _Obstacles()
         {
-            return PartialView();
+            return View();
         }
 
+        [Route("Obstacles/{id}")]
+        public IActionResult _ObstacleDetails(string id)
+        {
+            return PartialView(nameof(_ObstacleDetails), id);
+        }
+
+        [Route("Puzzles")]
         public IActionResult _Puzzles()
         {
-            return PartialView();
+            return View();
         }
     }
 }
