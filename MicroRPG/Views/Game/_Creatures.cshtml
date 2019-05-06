@@ -1,50 +1,36 @@
 ﻿
 <div id="environmentHeader">
-    <img style="width: 500px; height:100px;" src="~/img/environments/desert.jpg" alt="Desert">
-    <img style="width: 500px; height:100px;" src="~/img/environments/forest.jpg" alt="Forest">
-    <img style="width: 500px; height:100px;" src="~/img/environments/ruins.jpg" alt="Ruins">
-    <img style="width: 500px; height:100px;" src="~/img/environments/village.jpg" alt="Village">
+    <img style="width: 24%; height:5%;" src="~/img/environments/desert.jpg" alt="Desert">
+    <img style="width: 24%; height:5%;" src="~/img/environments/forest.jpg" alt="Forest">
+    <img style="width: 24%; height:5%;" src="~/img/environments/ruins.jpg" alt="Ruins">
+    <img style="width: 24%; height:5%;" src="~/img/environments/village.jpg" alt="Village">
 </div>
 
-<table style="max-width:80%" id="creatureTable">
-    <tr>
-        <td class="crop">
-            <img src="~/img/monsters/beetle.jpg" alt="Beetle" name="Beetle" class="getDetails">
-        </td>
-        <td class="crop">
-            <img src="~/img/monsters/cougar.png" alt="Cougar" name="Cougar" class="getDetails">
-        </td>
-        <td class="crop">
-            <img src="~/img/monsters/nymph.png" alt="Nymph" name="Nymph" class="getDetails">
-        </td>
-    </tr>
-    <tr>
-        <td class="crop">
-            <img src="~/img/monsters/ghost.png" alt="Ghost" name="Ghost" class="getDetails">
-        </td>
-        <td class="crop">
-            <img src="~/img/monsters/giant-lizard.png" alt="giant-lizard" name="giant-lizard" class="getDetails">
-        </td>
-        <td class="crop">
-            <img src="~/img/monsters/wyvern.png" alt="wyvern" name="wyvern" class="getDetails">
-        </td>
-    </tr>
-    <tr>
-        <td class="crop">
-            <img src="~/img/monsters/snake.png" alt="snake" name="snake" class="getDetails">
-        </td>
-        <td class="crop">
-            <img src="~/img/monsters/werewolf.png" alt="werewolf" name="werewolf" class="getDetails">
-        </td>
-        <td class="crop">
-            <img src="~/img/monsters/Guard.png" alt="Guard" name="Guard" class="getDetails">
-        </td>
-    </tr>
-</table>
+<div id="creatureTable">
+    <div class="row">
+        <div class="column">
+            <img src="~/img/monsters/beetle.jpg" alt="beetle">
+        </div>
+        <div class="column">
+            <img src="~/img/monsters/cougar.png" alt="cougar">
+        </div>
+    </div>
+    <div class="row">
+        <div class="column">
+            <img src="~/img/monsters/ghost.png" alt="ghost">
+        </div>
+        <div class="column">
+            <img src="~/img/monsters/giant-lizard.png" alt="giant-lizard">
+        </div>
+    </div>
+    </div>
 
-<a asp-controller="Game" asp-action="Main">
-    <input class="buttons" type=button Text="Button" value="Back" style="font-size: 24px;" />
-</a>
+
+<footer class="footer">
+    <a asp-controller="Game" asp-action="Main">
+        <input class="buttons" type=button Text="Button" value="Back" style="font-size: 24px;" />
+    </a>
+</footer>
 
 <div class="modal" data-route="Creatures">
     <div class="modalContainer"></div>
@@ -53,5 +39,5 @@
 @section scripts
 {
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script src="~/scripts/DetailsModal.js" ></script>
+    <script src="~/scripts/DetailsModal.js"></script>
 }

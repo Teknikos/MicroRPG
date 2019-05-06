@@ -1,11 +1,44 @@
-﻿
-<h1>Puzzle Details</h1><br />
+﻿<h2 class="ViewHeader">Puzzles</h2>
 
-<h1>Puzzle 1</h1>
-<h1>Puzzle 2</h1>
-<h1>Puzzle 3</h1>
+<div class="Outer">
+    <div class="InnerLeft">
+        <h3>Entrapment</h3>
+        <div style="height: 800px; overflow: auto;">
+            <ul>
+                <li>Trapped in a cave, find a way out.</li>
+                <li>Fall trap, escape a slow death.</li>
+                <li>You find yourself in a maze, it seems to never end.</li>
+                <li>After a rest, the party finds themselves in a dream-like state, is it reality or a nightmare?</li>
+                <li>The group is denied entrance to a location of interest.</li>
+                <li>The group has been captured and imprisoned. Escape your captors.</li>
+                <li>Thick vegetation creeps up on you and envelop you. Find your way out!</li>
+            </ul>
+        </div>
+    </div>
+    <div class="InnerRight">
+        <h3>Doors</h3>
+        <ul>
+            <li>The person passing through must whisper their true name or entry is barred.</li>
+            <li>Those seeking entry must shed their blood on the portal.</li>
+            <li>Only the penitent may pass.</li>
+            <li>When no light touches, the way will open.</li>
+            <li>The door is invisible when seen by naked eye.</li>
+        </ul>
+    </div>
+</div>
 
+<footer class="footer">
+    <a asp-controller="Game" asp-action="Main">
+        <input class="buttons" type=button Text="Button" value="Back" style="font-size: 24px;" />
+    </a>
+</footer>
 
-<a asp-controller="Game" asp-action="Main">
-    <div> Done </div>
-</a>
+<div class="modal" data-route="Creatures">
+    <div class="modalContainer"></div>
+</div>
+
+@section scripts
+{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/DetailsModal.js"></script>
+}
