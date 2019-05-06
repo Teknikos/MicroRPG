@@ -1,4 +1,5 @@
-﻿
+﻿@using static MicroRPG.Models.Constants;
+
 @{
     ViewData["Title"] = "Main";
 }
@@ -15,7 +16,8 @@
         <h1>Player 4</h1><br />
     </div><br /><br /><br />
 
-    <h1>Beautiful Background picture here :)</h1><br /><br /><br />
+    <p>insert chosen environment pic here</p>
+    <br /><br /><br />
 </div>
 
 <div id="gamePartialContainer"></div>
@@ -30,9 +32,7 @@
     <a asp-controller="Game" asp-action="_Obstacles">
         <div> Obstacles </div>
     </a>
-    <a asp-controller="Game" asp-action="_Puzzles">
-        <div> Puzzles </div>
-    </a>
+    <input type="button" id="gamePuzzlesBtn" value="Puzzles">
 </div>
 
 @section scripts
@@ -42,6 +42,26 @@
         $("#gameCreaturesBtn").click(function () {
             $.ajax({
                 url: "/creatures/",
+                type: "GET",
+                success: function (result) {
+                    $("#gamePartialContainer").html(result);
+                    $("#gamePartialContainer").css("display", "block");
+                    $("#gameMain").css("display", "none");
+                }
+            });
+        });
+        $("#gamePartialContainer").click(function (event) {
+            if ($(event.target).is(".backBtn")) {
+                $("#gamePartialContainer").css("display", "none");
+                $("#gameMain").css("display", "block");
+            }
+        });
+    </script>
+
+    <script>
+        $("#gamePuzzlesBtn").click(function () {
+            $.ajax({
+                url: "/puzzles/",
                 type: "GET",
                 success: function (result) {
                     $("#gamePartialContainer").html(result);
