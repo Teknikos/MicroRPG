@@ -138,7 +138,7 @@ namespace BuildBackstoryTest
             {
                 foreach (int playerIndex in indexes.OrderBy(p => random.Next()))
                 {
-                    var validCases = cases.Where(c => c.IsValid(party[playerIndex], party));
+                    var validCases = cases.Where(c => c.IsValid(party[playerIndex].Tags, party.Count));
                     if (validCases.Count() > 0)
                     {
                         Case c = validCases.ElementAt(random.Next(validCases.Count()));

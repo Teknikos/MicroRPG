@@ -145,6 +145,9 @@
         display: block;
         width: 90%;
         height: 90%;
+    }
+
+    .modalContainer {
         background-color: white;
     }
 

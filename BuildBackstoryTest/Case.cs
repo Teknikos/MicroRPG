@@ -162,16 +162,16 @@ namespace BuildBackstoryTest
             return res;
         }
 
-        public bool IsValid(Player player, List<Player> party)
+        public bool IsValid(List<Tag> playerTags, int numberOfPlayers)
         {
-            if (party.Count < minPartySize || party.Count > maxPartySize)
+            if (numberOfPlayers < minPartySize || numberOfPlayers > maxPartySize)
                 return false;
 
             if (RequiredTags != null)
             {
                 foreach (Tag tag in RequiredTags)
                 {
-                    if (!HasTag(tag, player.Tags))
+                    if (!HasTag(tag, playerTags))
                         return false;
                 }
             }
@@ -180,7 +180,7 @@ namespace BuildBackstoryTest
             {
                 foreach (Tag tag in LackTags)
                 {
-                    if (HasTag(tag, player.Tags))
+                    if (HasTag(tag, playerTags))
                         return false;
                 }
             }

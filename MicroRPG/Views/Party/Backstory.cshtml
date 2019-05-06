@@ -1,20 +1,19 @@
-﻿
+﻿@model PartyBackstoryVM
 @{
     ViewData["Title"] = "Backstory";
 }
 
 <h1>Backstory</h1>
 
-<p>Backstory bla bla bla Backstory bla bla bla Backstory bla bla bla Backstory bla bla bla</p>
+<p>@Model.Description</p>
 
 <p>Player 1 make a choice</p>
 
 <a asp-controller="Party" asp-action="Spells">
     <ul>
-        <li>Choice 1</li>
-        <li>Choice 2</li>
-        <li>Choice 3</li>
-        <li>Choice 4</li>
-        <li>Choice 5</li>
+        @foreach (var outcome in Model.Outcomes)
+        {
+            <li>@outcome</li>
+        }
     </ul>
     </a>

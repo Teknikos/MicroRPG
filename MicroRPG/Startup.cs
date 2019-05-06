@@ -17,7 +17,8 @@ namespace MicroRPG
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<PlayersService>();
+            services.AddSingleton<PartyService>();
+            services.AddHttpContextAccessor();
             services.AddMemoryCache();
         }
 

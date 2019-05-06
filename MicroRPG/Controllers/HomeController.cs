@@ -10,9 +10,9 @@ namespace MicroRPG.Controllers
     public class HomeController : Controller
     {
         PlayersService services;
-        public HomeController( PlayersService services)
+        public HomeController()
         {
-            this.services = services;
+            
         }
         [Route("")]
         public IActionResult Index()
