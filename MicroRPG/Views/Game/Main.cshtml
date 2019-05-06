@@ -3,27 +3,30 @@
     ViewData["Title"] = "Main";
 }
 
-<h1>Player Details</h1><br /><br />
+<div id="gameMain">
+    <h1>Player Details</h1><br /><br />
 
-<div>
-    <h1>Player 1</h1>
-    <h1>Player 2</h1><br />
+    <div>
+        <h1>Player 1</h1>
+        <h1>Player 2</h1><br />
+    </div>
+    <div>
+        <h1>Player 3</h1>
+        <h1>Player 4</h1><br />
+    </div><br /><br /><br />
+
+    <h1>Beautiful Background picture here :)</h1><br /><br /><br />
 </div>
-<div>
-    <h1>Player 3</h1>
-    <h1>Player 4</h1><br />
-</div><br /><br /><br />
 
-<h1>Beautiful Background picture here :)</h1><br /><br /><br />
+<div id="gamePartialContainer"></div>
 
 <div>
     <h1>Footer menu</h1><br />
     <a asp-controller="Home" asp-action="Index">
         <div> Back to Home </div>
     </a>
-    <a asp-controller="Game" asp-action="_Creatures">
-        <div> Creatures </div>
-    </a>
+    <input type="button" id="gameCreaturesBtn" value="Creatures">
+
     <a asp-controller="Game" asp-action="_Obstacles">
         <div> Obstacles </div>
     </a>
@@ -31,3 +34,27 @@
         <div> Puzzles </div>
     </a>
 </div>
+
+@section scripts
+{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script>
+        $("#gameCreaturesBtn").click(function () {
+            $.ajax({
+                url: "/creatures/",
+                type: "GET",
+                success: function (result) {
+                    $("#gamePartialContainer").html(result);
+                    $("#gamePartialContainer").css("display", "block");
+                    $("#gameMain").css("display", "none");
+                }
+            });
+        });
+        $("#gamePartialContainer").click(function (event) {
+            if ($(event.target).is(".backBtn")) {
+                $("#gamePartialContainer").css("display", "none");
+                $("#gameMain").css("display", "block");
+            }
+        });
+    </script>
+}

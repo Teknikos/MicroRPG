@@ -2,12 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using static MicroRPG.Models.Constants;
 
 namespace MicroRPG.Controllers
 {
     public class GameController : Controller
     {
+        
+
         [Route("Main")]
         public IActionResult Main()
         {
@@ -23,7 +27,8 @@ namespace MicroRPG.Controllers
         [Route("Creatures")]
         public IActionResult _Creatures()
         {
-            return View();
+            string res = HttpContext.Session.GetString(SelectedEnvironment);
+            return PartialView(nameof(_Creatures), res);
         }
 
         [Route("Creatures/{id}")]

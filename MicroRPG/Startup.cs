@@ -17,6 +17,7 @@ namespace MicroRPG
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddSession();
             services.AddSingleton<PartyService>();
             services.AddHttpContextAccessor();
             services.AddMemoryCache();
@@ -29,6 +30,7 @@ namespace MicroRPG
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSession();
             app.UseStaticFiles();
             app.UseMvc();
         }

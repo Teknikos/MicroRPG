@@ -1,4 +1,4 @@
-﻿
+﻿@model string
 <div id="environmentHeader">
     <img style="width: 24%; height:5%;" src="~/img/environments/desert.jpg" alt="Desert">
     <img style="width: 24%; height:5%;" src="~/img/environments/forest.jpg" alt="Forest">
@@ -6,6 +6,7 @@
     <img style="width: 24%; height:5%;" src="~/img/environments/village.jpg" alt="Village">
 </div>
 
+<h1>@Model</h1>
 <div id="creatureTable">
     <div class="row">
         <div class="column">
@@ -27,9 +28,9 @@
 
 
 <footer class="footer">
-    <a asp-controller="Game" asp-action="Main">
-        <input class="buttons" type=button Text="Button" value="Back" style="font-size: 24px;" />
-    </a>
+    
+        <input class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px;" />
+    
 </footer>
 
 <div class="modal" data-route="Creatures">

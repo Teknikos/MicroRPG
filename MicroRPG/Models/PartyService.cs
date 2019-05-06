@@ -30,7 +30,7 @@ namespace MicroRPG.Models
                 allCases = Case.GenerateCases();   
             }
 
-            List<Tag> tags = GetPlayerTags(playerID);
+            List<Tag> tags = GetPlayerTags();
             Case validCase = allCases
                 .Where(c => !GetUsedCaseIDs().Contains(c.ID))
                 .Where(c => c.IsValid(tags, GetNumberOfPlayers()))
@@ -76,7 +76,7 @@ namespace MicroRPG.Models
             return 6;
         }
 
-        private List<Tag> GetPlayerTags(string playerID)
+        private List<Tag> GetPlayerTags()
         {
             return new List<Tag>();
         }

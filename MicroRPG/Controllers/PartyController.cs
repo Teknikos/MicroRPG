@@ -53,7 +53,7 @@ namespace MicroRPG.Controllers
         public IActionResult Backstory()
         {
             string currentPlayerID = "";
-
+            
             PartyBackstoryVM pb = backService.GetValidCase(currentPlayerID);
             
 
