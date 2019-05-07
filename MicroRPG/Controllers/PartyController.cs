@@ -52,12 +52,16 @@ namespace MicroRPG.Controllers
         [Route("Backstory")]
         public IActionResult Backstory()
         {
-            string currentPlayerID = "";
-            
-            PartyBackstoryVM pb = backService.GetValidCase(currentPlayerID);
-            
+            return View();
+        }
 
-            return View(pb);
+        [Route("Backstory/{playerID}")]
+        public IActionResult Backstory(int playerID)
+        {
+
+            PartyBackstoryVM pb = backService.GetValidCase(playerID);
+
+            return Ok(pb);
         }
 
         [Route("Spells")]

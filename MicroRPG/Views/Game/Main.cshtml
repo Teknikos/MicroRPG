@@ -3,8 +3,7 @@
     ViewData["Title"] = "Main";
 }
 
-<div class="mainContainer">
-    <div class="gameView" id="gameMain">
+    <div id="gameMain">
         <h1>Player Details</h1><br /><br />
 
         <div>
@@ -17,51 +16,30 @@
         </div><br /><br /><br />
 
         <h1>Beautiful Background picture here :)</h1><br /><br /><br />
+
+        <div>
+            <h1>Footer menu</h1><br />
+            <a asp-controller="Home" asp-action="Index">
+                <div> Back to Home </div>
+            </a>
+            <input type="button" id="gameCreaturesBtn" value="Creatures">
+
+            <input type="button" id="gameObstaclesBtn" value="Obstacles">
+            <input type="button" id="gamePuzzlesBtn" value="Puzzles">
+        </div>
     </div>
 
-    <div id="gamePartialContainer"></div>
+<div id="gamePartialContainer"></div>
 
-    <div class="mainFooter">
-        <h1>Footer menu</h1><br />
-        <a asp-controller="Home" asp-action="Index">
-            <div> Back to Home </div>
-        </a>
-        <input type="button" id="gameCreaturesBtn" value="Creatures">
-
-        <a asp-controller="Game" asp-action="_Obstacles">
-            <div> Obstacles </div>
-        </a>
-        <a asp-controller="Game" asp-action="_Puzzles">
-            <div> Puzzles </div>
-        </a>
-    </div>
-    <div class="musicPlayer">
-        <audio controls="controls">
-            <source src="~/sound/Secret_Garden.mp3" type="audio/mp3" />
-
-        </audio>
-    </div>
+<div class="modal" data-route="Creatures">
+    <div class="modalContainer"></div>
 </div>
+
+
+
 @section scripts
 {
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script>
-        $("#gameCreaturesBtn").click(function () {
-            $.ajax({
-                url: "/creatures/",
-                type: "GET",
-                success: function (result) {
-                    $("#gamePartialContainer").html(result);
-                    $("#gamePartialContainer").css("display", "block");
-                    $("#gameMain").css("display", "none");
-                }
-            });
-        });
-        $("#gamePartialContainer").click(function (event) {
-            if ($(event.target).is(".backBtn")) {
-                $("#gamePartialContainer").css("display", "none");
-                $("#gameMain").css("display", "block");
-            }
-        });
-    </script>
+    <script src="~/scripts/DetailsModal.js"></script>
+    <script src="~/scripts/GameMain.js"></script>
 }
