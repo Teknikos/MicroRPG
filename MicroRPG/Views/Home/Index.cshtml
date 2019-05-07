@@ -1,53 +1,33 @@
-﻿<div class="container">
-    <table id="homeTable">
-        <tr>
-            <td class="crop">
+﻿<div class="homeContainer">
+    <div id="homeTable">
+        <div class="row">
+            <div class="column">
                 <div>
                     <a asp-controller="Environment" asp-action="Choose">
                         <img src="~/img/home/Your Environment.jpg" alt="Alternate Text" />
                         <label>Environment</label>
                     </a>
                 </div>
-            </td>
+            </div>
+            <div class="column">
+                <a asp-controller="Party" asp-action="SignIn">
+                    <img src="~/img/home/Your Party 2.png" alt="Alternate Text" />
+                    <label>Party</label>
+                </a>
+            </div>
+        </div>
+    </div>
 
-            <td class="crop">
-                <div>
-                    <a asp-controller="Party" asp-action="SignIn">
-                        <img src="~/img/home/Your Party.png" alt="Alternate Text" />
-                        <label>Party</label>
-                    </a>
-                </div>
-            </td>
-        </tr>
-    </table>
-    <div>
-
-        <a asp-controller="Game" asp-action="Main"><input type="button" value="Start" /></a>
+    <div class="homeFooter">
+        <div id="homeStartBtn">
+            <a asp-controller="Game" asp-action="Main"><input type="button" value="Start" /></a>
+        </div>
         <br />
-        <BR />
-        <label class="session">ID:</label>
-        <input class="session" type="text" name="sessionId" value="" />
-        <a asp-controller="Game" asp-action="_PlayerDetails"><input type="button" value="Join" /></a>
+        <br/>
+        <div class="homeSession">
+            <label >ID:</label>
+            <input type="text" name="sessionId" value="" />
+            <a asp-controller="Game" asp-action="_PlayerDetails"><input type="button" value="Join" /></a>
+        </div>
     </div>
 </div>
-<style>
-    .container{
-       text-align:center;
-    }
-
-    .session {
-        display: inline-block;
-       text-align:center;
-    }
-
-    .crop {
-        height: 300px;
-        width: 400px;
-        overflow: hidden;
-    }
-
-        .crop img {
-            height: 400px;
-            width: auto;
-        }
-</style>

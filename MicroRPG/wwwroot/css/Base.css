@@ -5,20 +5,22 @@
     text-align: center;
     font-size: 5vh;
 }
-
+.ViewHeader h1{
+    margin-top:0;
+}
 div.Outer {
     width: 95%;
     position: relative;
     clear: both;
-    margin-top:3%;
+    margin-top: 3%;
 }
 
-div.Outer li{
-font-size: 20px;
-}
+    div.Outer li {
+        font-size: 20px;
+    }
 
 div.InnerLeft {
-    left:10%;
+    left: 10%;
     width: 45%;
     position: relative;
     float: left;
@@ -28,8 +30,89 @@ div.InnerRight {
     width: 44%;
     position: relative;
     float: right;
-} 
+}
+/* Home View*/
+.homeContainer {
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 20vh;
+}
 
+
+
+.homeContainer {
+    justify-content: center;
+}
+
+.homeFooter {
+    justify-content: center;
+    top: 500px;
+    bottom: 0;
+}
+
+.homeSession label {
+    display: inline-block;
+}
+
+#homeStartBtn {
+    text-align: center;
+}
+
+
+#homeTable img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+}
+
+#homeTable .row {
+    display: flex;
+    text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+#homeTable .column {
+    margin: 0;
+    padding-right: 5px;
+    padding-left: 5px;
+    flex: 50%;
+}
+@media all and (max-width: 600px) {
+
+    #homeTable .row {
+        flex-direction: column;
+    }
+
+    .homeContainer {
+        padding-top: 5vh;
+        margin-top: 0;
+    }
+}
+/* Create Player View */
+.createContainer {
+    display: flex;
+    padding-top: 10vh;
+    justify-content: center;
+    border: solid black 3px;
+
+}
+.createForm{
+    border: solid black 3px;
+    
+}
+.createRadio label {
+    display: inline-block;
+    margin-left: 1vw;
+}
+#doneCreateBtn{
+    text-align: center;
+}
+#createHeader {
+    background-color: gray;
+    margin-top: 0;
+    font-size:2em;
+}
 /* Environment Choose view */
 #environmentTable [type="radio"] {
     position: absolute;
@@ -67,11 +150,11 @@ div.InnerRight {
     flex: 50%;
 }
 
-    #environmentTable img {
-        width: 100%;
-        max-height: 30vh;
-        object-fit: cover;
-    }
+#environmentTable img {
+    width: 100%;
+    max-height: 30vh;
+    object-fit: cover;
+}
 
 /*
     Header for creatures/obstacles/puzzles 
@@ -170,17 +253,17 @@ div.InnerRight {
         height: 90%;
     }
 
-    .modalContainer {
-        background-color: white;
-    }
+.modalContainer {
+    background-color: white;
+}
 
-    .modal .imgContainer img {
-        width: inherit;
-        height: inherit;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        user-select: none;
-        object-fit: scale-down;
-    }
+.modal .imgContainer img {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    user-select: none;
+    object-fit: scale-down;
+}

@@ -3,38 +3,45 @@
     ViewData["Title"] = "Main";
 }
 
-<div id="gameMain">
-    <h1>Player Details</h1><br /><br />
+<div class="mainContainer">
+    <div class="gameView" id="gameMain">
+        <h1>Player Details</h1><br /><br />
 
-    <div>
-        <h1>Player 1</h1>
-        <h1>Player 2</h1><br />
+        <div>
+            <h1>Player 1</h1>
+            <h1>Player 2</h1><br />
+        </div>
+        <div>
+            <h1>Player 3</h1>
+            <h1>Player 4</h1><br />
+        </div><br /><br /><br />
+
+        <h1>Beautiful Background picture here :)</h1><br /><br /><br />
     </div>
-    <div>
-        <h1>Player 3</h1>
-        <h1>Player 4</h1><br />
-    </div><br /><br /><br />
 
-    <h1>Beautiful Background picture here :)</h1><br /><br /><br />
+    <div id="gamePartialContainer"></div>
+
+    <div class="mainFooter">
+        <h1>Footer menu</h1><br />
+        <a asp-controller="Home" asp-action="Index">
+            <div> Back to Home </div>
+        </a>
+        <input type="button" id="gameCreaturesBtn" value="Creatures">
+
+        <a asp-controller="Game" asp-action="_Obstacles">
+            <div> Obstacles </div>
+        </a>
+        <a asp-controller="Game" asp-action="_Puzzles">
+            <div> Puzzles </div>
+        </a>
+    </div>
+    <div class="musicPlayer">
+        <audio controls="controls">
+            <source src="~/sound/Secret_Garden.mp3" type="audio/mp3" />
+
+        </audio>
+    </div>
 </div>
-
-<div id="gamePartialContainer"></div>
-
-<div>
-    <h1>Footer menu</h1><br />
-    <a asp-controller="Home" asp-action="Index">
-        <div> Back to Home </div>
-    </a>
-    <input type="button" id="gameCreaturesBtn" value="Creatures">
-
-    <a asp-controller="Game" asp-action="_Obstacles">
-        <div> Obstacles </div>
-    </a>
-    <a asp-controller="Game" asp-action="_Puzzles">
-        <div> Puzzles </div>
-    </a>
-</div>
-
 @section scripts
 {
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
