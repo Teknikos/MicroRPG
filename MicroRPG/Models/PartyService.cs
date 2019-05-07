@@ -18,8 +18,8 @@ namespace MicroRPG.Models
         IHttpContextAccessor accessor;
 
         const string UsedCaseIDs = "UsedCaseIDs";
-        const string Player = "Player";
-        const string PlayerIDs = "PlayerIDs";
+        const string PlayerObj = "Player";
+        const string PartyIDs = "PartyIDs";
 
         public object JsonContext { get; private set; }
 
@@ -64,15 +64,20 @@ namespace MicroRPG.Models
             };
         }
 
-        public int[] GetPlayerIDs()
+        internal void AddPlayer(PartyCreateVM playerVM)
         {
-            string res = accessor.HttpContext.Session.GetString(PlayerIDs);
-            if (!string.IsNullOrEmpty(res))
+            Player player = new Player(playerVM.Name, playerVM.Age)
             {
-                int[] a = JsonConvert.DeserializeObject<int[]>(res);
-                return a;
-            }
-            return new int[] {-1};
+                Gender = playerVM.Gender
+            };
+
+            int[] IDs = GetPartyIDs();
+            IDs = IDs.Append(player.ID).ToArray();
+
+            accessor.HttpContext.Session.SetString(PartyIDs,
+                JsonConvert.SerializeObject(IDs));
+            accessor.HttpContext.Session.SetString(PlayerObj + player.ID,
+                JsonConvert.SerializeObject(player));
         }
 
         private int[] GetUsedCaseIDs()
@@ -90,16 +95,56 @@ namespace MicroRPG.Models
             return res;
         }
 
+        public PartySummaryVM GetPartySummary()
+        {
+            int[] IDs = GetPartyIDs();
+            string[] playerNames = new string[IDs.Length];
+            for (int i = 0; i < IDs.Length; i++)
+            {
+                playerNames[i] = GetPlayer(IDs[i]).Name;
+            }
+            PartySummaryVM partySummary = new PartySummaryVM
+            {
+                PlayerIDs = IDs,
+                PlayerNames = playerNames
+            };
+
+            return partySummary;
+        }
+
+        public int[] GetPartyIDs()
+        {
+            int[] res;
+            string json = accessor.HttpContext.Session.GetString(PartyIDs);
+            if (!string.IsNullOrEmpty(json))
+            {
+                res = JsonConvert.DeserializeObject<int[]>(json);
+            }
+            else
+            {
+                res = new int[0];
+            }
+            return res;
+        }
+
         private int GetNumberOfPlayers()
         {
-            return 6;
+            return GetPartyIDs().Length;
         }
 
         private List<Tag> GetPlayerTags(int playerID)
         {
-            //List<Tag> playerTags = JsonConvert.DeserializeObject accessor.HttpContext.Session.GetString(Player+playerID);
+            return GetPlayer(playerID).Tags;
+        }
 
-            return new List<Tag>();
+        private Player GetPlayer(int playerID)
+        {
+            string json = accessor.HttpContext.Session.GetString(PlayerObj + playerID);
+            if (json != null)
+            {
+                return JsonConvert.DeserializeObject<Player>(json);
+            }
+            return null;
         }
     }
 }

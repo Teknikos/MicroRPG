@@ -10,6 +10,8 @@ namespace Backstory
 
         public int Age { get; set; }
 
+        public string Gender { get; set; }
+
         public int StatGainCount { get; set; }  
 
         public List<Tag> Tags { get; set; }
@@ -24,6 +26,7 @@ namespace Backstory
         {
             Name = name;
             Age = age;
+            Gender = string.Empty;
             StatGainCount = 0;
             ID = idCount++;
 

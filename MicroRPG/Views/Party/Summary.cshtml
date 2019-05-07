@@ -1,4 +1,4 @@
-﻿
+﻿@model PartySummaryVM
 @{
     ViewData["Title"] = "Summary";
 }
@@ -7,19 +7,20 @@
 </div>
 <div class="summaryContainer">
 
+    <h1>
+        @foreach (var item in Model.PlayerIDs)
+        {
+            @item
+        }
+        </h1>
+
     <ul id="partyList">
-
-        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Cedric</a></li>
-
-        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Bronn</a></li>
-
-        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Xarah</a></li>
-
-        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Talasi</a></li>
-        
-        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Herpa</a></li>
-        
-        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Derp</a></li>
+        @for (int i = 0; i < Model.PlayerIDs.Length; i++)
+        {
+            <li class="player">
+                <a asp-controller="Game" asp-action="_PlayerDetails" asp-route-id=@Model.PlayerIDs[i]>@Model.PlayerNames[i]</a>
+            </li>
+        }
 
     </ul>
 

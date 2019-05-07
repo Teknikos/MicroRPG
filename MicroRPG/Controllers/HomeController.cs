@@ -9,7 +9,6 @@ namespace MicroRPG.Controllers
 {
     public class HomeController : Controller
     {
-        PlayersService services;
         public HomeController()
         {
             

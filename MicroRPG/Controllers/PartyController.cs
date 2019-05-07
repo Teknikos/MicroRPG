@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Backstory;
 using MicroRPG.Models;
 using MicroRPG.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -39,25 +40,40 @@ namespace MicroRPG.Controllers
             return View();
         }
 
+        [HttpGet]
         [Route("Create")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [HttpPost]
+        [Route("Create")]
+        public IActionResult Create(PartyCreateVM playerVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(playerVM);
+            }
+
+            backService.AddPlayer(playerVM);
+
+            return RedirectToAction(nameof(Summary));
+        }
+
         [Route("Summary")]
         public IActionResult Summary()
         {
-            int[] test = { 0, 1, 2, 3 };
-            HttpContext.Session.SetString("PlayerIDs", JsonConvert.SerializeObject(test));
-            return View();
+            PartySummaryVM partySummary = backService.GetPartySummary();
+
+            return View(nameof(Summary), partySummary);
         }
 
         [Route("Backstory")]
         public IActionResult Backstory()
         {
-            
-            return View(backService.GetPlayerIDs());
+
+            return View(backService.GetPartyIDs());
         }
 
         [Route("Backstory/{playerID}")]
