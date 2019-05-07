@@ -7,29 +7,38 @@
         <h3>Name</h3>
         <div style="height: 800px; overflow: auto;">
             <ul>
-                @foreach (var item in Model)
+                @for (int i = 0; i < @Model.Length; i++)
                 {
-                <li>@item.Name</li>
+                    <li class="DisplayDescription" data-index=@i>@Model[i].Name</li>
                 }
             </ul>
         </div>
     </div>
 
-<div class="InnerRight">
-    <h3>Description</h3>
-    <ul>
-        @foreach (var item in Model)
-        {
-            <li>@item.Description</li>
-        }
-    </ul>
-</div>
+    <div class="InnerRight">
+        <h3>Description</h3>
+        <ul>
+            @for (int i = 0; i < @Model.Length; i++)
+            {
+                <li class="allDescriptions" id=@("description" + i) style="display:none">@Model[i].Description</li>
+            }
+        </ul>
+    </div>
 </div>
 
 <footer class="footer">
     <input class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px;" />
 </footer>
 
-<div class="modal" data-route="Puzzles">
+<div class="modal" data-route="Obstacles">
     <div class="modalContainer"></div>
 </div>
+
+<script>
+    $(".DisplayDescription").click(function () {
+        var i = $(this).attr("data-index");
+        $(".allDescriptions").css("display", "none");
+        $("#description" + i).css("display", "block");
+    });
+</script>
+

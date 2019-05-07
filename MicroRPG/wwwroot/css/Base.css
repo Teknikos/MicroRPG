@@ -23,6 +23,10 @@
     font-size: 3vh;
 }
 
+    .InnerLeft li {
+        cursor: pointer;
+    }
+
 .InnerRight {
     width: 64%;
     position: relative;
@@ -34,8 +38,6 @@
     flex-flow: row wrap;
     padding-top: 20vh;
 }
-
-
 
 .homeContainer {
     justify-content: center;
@@ -50,13 +52,10 @@
 .homeSession label {
     display: inline-block;
 }
-    font-size: 2vh;
-} 
 
 #homeStartBtn {
     text-align: center;
 }
-
 
 #homeTable img {
     width: 100%;
@@ -98,15 +97,17 @@
 }
 .createForm{
     border: solid black 3px;
-    
 }
+
 .createRadio label {
     display: inline-block;
     margin-left: 1vw;
 }
+
 #doneCreateBtn{
     text-align: center;
 }
+
 #createHeader {
     background-color: gray;
     margin-top: 0;
@@ -181,7 +182,6 @@
     max-height: 30vh;
     object-fit: cover;
 }
-
 /*
     Header for creatures/obstacles/puzzles 
     --OBS! Detta id, 'environmentHeader', bör döpas om men vi ska ändå flytta detta till en partiell vy sen
@@ -217,7 +217,12 @@
 }
 
 /* Obstacle View*/
-#obstacleTable {
+
+.DisplayDescription {
+    cursor: pointer;
+}
+
+    #obstacleTable {
     max-width: 80%;
 }
 
@@ -235,6 +240,10 @@
             height: 250px;
             width: auto;
         }
+
+.allDescriptions {
+    font-size: 3vh;
+}
 
 .buttons {
     margin: 0, 0, 20px, 20px;
