@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Backstory;
+using MicroRPG.Models.Backstory;
 using MicroRPG.Models;
 using MicroRPG.Models.ViewModels;
 using Microsoft.AspNetCore.Http;

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using static Backstory.Constants;
+using static MicroRPG.Models.Backstory.Constants;
 
-namespace Backstory
+namespace MicroRPG.Models.Backstory
 {
     public class Case
     {
