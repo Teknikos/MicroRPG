@@ -92,11 +92,9 @@
     display: flex;
     padding-top: 10vh;
     justify-content: center;
-    border: solid black 3px;
 
 }
 .createForm{
-    border: solid black 3px;
 }
 
 .createRadio label {
@@ -122,20 +120,37 @@
     display: flex;
     /*padding-top: 10vh;*/
     justify-content: center;
-    border: solid black 3px;
 }
-#partyList {
+
+#partyList{
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    border: solid black 3px;
-}
-#summaryFooter {
-    flex-flow:column;
-    align-content: center;
-    border: solid black 3px;
+    
 }
 
+#summaryFooter {
+    position: absolute;
+    align-content: center;
+    bottom: 0;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+    #summaryFooter * {
+        display: inline-block;
+        font-size: 3vh;
+        justify-content: space-between;
+    }
+#summaryFooter  #addBtn {
+    font-size: 24px;
+    margin-right: 4vw;
+    margin-left:4vw;
+}
+    #summaryFooter #continueBtn {
+        font-size: 24px;
+        margin-right: 4vw;
+        margin-left: 4vw;
+    }
 /* Environment Choose view */
 #environmentTable [type="radio"] {
     position: absolute;
