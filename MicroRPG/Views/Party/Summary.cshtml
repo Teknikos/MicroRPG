@@ -24,13 +24,17 @@
 
     </ul>
 
-    <div class="footer" id="summaryFooter">
-        <a asp-controller="Party" asp-action="Create">
-            <input class="buttons" type=button Text="Button" value="Add Party Member" style="font-size: 24px;" />
-        </a>
+    <div id="summaryFooter">
+        <div id="summaryCreateBtn">
+            <a asp-controller="Party" asp-action="Create">
+                <input  id="addBtn" type=button value="Add Party Member"  />
+            </a>
+        </div>
 
-        <a asp-controller="Party" asp-action="Backstory">
-            <input class="buttons" type=button Text="Button" value="Continue" style="font-size: 24px;" />
-        </a>
+        <div id="summaryContinueBtn">
+            <a asp-controller="Party" asp-action="Backstory">
+                <input id="continueBtn" type=button  value="Continue"  />
+            </a>
+        </div>
     </div>
 </div>
