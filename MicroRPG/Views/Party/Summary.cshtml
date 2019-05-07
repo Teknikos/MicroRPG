@@ -2,28 +2,47 @@
 @{
     ViewData["Title"] = "Summary";
 }
+<div class="ViewHeader" id="summaryHeader">
+    <h1>Party Summary</h1>
+</div>
+<div class="summaryContainer">
+    @*<div id="summaryTable">
+        <div class="row">
+            <div class="column">
+                <a class="player" asp-controller="Game" asp-action="_PlayerDetails">Cedric</a>
+            </div>
+            <div class="column">
+                <a class="player" asp-controller="Game" asp-action="_PlayerDetails">Bronn</a>
+            </div>
+            <div class="column">
+                <a class="player" asp-controller="Game" asp-action="_PlayerDetails">Xarah</a>
+            </div>
+        </div>
+    </div>*@
 
-<h1 class="ViewHeader">Party Summary</h1>
+    <ul id="partyList">
 
+        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Cedric</a></li>
 
-<ul id="partyList">
+        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Bronn</a></li>
 
-    <li>Cedric</li>
+        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Xarah</a></li>
 
-    <li>Bronn</li>
+        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Talasi</a></li>
+        
+        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Herpa</a></li>
+        
+        <li class="player"><a asp-controller="Game" asp-action="_PlayerDetails">Derp</a></li>
 
-    <li>Xarah</li>
+    </ul>
 
-    <li>Talasi</li>
+    <div class="footer">
+        <a asp-controller="Party" asp-action="Create">
+            <input class="buttons" type=button Text="Button" value="Add Party Member" style="font-size: 24px;" />
+        </a>
 
-</ul>
-
-<div class="footer">
-    <a asp-controller="Party" asp-action="Create">
-        <input class="buttons" type=button Text="Button" value="Add Party Member" style="font-size: 24px;" />
-    </a>
-
-    <a asp-controller="Party" asp-action="Backstory">
-        <input class="buttons" type=button Text="Button" value="Continue" style="font-size: 24px;" />
-    </a>
+        <a asp-controller="Party" asp-action="Backstory">
+            <input class="buttons" type=button Text="Button" value="Continue" style="font-size: 24px;" />
+        </a>
+    </div>
 </div>

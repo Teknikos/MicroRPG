@@ -112,6 +112,33 @@
     margin-top: 0;
     font-size:2em;
 }
+
+/* Party Summary View*/
+#summaryHeader{
+    background-color: gray;
+}
+.summaryContainer {
+    display: flex;
+    /*padding-top: 10vh;*/
+    justify-content: center;
+    border: solid black 3px;
+}
+#summaryTable .row {
+    display: flex;
+    text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+#summaryTable .column {
+    margin: 1.5rem 0 1.5rem 3rem;
+    font-size: 90%;
+}
+#partyList {
+    display:flex;
+    flex-wrap:wrap;
+    list-style:none;
+}
+
 /* Environment Choose view */
 #environmentTable [type="radio"] {
     position: absolute;
