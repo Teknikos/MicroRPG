@@ -19,6 +19,7 @@ namespace MicroRPG
             services.AddMvc();
             services.AddSession();
             services.AddSingleton<PartyService>();
+            //services.AddSingleton<WorldService>();
             services.AddHttpContextAccessor();
             services.AddMemoryCache();
         }

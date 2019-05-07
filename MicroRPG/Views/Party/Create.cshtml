@@ -1,14 +1,40 @@
-﻿
+﻿@model PlayerVM;
+
 @{
     ViewData["Title"] = "Create";
 }
+    <div class="ViewHeader" id="createHeader">
+        <h1  >Create Party Member</h1>
+    </div>
+<div class="createContainer">
 
-<h1>Create a party!</h1>
+    <br />
+    <div class="createForm">
+        <form action="/" method="post">
+            <label>Name:</label>
+            <input asp-for="Name" value="" />
+            <br />
+            <br />
+            <label>Age:</label>
+            <input asp-for="Age" value="" />
+            <br />
+            <br />
+            <label>Gender:</label>
+            <div class="createRadio">
 
-<label>Name</label><br />
-<label>Age</label><br />
-<label>Gender</label><br />
+                <input asp-for="Gender" type="radio" value="female" />
+                <label>Female</label>
+                <br />
+                <input asp-for="Gender" type="radio" value="male" />
+                <label>Male</label>
 
-<a asp-controller="Party" asp-action="Summary">
-    <div> Done </div>
-</a>
+            </div>
+            <div id="doneCreateBtn">
+                <button asp-controller="Party" asp-action="Summary">
+                    Done
+                </button>
+            </div>
+
+        </form>
+</div>
+</div>

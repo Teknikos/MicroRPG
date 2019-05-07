@@ -1,31 +1,43 @@
-﻿
-<div id="environmentHeader">
-    <img style="width: 500px; height:100px;" src="~/img/environments/desert.jpg" alt="Desert">
-    <img style="width: 500px; height:100px;" src="~/img/environments/forest.jpg" alt="Forest">
-    <img style="width: 500px; height:100px;" src="~/img/environments/ruins.jpg" alt="Ruins">
-    <img style="width: 500px; height:100px;" src="~/img/environments/village.jpg" alt="Village">
+﻿@model MicroRPG.Models.Obstacle[]
+
+<h2 class="ViewHeader">Obstacles</h2>
+
+<div class="Outer">
+    <div class="InnerLeft">
+        <h3>Name</h3>
+        <div style="height: 800px; overflow: auto;">
+            <ul>
+                @for (int i = 0; i < @Model.Length; i++)
+                {
+                    <li class="DisplayDescription" data-index=@i>@Model[i].Name</li>
+                }
+            </ul>
+        </div>
+    </div>
+
+    <div class="InnerRight">
+        <h3>Description</h3>
+        <ul>
+            @for (int i = 0; i < @Model.Length; i++)
+            {
+                <li class="allDescriptions" id=@("description" + i) style="display:none">@Model[i].Description</li>
+            }
+        </ul>
+    </div>
 </div>
 
-<h1>Vi får byta denna vy mot korrekta bilder osv, lägger enbart till för att modal ska fungera</h1>
-
-<table id="obstacleTable">
-    <tr>
-        <td class="crop">
-            <img src="~/img/monsters/beetle.jpg" alt="Beetle" name="Beetle" class="getDetails">
-        </td>
-        <td class="crop">
-            <img src="~/img/monsters/cougar.png" alt="Cougar" name="Cougar" class="getDetails">
-        </td>
-        <td class="crop">
-            <img src="~/img/monsters/nymph.png" alt="Nymph" name="Nymph" class="getDetails">
-        </td>
-    </tr>
-</table>
-
-<a asp-controller="Game" asp-action="Main">
-    <input class="buttons" type=button Text="Button" value="Back" style="font-size: 24px;" />
-</a>
+<footer class="footer">
+    <input class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px;" />
+</footer>
 
 <div class="modal" data-route="Obstacles">
     <div class="modalContainer"></div>
 </div>
+
+<script>
+    $(".DisplayDescription").click(function () {
+        var i = $(this).attr("data-index");
+        $(".allDescriptions").css("display", "none");
+        $("#description" + i).css("display", "block");
+    });
+</script>

@@ -3,20 +3,31 @@
     ViewData["Title"] = "Main";
 }
 
-<div id="gameMain">
-    <h1>Player Details</h1><br /><br />
+    <div id="gameMain">
+        <h1>Player Details</h1><br /><br />
 
-    <div>
-        <h1>Player 1</h1>
-        <h1>Player 2</h1><br />
+        <div>
+            <h1>Player 1</h1>
+            <h1>Player 2</h1><br />
+        </div>
+        <div>
+            <h1>Player 3</h1>
+            <h1>Player 4</h1><br />
+        </div><br /><br /><br />
+
+        <h1>Beautiful Background picture here :)</h1><br /><br /><br />
+
+        <div>
+            <h1>Footer menu</h1><br />
+            <a asp-controller="Home" asp-action="Index">
+                <div> Back to Home </div>
+            </a>
+            <input type="button" id="gameCreaturesBtn" value="Creatures">
+
+            <input type="button" id="gameObstaclesBtn" value="Obstacles">
+            <input type="button" id="gamePuzzlesBtn" value="Puzzles">
+        </div>
     </div>
-    <div>
-        <h1>Player 3</h1>
-        <h1>Player 4</h1><br />
-    </div><br /><br /><br />
-
-    <h1>Beautiful Background picture here :)</h1><br /><br /><br />
-</div>
 
 <div id="gamePartialContainer"></div>
 
@@ -24,16 +35,7 @@
     <div class="modalContainer"></div>
 </div>
 
-<div>
-    <h1>Footer menu</h1><br />
-    <a asp-controller="Home" asp-action="Index">
-        <div> Back to Home </div>
-    </a>
-    <input type="button" id="gameCreaturesBtn" value="Creatures">
 
-    <input type="button" id="gameObstaclesBtn" value="Obstacles">
-    <input type="button" id="gamePuzzlesBtn" value="Puzzles">
-</div>
 
 @section scripts
 {

@@ -1,36 +1,44 @@
-﻿<h2 class="ViewHeader">Puzzles</h2>
+﻿@model MicroRPG.Models.Puzzle[]
+
+<h2 class="ViewHeader">Puzzles</h2>
 
 <div class="Outer">
     <div class="InnerLeft">
-        <h3>Entrapment</h3>
+        <h3>Name</h3>
         <div style="height: 800px; overflow: auto;">
             <ul>
-                <li>Trapped in a cave, find a way out.</li>
-                <li>Fall trap, escape a slow death.</li>
-                <li>You find yourself in a maze, it seems to never end.</li>
-                <li>After a rest, the party finds themselves in a dream-like state, is it reality or a nightmare?</li>
-                <li>The group is denied entrance to a location of interest.</li>
-                <li>The group has been captured and imprisoned. Escape your captors.</li>
-                <li>Thick vegetation creeps up on you and envelop you. Find your way out!</li>
+                @for (int i = 0; i < @Model.Length; i++)
+                {
+                    <li class="DisplayDescription" data-index=@i>@Model[i].Name</li>
+                }
             </ul>
         </div>
     </div>
+
     <div class="InnerRight">
-        <h3>Doors</h3>
+        <h3>Description</h3>
         <ul>
-            <li>The person passing through must whisper their true name or entry is barred.</li>
-            <li>Those seeking entry must shed their blood on the portal.</li>
-            <li>Only the penitent may pass.</li>
-            <li>When no light touches, the way will open.</li>
-            <li>The door is invisible when seen by naked eye.</li>
+            @for (int i = 0; i < @Model.Length; i++)
+            {
+                <li class="allDescriptions" id=@("description" + i) style="display:none">@Model[i].Description</li>
+            }
         </ul>
     </div>
 </div>
 
 <footer class="footer">
-        <input class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px;" />
+    <input class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px;" />
 </footer>
 
-<div class="modal" data-route="Puzzles">
+<div class="modal" data-route="Obstacles">
     <div class="modalContainer"></div>
 </div>
+
+<script>
+    $(".DisplayDescription").click(function () {
+        var i = $(this).attr("data-index");
+        $(".allDescriptions").css("display", "none");
+        $("#description" + i).css("display", "block");
+    });
+</script>
+
