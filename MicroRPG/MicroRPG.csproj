@@ -15,8 +15,4 @@
     <Folder Include="wwwroot\img\home\" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\BuildBackstoryTest\BuildBackstoryTest.csproj" />
-  </ItemGroup>
-
 </Project>

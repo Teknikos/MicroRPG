@@ -11,7 +11,7 @@ namespace MicroRPG.Models
         static List<Obstacle> obstacles;
         static List<Puzzle> puzzles;
 
-        static Monster[] GetMonsters()
+        public static Monster[] GetMonsters()
         {
             if (monsters == null)
             {

@@ -16,5 +16,7 @@ namespace MicroRPG.Models.ViewModels
         public string Description { get; set; }
 
         public string[] Outcomes { get; set; }
+
+        public int[] PlayerIDs { get; set; }
     }
 }
