@@ -1,7 +1,8 @@
-﻿using BuildBackstoryTest;
+﻿using Backstory;
 using MicroRPG.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,9 @@ namespace MicroRPG.Models
 
         const string UsedCaseIDs = "UsedCaseIDs";
         const string Player = "Player";
+        const string PlayerIDs = "PlayerIDs";
+
+        public object JsonContext { get; private set; }
 
         public PartyService(IHttpContextAccessor accessor)
         {
@@ -52,14 +56,23 @@ namespace MicroRPG.Models
             {
                 accessor.HttpContext.Session.SetString(UsedCaseIDs, validCase.ID.ToString());
             }
-            
-
 
             return new PartyBackstoryVM
             {
                 Description = validCase.Description,
                 Outcomes = new string[6]
             };
+        }
+
+        public int[] GetPlayerIDs()
+        {
+            string res = accessor.HttpContext.Session.GetString(PlayerIDs);
+            if (!string.IsNullOrEmpty(res))
+            {
+                int[] a = JsonConvert.DeserializeObject<int[]>(res);
+                return a;
+            }
+            return new int[] {-1};
         }
 
         private int[] GetUsedCaseIDs()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BuildBackstoryTest
+namespace Backstory
 {
     public class Player
     {

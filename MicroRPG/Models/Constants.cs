@@ -8,5 +8,6 @@ namespace MicroRPG.Models
     public static class Constants
     {
         public const string SelectedEnvironment = "SelectEnv";
+        public const int numberOfCases = 4;
     }
 }

@@ -1,19 +1,48 @@
-﻿@model PartyBackstoryVM
+﻿@model int[]
+@using static MicroRPG.Models.Constants
 @{
     ViewData["Title"] = "Backstory";
 }
 
 <h1>Backstory</h1>
 
-<p>@Model.Description</p>
+<p id="descriptionContainer">saknas</p>
 
 <p>Player 1 make a choice</p>
 
 <a asp-controller="Party" asp-action="Spells">
-    <ul>
-        @foreach (var outcome in Model.Outcomes)
+    <ul id="outcomeList">
+        @foreach (var outcome in Model)
         {
-            <li>@outcome</li>
+            <li>id: @outcome</li>
         }
     </ul>
     </a>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+    function displayCase(resCase) {
+        $("#descriptionContainer").html(resCase.description);
+        $("#outcomeList").html(
+            "<li>" + resCase.outcomes + "</li>"
+        );
+        alert(resCase.outcomes);
+    }
+
+    $("outcomeList").click(function (event) {
+        if ($(event.target).is("li")) {
+            $.ajax({
+                url: "/backstory/",
+                type: "POST",
+                contentType: "application/json",
+                data: "",
+                success: function (result) {
+                    $("outcomeList").css("pointer-events", "auto");
+                    displayCase(result);
+                }
+            });
+            $("outcomeList").css("pointer-events", "none");
+        }
+    });
+    
+</script>

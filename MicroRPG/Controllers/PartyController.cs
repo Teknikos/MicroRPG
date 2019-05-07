@@ -4,8 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using MicroRPG.Models;
 using MicroRPG.Models.ViewModels;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
+using Newtonsoft.Json;
 
 namespace MicroRPG.Controllers
 {
@@ -46,19 +48,21 @@ namespace MicroRPG.Controllers
         [Route("Summary")]
         public IActionResult Summary()
         {
+            int[] test = { 0, 1, 2, 3 };
+            HttpContext.Session.SetString("PlayerIDs", JsonConvert.SerializeObject(test));
             return View();
         }
 
         [Route("Backstory")]
         public IActionResult Backstory()
         {
-            return View();
+            
+            return View(backService.GetPlayerIDs());
         }
 
         [Route("Backstory/{playerID}")]
         public IActionResult Backstory(int playerID)
         {
-
             PartyBackstoryVM pb = backService.GetValidCase(playerID);
 
             return Ok(pb);
