@@ -20,6 +20,10 @@
 
 <div id="gamePartialContainer"></div>
 
+<div class="modal" data-route="Creatures">
+    <div class="modalContainer"></div>
+</div>
+
 <div>
     <h1>Footer menu</h1><br />
     <a asp-controller="Home" asp-action="Index">
@@ -27,34 +31,13 @@
     </a>
     <input type="button" id="gameCreaturesBtn" value="Creatures">
 
-    <a asp-controller="Game" asp-action="_Obstacles">
-        <div> Obstacles </div>
-    </a>
-    <a asp-controller="Game" asp-action="_Puzzles">
-        <div> Puzzles </div>
-    </a>
+    <input type="button" id="gameObstaclesBtn" value="Obstacles">
+    <input type="button" id="gamePuzzlesBtn" value="Puzzles">
 </div>
 
 @section scripts
 {
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
-    <script>
-        $("#gameCreaturesBtn").click(function () {
-            $.ajax({
-                url: "/creatures/",
-                type: "GET",
-                success: function (result) {
-                    $("#gamePartialContainer").html(result);
-                    $("#gamePartialContainer").css("display", "block");
-                    $("#gameMain").css("display", "none");
-                }
-            });
-        });
-        $("#gamePartialContainer").click(function (event) {
-            if ($(event.target).is(".backBtn")) {
-                $("#gamePartialContainer").css("display", "none");
-                $("#gameMain").css("display", "block");
-            }
-        });
-    </script>
+    <script src="~/scripts/DetailsModal.js"></script>
+    <script src="~/scripts/GameMain.js"></script>
 }

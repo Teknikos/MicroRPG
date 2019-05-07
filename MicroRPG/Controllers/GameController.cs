@@ -40,7 +40,7 @@ namespace MicroRPG.Controllers
         [Route("Obstacles")]
         public IActionResult _Obstacles()
         {
-            return View();
+            return PartialView();
         }
 
         [Route("Obstacles/{id}")]
@@ -52,7 +52,13 @@ namespace MicroRPG.Controllers
         [Route("Puzzles")]
         public IActionResult _Puzzles()
         {
-            return View();
+            return PartialView();
+        }
+
+        [Route("Puzzles/{id}")]
+        public IActionResult _PuzzleDetails(string id)
+        {
+            return PartialView(nameof(_PuzzleDetails), id);
         }
     }
 }

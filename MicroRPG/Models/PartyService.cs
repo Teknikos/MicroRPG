@@ -17,37 +17,43 @@ namespace MicroRPG.Models
         IHttpContextAccessor accessor;
 
         const string UsedCaseIDs = "UsedCaseIDs";
+        const string Player = "Player";
 
         public PartyService(IHttpContextAccessor accessor)
         {
             this.accessor = accessor;
         }
 
-        public PartyBackstoryVM GetValidCase(string playerID)
+        public PartyBackstoryVM GetValidCase(int playerID)
         {
             if (allCases == null)
             {   
                 allCases = Case.GenerateCases();   
             }
 
-            List<Tag> tags = GetPlayerTags();
+            string usedIDs = accessor.HttpContext.Session.GetString(UsedCaseIDs);
+            List<Tag> tags = GetPlayerTags(playerID);
             Case validCase = allCases
-                .Where(c => !GetUsedCaseIDs().Contains(c.ID))
+                .Where(c => string.IsNullOrEmpty(usedIDs) || !usedIDs.Split(',').Contains(c.ID.ToString()))
                 .Where(c => c.IsValid(tags, GetNumberOfPlayers()))
                 .OrderBy(c => random.Next())
                 .FirstOrDefault();
 
-            if (validCase != null)
+            if (validCase == null)
             {
-                if (accessor.HttpContext.Request.Cookies.ContainsKey(UsedCaseIDs) )
-                {
-                    accessor.HttpContext.Response.Cookies.Append(UsedCaseIDs,
-                        accessor.HttpContext.Request.Cookies[UsedCaseIDs] + "," + validCase.ID);
-                } else
-                {
-                    accessor.HttpContext.Response.Cookies.Append(UsedCaseIDs, validCase.ID.ToString());
-                }
+                return new PartyBackstoryVM();
             }
+            
+            if (!string.IsNullOrEmpty(usedIDs))
+            {
+                accessor.HttpContext.Session.SetString(UsedCaseIDs, $"{usedIDs},{validCase.ID}");
+            }
+            else
+            {
+                accessor.HttpContext.Session.SetString(UsedCaseIDs, validCase.ID.ToString());
+            }
+            
+
 
             return new PartyBackstoryVM
             {
@@ -76,8 +82,10 @@ namespace MicroRPG.Models
             return 6;
         }
 
-        private List<Tag> GetPlayerTags()
+        private List<Tag> GetPlayerTags(int playerID)
         {
+            //List<Tag> playerTags = JsonConvert.DeserializeObject accessor.HttpContext.Session.GetString(Player+playerID);
+
             return new List<Tag>();
         }
     }
