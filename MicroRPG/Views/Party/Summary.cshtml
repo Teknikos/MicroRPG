@@ -6,19 +6,6 @@
     <h1>Party Summary</h1>
 </div>
 <div class="summaryContainer">
-    @*<div id="summaryTable">
-        <div class="row">
-            <div class="column">
-                <a class="player" asp-controller="Game" asp-action="_PlayerDetails">Cedric</a>
-            </div>
-            <div class="column">
-                <a class="player" asp-controller="Game" asp-action="_PlayerDetails">Bronn</a>
-            </div>
-            <div class="column">
-                <a class="player" asp-controller="Game" asp-action="_PlayerDetails">Xarah</a>
-            </div>
-        </div>
-    </div>*@
 
     <ul id="partyList">
 
@@ -36,7 +23,7 @@
 
     </ul>
 
-    <div class="footer">
+    <div class="footer" id="summaryFooter">
         <a asp-controller="Party" asp-action="Create">
             <input class="buttons" type=button Text="Button" value="Add Party Member" style="font-size: 24px;" />
         </a>

@@ -124,20 +124,16 @@
     justify-content: center;
     border: solid black 3px;
 }
-#summaryTable .row {
-    display: flex;
-    text-align: center;
-    padding-right: 10%;
-    padding-left: 10%;
-}
-#summaryTable .column {
-    margin: 1.5rem 0 1.5rem 3rem;
-    font-size: 90%;
-}
 #partyList {
-    display:flex;
-    flex-wrap:wrap;
-    list-style:none;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    border: solid black 3px;
+}
+#summaryFooter {
+    flex-flow:column;
+    align-content: center;
+    border: solid black 3px;
 }
 
 /* Environment Choose view */
