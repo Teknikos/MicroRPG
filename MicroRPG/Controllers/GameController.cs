@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MicroRPG.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static MicroRPG.Models.Constants;
@@ -10,7 +11,11 @@ namespace MicroRPG.Controllers
 {
     public class GameController : Controller
     {
-        
+        //WorldService service;
+        //public GameController(WorldService service)
+        //{
+        //    this.service = service;
+        //}
 
         [Route("Main")]
         public IActionResult Main()
@@ -40,7 +45,7 @@ namespace MicroRPG.Controllers
         [Route("Obstacles")]
         public IActionResult _Obstacles()
         {
-            return PartialView();
+            return PartialView(WorldService.GetObstacles());
         }
 
         [Route("Obstacles/{id}")]
@@ -52,7 +57,7 @@ namespace MicroRPG.Controllers
         [Route("Puzzles")]
         public IActionResult _Puzzles()
         {
-            return PartialView();
+            return PartialView(WorldService.GetPuzzles());
         }
 
         [Route("Puzzles/{id}")]

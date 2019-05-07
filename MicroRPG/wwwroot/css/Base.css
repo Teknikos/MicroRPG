@@ -6,28 +6,27 @@
     font-size: 5vh;
 }
 
-div.Outer {
+/*Obstacles and Puzzles views*/
+.Outer {
     width: 95%;
     position: relative;
     clear: both;
     margin-top:3%;
 }
 
-div.Outer li{
-font-size: 20px;
-}
-
-div.InnerLeft {
-    left:10%;
-    width: 45%;
+.InnerLeft {
+    left: 5%;
+    width: 25%;
     position: relative;
     float: left;
+    font-size: 3vh;
 }
 
-div.InnerRight {
-    width: 44%;
+.InnerRight {
+    width: 64%;
     position: relative;
     float: right;
+    font-size: 2vh;
 } 
 
 /* Environment Choose view */

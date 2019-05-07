@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 
 namespace MicroRPG.Models
 {
-
     public class Obstacle
     {
         public string Name { get; set; }

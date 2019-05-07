@@ -11,7 +11,7 @@ namespace MicroRPG.Models
         static List<Obstacle> obstacles;
         static List<Puzzle> puzzles;
 
-        static Monster[] GetMonsters()
+        public static Monster[] GetMonsters()
         {
             if (monsters == null)
             {
@@ -40,7 +40,7 @@ new Monster {Name="Werewolf", Tags=new List<string>{"Forest, Village" }, Special
             };
         }
 
-        static Obstacle[] GetObstacles()
+        public static Obstacle[] GetObstacles()
         {
             if (obstacles == null)
             {
@@ -69,7 +69,7 @@ new Monster {Name="Werewolf", Tags=new List<string>{"Forest, Village" }, Special
             };
         }
 
-        static Puzzle[] GetPuzzles()
+        public static Puzzle[] GetPuzzles()
         {
             if (puzzles == null)
             {
