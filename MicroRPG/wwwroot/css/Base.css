@@ -16,7 +16,6 @@
 }
 
 .InnerLeft {
-    left: 5%;
     width: 25%;
     position: relative;
     float: left;
@@ -24,8 +23,17 @@
 }
 
     .InnerLeft li {
+        margin-left: 2vw;
         cursor: pointer;
     }
+
+#spellsContinueBtn {
+    width: auto; 
+    bottom: 5%; 
+    font-size: 3vh;
+    align-content:space-around;
+    text-align:center;
+}
 
 .InnerRight {
     width: 64%;
