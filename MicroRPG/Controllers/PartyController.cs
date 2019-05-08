@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MicroRPG.Models.Backstory;
 using MicroRPG.Models;
 using MicroRPG.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
@@ -39,34 +40,84 @@ namespace MicroRPG.Controllers
             return View();
         }
 
+        [HttpGet]
         [Route("Create")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [HttpPost]
+        [Route("Create")]
+        public IActionResult Create(PartyCreateVM playerVM)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(playerVM);
+            }
+
+            backService.AddPlayer(playerVM);
+
+            return RedirectToAction(nameof(Summary));
+        }
+
         [Route("Summary")]
         public IActionResult Summary()
         {
-            int[] test = { 0, 1, 2, 3 };
-            HttpContext.Session.SetString("PlayerIDs", JsonConvert.SerializeObject(test));
-            return View();
+            backService.GeneratePlayers();
+
+            PartySummaryVM partySummary = backService.GetPartySummary();
+
+            return View(nameof(Summary), partySummary);
         }
 
         [Route("Backstory")]
         public IActionResult Backstory()
         {
-            
-            return View(backService.GetPlayerIDs());
+            return View(nameof(Backstory), JsonConvert.SerializeObject(backService.GetPartyIDs()));
         }
 
-        [Route("Backstory/{playerID}")]
-        public IActionResult Backstory(int playerID)
+        [HttpPost]
+        [Route("Backstory")]
+        public IActionResult Backstory([FromBody] PartyBackstoryPostVM data)
         {
-            PartyBackstoryVM pb = backService.GetValidCase(playerID);
+            PartyBackstoryVM ret;
+            if (data.CaseNumber == 0)
+            {
+                ret = backService.GetValidCase(data.ID); // Replace with relation
+            } else
+            {
+                ret = backService.GetValidCase(data.ID);
+            }
 
-            return Ok(pb);
+            return Json(ret);
         }
+
+        [HttpPost]
+        [Route("Backstory/{outcome}")]
+        public IActionResult Backstory(int outcome)
+        {
+            //PartyBackstoryVM ret;
+            //if (data.CaseNumber == 0)
+            //{
+            //    ret = backService.GetValidCase(data.ID); // Replace with relation
+            //}
+            //else
+            //{
+            //    ret = backService.GetValidCase(data.ID);
+            //}
+
+            //return Json(ret);
+            return Ok();
+        }
+
+        //[Route("Backstory/{playerID}")]
+        //public IActionResult Backstory(int playerID)
+        //{
+        //    PartyBackstoryVM pb = backService.GetValidCase(playerID);
+
+        //    return Ok(pb);
+        //}
 
         [Route("Spells")]
         public IActionResult Spells()

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backstory
+namespace MicroRPG.Models.Backstory
 {
     public class Tag
     {

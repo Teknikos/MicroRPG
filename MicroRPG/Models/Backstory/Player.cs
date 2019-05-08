@@ -1,14 +1,17 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backstory
+namespace MicroRPG.Models.Backstory
 {
     public class Player
     {
-        public string Name { get; }
+        public string Name { get; set; }
 
         public int Age { get; set; }
+
+        public string Gender { get; set; }
 
         public int StatGainCount { get; set; }  
 
@@ -20,10 +23,17 @@ namespace Backstory
 
         public Stats Stats { get; set; }
 
+        [JsonConstructor]
+        public Player(int id)
+        {
+            ID = id;
+        }
+
         public Player(string name, int age)
         {
             Name = name;
             Age = age;
+            Gender = string.Empty;
             StatGainCount = 0;
             ID = idCount++;
 
@@ -38,7 +48,6 @@ namespace Backstory
                 MP = 0,
                 DamageReduction = 0,
             };
-
         }
 
     }

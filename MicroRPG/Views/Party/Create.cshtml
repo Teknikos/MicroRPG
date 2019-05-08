@@ -1,4 +1,4 @@
-﻿@model PlayerVM;
+﻿@model PartyCreateVM
 
 @{
     ViewData["Title"] = "Create";
@@ -10,27 +10,27 @@
 
     <br />
     <div class="createForm">
-        <form action="/" method="post">
-            <label>Name:</label>
+        <form asp-controller="Party" asp-action="Create" method="post">
+            <label asp-for="Name"></label>
             <input asp-for="Name" value="" />
             <br />
             <br />
-            <label>Age:</label>
+            <label asp-for="Age"></label>
             <input asp-for="Age" value="" />
             <br />
             <br />
             <label>Gender:</label>
             <div class="createRadio">
 
+                <input asp-for="Gender" type="radio" value="male" checked="checked" />
+                <label>Male</label>
+                <br />
                 <input asp-for="Gender" type="radio" value="female" />
                 <label>Female</label>
-                <br />
-                <input asp-for="Gender" type="radio" value="male" />
-                <label>Male</label>
 
             </div>
             <div id="doneCreateBtn">
-                <button asp-controller="Party" asp-action="Summary">
+                <button type="submit">
                     Done
                 </button>
             </div>

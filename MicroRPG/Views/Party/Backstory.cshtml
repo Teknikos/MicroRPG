@@ -1,4 +1,4 @@
-﻿@model int[]
+﻿@model string
 @using static MicroRPG.Models.Constants
 @{
     ViewData["Title"] = "Backstory";
@@ -6,43 +6,76 @@
 
 <h1>Backstory</h1>
 
-<p id="descriptionContainer">saknas</p>
+<p id="descriptionContainer"></p>
 
-<p>Player 1 make a choice</p>
+<p id="currentPlayerDisplay"></p>
 
-<a asp-controller="Party" asp-action="Spells">
-    <ul id="outcomeList">
-        @foreach (var outcome in Model)
-        {
-            <li>id: @outcome</li>
-        }
-    </ul>
-    </a>
+<ul id="outcomeList"><li class="option"></li></ul>
+
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script>
-    function displayCase(resCase) {
-        $("#descriptionContainer").html(resCase.description);
-        $("#outcomeList").html(
-            "<li>" + resCase.outcomes + "</li>"
-        );
-        alert(resCase.outcomes);
+    var ids = JSON.parse("@Model");
+    var caseNumber = 0;
+    var currentPlayerIndex = 0;
+
+    getNextCase();
+
+    function shuffleArray(a) {
+        var i, j, temp;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+        return a;
     }
 
-    $("outcomeList").click(function (event) {
-        if ($(event.target).is("li")) {
-            $.ajax({
-                url: "/backstory/",
-                type: "POST",
-                contentType: "application/json",
-                data: "",
-                success: function (result) {
-                    $("outcomeList").css("pointer-events", "auto");
-                    displayCase(result);
-                }
-            });
-            $("outcomeList").css("pointer-events", "none");
+    function displayCase(resCase) {
+        $("#descriptionContainer").html(resCase.description);
+        var htmlList = "";
+        for (var i = 0; i < resCase.outcomes.length; i++) {
+                htmlList += "<li class='option'>" + resCase.outcomes[i] + "</li>"
+            }
+        $("#outcomeList").html(htmlList);
+        $("#currentPlayerDisplay").html(resCase.currentPlayerName);
+
+        if (++currentPlayerIndex >= ids.length) {
+            caseNumber++;
+            currentPlayerIndex = 0;
+            shuffleArray(ids);
+        }
+    }
+
+    function getNextCase() {
+        $("outcomeList").css("pointer-events", "none");
+        $.ajax({
+            url: "/backstory",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ caseNumber: caseNumber, id: ids[currentPlayerIndex] }),
+            success: function (result) {
+                $("outcomeList").css("pointer-events", "auto");
+                displayCase(result);
+            },
+            error: function () {
+                $("outcomeList").css("pointer-events", "auto");
+            }
+        });
+    }
+
+    function applyStats() {
+
+    }
+
+    $("#outcomeList").click(function (event) {
+        if ($(event.target).is(".option")) {
+            applyStats();
+            if (caseNumber <= @numberOfCases) {
+                getNextCase();
+            }
         }
     });
-    
+
 </script>

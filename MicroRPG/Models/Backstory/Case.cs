@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using static Backstory.Constants;
+using static MicroRPG.Models.Backstory.BSConstants;
 
-namespace Backstory
+namespace MicroRPG.Models.Backstory
 {
     public class Case
     {
@@ -70,19 +70,15 @@ namespace Backstory
             //cases.Add(c);
 
 
-            //c = new Case(
-            //       $"An argument has broken out between {OtherPlayer}{1} and {OtherPlayer}{2}" +
-            //       $"\n{ThisPlayer} decides to act.",
-            //       new List<Tag>
-            //       {
-            //           new Tag("Sibling")
-            //       },
-            //       minPartySize: 3
-            //       );
-            //c.AddOutCome($"I say: Screw you guys!", StatsForClass[Class.Mage]);
-            //c.AddOutCome($"I cut myself.", StatsForClass[Class.Rogue], LawfulTag);
-            //c.AddOutCome($"I walk away, my brotha {RelatedPlayer}", StatsForClass[Class.Cleric]);
-            //cases.Add(c);
+            c = new Case(
+                   $"An argument has broken out between {OtherPlayer}{1} and {OtherPlayer}{2}" +
+                   $"\n{ThisPlayer} decides to act.",
+                   minPartySize: 3
+                   );
+            c.AddOutCome($"I say: Screw you guys!", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I cut myself.", StatsForClass[Class.Rogue], LawfulTag);
+            c.AddOutCome($"I walk away, my brotha {RelatedPlayer}", StatsForClass[Class.Cleric]);
+            cases.Add(c);
 
 
             for (int i = 0; i < 27; i++)
@@ -107,6 +103,11 @@ namespace Backstory
         public string[] GetOutcomes()
         {
             return outcomes.Select(o => o.Description).ToArray();
+        }
+
+        public string[] GetAdjustedOutcomes(Player player, List<Player> party)
+        {
+            return outcomes.Select(o => AdjustString(o.Description, player, party)).ToArray();
         }
 
         public string GetAdjustedDescription(Player player, List<Player> party)
@@ -185,7 +186,7 @@ namespace Backstory
             return tagList.Contains(tag); ;
         }
 
-        public void ApplyToPlayer(int outcomeIndex, Player player, List<Player> party)
+        public void ApplyToPlayer(int outcomeIndex, Player player)
         {
             if (outcomes[outcomeIndex].Tags != null)
                 player.Tags.AddRange(outcomes[outcomeIndex].Tags);

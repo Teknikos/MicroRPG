@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Backstory
+namespace MicroRPG.Models.Backstory
 {
-    public static class Constants
+    public static class BSConstants
     {
         public const int MininumPlayers = 2;
         public const int MaximumPlayers = 6;
