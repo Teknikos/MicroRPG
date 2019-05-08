@@ -3,11 +3,15 @@
 @{
     ViewData["Title"] = "Spells";
 }
-
-<h3 style="margin-left: 5vh; margin-top: 5vh">[Player] Choose [amountOfSpells] Spells</h3>
+<div class="ViewHeader" id="spellsHeader">
+    <h1>Spell Book</h1>
+</div>
+<div class="SubHeader">
+    <h3>[Player] Choose [amountOfSpells] Spells</h3>
+</div>
 
 @* Left side: partial view spell list  *@
-<div class="Outer">
+<div class="spellsContainer">
     <div class="InnerLeft">
         <h3 style="font-size: 5vh">Spells</h3>
         <div id="spellsList" style="height: 800px; overflow: auto;">
