@@ -69,7 +69,8 @@ namespace MicroRPG.Models
             {
                 Description = validCase.GetAdjustedDescription(player, party),
                 Outcomes = validCase.GetAdjustedOutcomes(player, party),
-                CurrentPlayerName = player.Name
+                CurrentPlayerName = player.Name,
+                ID = validCase.ID
             };
         }
 
@@ -88,6 +89,22 @@ namespace MicroRPG.Models
                 Age = 48,
                 Gender = "Male"
             });
+        }
+
+        public void ApplyCase(int id, int outcomeIndex, int playerID)
+        {
+            Case @case = GetCaseByID(id);
+            @case.ApplyToPlayer(outcomeIndex, GetPlayer(playerID));
+        }
+
+        private Case GetCaseByID(int id)
+        {
+            if (allCases == null)
+            {
+                allCases = Case.GenerateCases();
+            }
+
+            return allCases.FirstOrDefault( c => c.ID == id);
         }
 
         internal void AddPlayer(PartyCreateVM playerVM)

@@ -5,10 +5,18 @@
     text-align: center;
     font-size: 5vh;
 }
-.ViewHeader h1{
-    margin-top:0;
+
+.SubHeader {
+    margin-left: 5vh;
+    margin-top: 5vh
 }
-.Outer {
+
+.ViewHeader h1 {
+    margin-top: 0;
+}
+/* Spells View*/
+
+.spellsContainer {
     width: 95%;
     position: relative;
     clear: both;
@@ -28,11 +36,11 @@
     }
 
 #spellsContinueBtn {
-    width: auto; 
-    bottom: 5%; 
+    width: auto;
+    bottom: 5%;
     font-size: 3vh;
-    align-content:space-around;
-    text-align:center;
+    align-content: space-around;
+    text-align: center;
 }
 
 .InnerRight {
@@ -40,6 +48,7 @@
     position: relative;
     float: right;
 }
+
 /* Home View*/
 .homeContainer {
     display: flex;
@@ -84,6 +93,7 @@
     padding-left: 5px;
     flex: 50%;
 }
+
 @media all and (max-width: 600px) {
 
     #homeTable .row {
@@ -100,9 +110,9 @@
     display: flex;
     padding-top: 10vh;
     justify-content: center;
-
 }
-.createForm{
+
+.createForm {
 }
 
 .createRadio label {
@@ -110,31 +120,31 @@
     margin-left: 1vw;
 }
 
-#doneCreateBtn{
+#doneCreateBtn {
     text-align: center;
 }
 
 #createHeader {
     background-color: gray;
     margin-top: 0;
-    font-size:2em;
+    font-size: 2em;
 }
 
 /* Party Summary View*/
-#summaryHeader{
+#summaryHeader {
     background-color: gray;
 }
+
 .summaryContainer {
     display: flex;
     /*padding-top: 10vh;*/
     justify-content: center;
 }
 
-#partyList{
+#partyList {
     display: flex;
     flex-wrap: wrap;
     list-style: none;
-    
 }
 
 #summaryFooter {
@@ -144,16 +154,19 @@
     flex-flow: row wrap;
     justify-content: space-around;
 }
+
     #summaryFooter * {
         display: inline-block;
         font-size: 3vh;
         justify-content: space-between;
     }
-#summaryFooter  #addBtn {
-    font-size: 24px;
-    margin-right: 4vw;
-    margin-left:4vw;
-}
+
+    #summaryFooter #addBtn {
+        font-size: 24px;
+        margin-right: 4vw;
+        margin-left: 4vw;
+    }
+
     #summaryFooter #continueBtn {
         font-size: 24px;
         margin-right: 4vw;
@@ -163,22 +176,26 @@
 #outcomeList .option {
     cursor: pointer;
 }
+
 #backstoryHeader {
     background-color: gray;
 }
-.backstoryContainer{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+
+.backstoryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-left: 15vw;
-    margin-right:15vw;
+    margin-right: 15vw;
 }
-#outcomeList{
-    margin-left:8vw;
-    margin-right:8vw;
+
+#outcomeList {
+    margin-left: 8vw;
+    margin-right: 8vw;
 }
-.caseDescription{
-    text-align:center;
+
+.caseDescription {
+    text-align: center;
 }
 /* Environment Choose view */
 #environmentTable [type="radio"] {
@@ -262,7 +279,7 @@
     cursor: pointer;
 }
 
-    #obstacleTable {
+#obstacleTable {
     max-width: 80%;
 }
 
@@ -332,13 +349,13 @@
     background-color: white;
 }
 
-    .modal .imgContainer img {
-        width: inherit;
-        height: inherit;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%,-50%);
-        user-select: none;
-        object-fit: scale-down;
-    }
+.modal .imgContainer img {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    user-select: none;
+    object-fit: scale-down;
+}

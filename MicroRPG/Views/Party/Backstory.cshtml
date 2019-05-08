@@ -21,6 +21,7 @@
     var ids = JSON.parse("@Model");
     var caseNumber = 0;
     var currentPlayerIndex = 0;
+    var currentCaseID = 0;
 
     getNextCase();
 
@@ -38,8 +39,11 @@
     function displayCase(resCase) {
         $("#descriptionContainer").html(resCase.description);
         var htmlList = "";
+        
+            alert(JSON.stringify(resCase));
+        
         for (var i = 0; i < resCase.outcomes.length; i++) {
-                htmlList += "<li class='option'>" + resCase.outcomes[i] + "</li>"
+                htmlList += "<li class='option' index="+i+">" + resCase.outcomes[i] + "</li>"
             }
         $("#outcomeList").html(htmlList);
         $("#currentPlayerDisplay").html(resCase.currentPlayerName);
@@ -52,31 +56,48 @@
     }
 
     function getNextCase() {
-        $("outcomeList").css("pointer-events", "none");
+        $("#outcomeList").css("pointer-events", "none");
         $.ajax({
-            url: "/backstory",
+            url: "/backstory/getcase",
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({ caseNumber: caseNumber, id: ids[currentPlayerIndex] }),
             success: function (result) {
-                $("outcomeList").css("pointer-events", "auto");
+                $("#outcomeList").css("pointer-events", "auto");
+                currentCaseID = result.id;
                 displayCase(result);
             },
             error: function () {
-                $("outcomeList").css("pointer-events", "auto");
+                $("#outcomeList").css("pointer-events", "auto");
             }
         });
     }
 
-    function applyStats() {
+    function applyStats(index) {
+        $.ajax({
+            url: "/backstory/selectoutcome",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ caseID: currentCaseID, outcomeIndex: index, playerID: ids[currentPlayerIndex] }),
+            error: function () {
+                alert("Error applying stats or connecting to server");
+            }
+        });
+    }
+
+    function getCommonGoal() {
 
     }
 
     $("#outcomeList").click(function (event) {
         if ($(event.target).is(".option")) {
-            applyStats();
+            applyStats($(event.target).attr("index"));
             if (caseNumber <= @numberOfCases) {
                 getNextCase();
+            } else {
+                $("#outcomeList").html("");
+                $("#currentPlayerDisplay").html("");
+                getCommonGoal();
             }
         }
     });

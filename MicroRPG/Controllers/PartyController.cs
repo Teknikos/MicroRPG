@@ -78,8 +78,8 @@ namespace MicroRPG.Controllers
         }
 
         [HttpPost]
-        [Route("Backstory")]
-        public IActionResult Backstory([FromBody] PartyBackstoryPostVM data)
+        [Route("Backstory/getcase")]
+        public IActionResult BackstoryGetCase([FromBody] PartyBackstoryPostVM data)
         {
             PartyBackstoryVM ret;
             if (data.CaseNumber == 0)
@@ -94,9 +94,12 @@ namespace MicroRPG.Controllers
         }
 
         [HttpPost]
-        [Route("Backstory/{outcome}")]
-        public IActionResult Backstory(int outcome)
+        [Route("Backstory/selectoutcome")]
+        public IActionResult BackstorySelectOutcome([FromBody] PartyOutcomePostVM outcomeVM)
         {
+            if (!ModelState.IsValid)
+                return BadRequest();
+            backService.ApplyCase(outcomeVM.CaseID, outcomeVM.OutcomeIndex, outcomeVM.PlayerID);    
             //PartyBackstoryVM ret;
             //if (data.CaseNumber == 0)
             //{
