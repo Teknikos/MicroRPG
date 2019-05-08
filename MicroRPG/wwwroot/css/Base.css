@@ -155,8 +155,23 @@
 #outcomeList .option {
     cursor: pointer;
 }
-
-
+#backstoryHeader {
+    background-color: gray;
+}
+.backstoryContainer{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    margin-left: 15vw;
+    margin-right:15vw;
+}
+#outcomeList{
+    margin-left:8vw;
+    margin-right:8vw;
+}
+.caseDescription{
+    text-align:center;
+}
 /* Environment Choose view */
 #environmentTable [type="radio"] {
     position: absolute;

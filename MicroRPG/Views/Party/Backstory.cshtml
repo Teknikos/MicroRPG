@@ -3,15 +3,18 @@
 @{
     ViewData["Title"] = "Backstory";
 }
+<div class="ViewHeader" id="backstoryHeader">
+    <h1>Backstory</h1>
+</div>
+<div class="backstoryContainer">
+    <div class="caseDescription">
+        <p id="descriptionContainer"></p>
+    </div>
+    <p id="currentPlayerDisplay"></p>
 
-<h1>Backstory</h1>
-
-<p id="descriptionContainer"></p>
-
-<p id="currentPlayerDisplay"></p>
-
-<ul id="outcomeList"><li class="option"></li></ul>
-
+    <ul id="outcomeList"><li class="option"></li></ul>
+    
+</div>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script>
