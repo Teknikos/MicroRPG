@@ -1,24 +1,55 @@
-﻿
+﻿@model MicroRPG.Models.Spell[]
+
 @{
     ViewData["Title"] = "Spells";
 }
 
+<h3 style="margin-left: 5vh; margin-top: 5vh">[Player] Choose [amountOfSpells] Spells</h3>
+
 @* Left side: partial view spell list  *@
-<h1>[Player] Choose [amountOfSpells] Spells</h1>
+<div class="Outer">
+    <div class="InnerLeft">
+        <h3 style="font-size: 5vh">Spells</h3>
+        <div id="spellsList" style="height: 800px; overflow: auto;">
+            <ul>
+                @for (int i = 0; i < @Model.Length; i++)
+                {
+                    <li class="DisplayDescription" data-index=@i>@Model[i].Name</li>
+                }
+            </ul>
+            <br />
+        </div>
+        <input id="spellsContinueBtn" type=button Text="Button" value="Continue" />
+    </div>
 
-<ul>
-    <li>Spell 1</li>
-    <li>Spell 2</li>
-    <li>Spell 3</li>
-    <li>Spell 4</li>
-    <li>Spell 5</li>
-</ul>
-<br /> <br />
+    @* RIght side: partial view spell description  *@
+    <div class="InnerRight">
+        <h3 style="font-size: 5vh"></h3>
+        <ul>
+            @for (int i = 0; i < @Model.Length; i++)
+            {
+                if (i == 0)
+                {
+                    <li class="allDescriptions" id=@("allDescriptions" + i) style="font-size: 5vh; display:block">@Model[i].Name</li>
+                    <li class="allDescriptions" id=@("manapoints" + i) style="font-size: 4vh; display:block">@Model[i].ReqWisdom Wisdom Required, Costs @Model[i].ManaPoints Mana Points</li>
+                    <li class="allDescriptions" id=@("description" + i) style="display:block">@Model[i].Description</li>
+                }
+                <li class="allDescriptions" id=@("allDescriptions" + i) style="font-size: 5vh; display:none">@Model[i].Name</li>
+                <li class="allDescriptions" id=@("manapoints" + i) style="font-size: 4vh; display:none">@Model[i].ReqWisdom Wisdom Required, Costs @Model[i].ManaPoints Mana Points</li>
+                <li class="allDescriptions" id=@("description" + i) style="display:none">@Model[i].Description</li>
+            }
+        </ul>
+    </div>
+</div>
 
-@* RIght side: partial view spell description  *@
+<script>
 
-<p>Spell Descriptions bla bla very cool <br />Spell Descriptions bla bla very cool Spell <br />Descriptions bla bla very cool</p>
-
-<a asp-controller="Home" asp-action="Index">
-    <div> Done </div>
-</a>
+    $(".DisplayDescription").click(function () {
+        var i = $(this).attr("data-index");
+        $(".allDescriptions").css("display", "none");
+        $("#allDescriptions" + i).css("display", "block");
+        $("#description" + i).css("display", "block");
+        $("#manapoints" + i).css("display", "block");
+        $("#reqwisdom" + i).css("display", "block");
+    });
+</script>

@@ -71,7 +71,7 @@ namespace MicroRPG.Controllers
         [Route("Spells")]
         public IActionResult Spells()
         {
-            return View();
+            return View(WorldService.GetSpells());
         }
     }
 }
