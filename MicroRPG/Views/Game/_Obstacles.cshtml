@@ -4,7 +4,7 @@
 
 <div class="Outer">
     <div class="InnerLeft">
-        <h3>Name</h3>
+        <h3>Obstacles</h3>
         <div style="height: 800px; overflow: auto;">
             <ul>
                 @for (int i = 0; i < @Model.Length; i++)
@@ -16,11 +16,19 @@
     </div>
 
     <div class="InnerRight">
-        <h3>Description</h3>
         <ul>
             @for (int i = 0; i < @Model.Length; i++)
             {
-                <li class="allDescriptions" id=@("description" + i) style="display:none">@Model[i].Description</li>
+                if (i == 0)
+                {
+                    <li class="description" id=@("obstacleName" + i) style="font-size: 5vh; display:block">@Model[i].Name</li>
+                    <li class="description" id=@("description" + i) style="font-size: 4vh; display:block">@Model[i].Description</li>
+                }
+                else
+                {
+                <li class="description" id=@("obstacleName" + i) style="font-size: 5vh; display:none">@Model[i].Name</li>
+                <li class="description" id=@("description" + i) style="font-size: 4vh; display:none">@Model[i].Description</li>
+                }
             }
         </ul>
     </div>
@@ -37,7 +45,8 @@
 <script>
     $(".DisplayDescription").click(function () {
         var i = $(this).attr("data-index");
-        $(".allDescriptions").css("display", "none");
+      $(".description").css("display", "none");
+        $("#obstacleName" + i).css("display", "block");
         $("#description" + i).css("display", "block");
     });
 </script>

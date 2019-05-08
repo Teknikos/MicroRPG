@@ -4,7 +4,7 @@
 
 <div class="Outer">
     <div class="InnerLeft">
-        <h3>Name</h3>
+        <h3>Puzzles</h3>
         <div style="height: 800px; overflow: auto;">
             <ul>
                 @for (int i = 0; i < @Model.Length; i++)
@@ -16,11 +16,19 @@
     </div>
 
     <div class="InnerRight">
-        <h3>Description</h3>
         <ul>
             @for (int i = 0; i < @Model.Length; i++)
             {
-                <li class="allDescriptions" id=@("description" + i) style="display:none">@Model[i].Description</li>
+                if (i == 0)
+                {
+                    <li class="description" id=@("puzzleName" + i) style="font-size: 5vh; display:block">@Model[i].Name</li>
+                    <li class="description" id=@("description" + i) style="font-size: 4vh; display:block">@Model[i].Description</li>
+                }
+                else
+                {
+                <li class="description" id=@("puzzleName" + i) style="font-size: 5vh; display:none">@Model[i].Name</li>
+                <li class="description" id=@("description" + i) style="font-size: 4vh; display:none">@Model[i].Description</li>
+                }
             }
         </ul>
     </div>
@@ -30,14 +38,15 @@
     <input class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px;" />
 </footer>
 
-<div class="modal" data-route="Obstacles">
+<div class="modal" data-route="Puzzles">
     <div class="modalContainer"></div>
 </div>
 
 <script>
     $(".DisplayDescription").click(function () {
         var i = $(this).attr("data-index");
-        $(".allDescriptions").css("display", "none");
+      $(".description").css("display", "none");
+        $("#puzzleName" + i).css("display", "block");
         $("#description" + i).css("display", "block");
     });
 </script>

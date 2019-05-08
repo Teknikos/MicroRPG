@@ -65,8 +65,8 @@ namespace MicroRPG.Models
                 new Obstacle{ Name = "Secret door", Description="The person passing through must whisper their true name or entry is barred."},
                 new Obstacle{ Name = "Blood door", Description="Those seeking entry must shed their blood on the portal."},
                 new Obstacle{ Name = "Door of believers", Description="Only the penitent may pass."},
-                new Obstacle{ Name = "Dark door", Description="When no light touches, the way will open"},
-                new Obstacle{ Name = "Invisible door", Description="The door is invisible to the naked eye"},
+                new Obstacle{ Name = "Dark door", Description="When no light touches, the way will open."},
+                new Obstacle{ Name = "Invisible door", Description="The door is invisible to the naked eye."},
             };
         }
 
