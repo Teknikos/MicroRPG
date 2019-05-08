@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -6,7 +7,7 @@ namespace MicroRPG.Models.Backstory
 {
     public class Player
     {
-        public string Name { get; }
+        public string Name { get; set; }
 
         public int Age { get; set; }
 
@@ -21,6 +22,12 @@ namespace MicroRPG.Models.Backstory
         public int ID { get; }
 
         public Stats Stats { get; set; }
+
+        [JsonConstructor]
+        public Player(int id)
+        {
+            ID = id;
+        }
 
         public Player(string name, int age)
         {
@@ -41,7 +48,6 @@ namespace MicroRPG.Models.Backstory
                 MP = 0,
                 DamageReduction = 0,
             };
-
         }
 
     }

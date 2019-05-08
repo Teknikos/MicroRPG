@@ -151,6 +151,12 @@
         margin-right: 4vw;
         margin-left: 4vw;
     }
+/* Backstory View */
+#outcomeList .option {
+    cursor: pointer;
+}
+
+
 /* Environment Choose view */
 #environmentTable [type="radio"] {
     position: absolute;

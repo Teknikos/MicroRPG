@@ -64,6 +64,8 @@ namespace MicroRPG.Controllers
         [Route("Summary")]
         public IActionResult Summary()
         {
+            backService.GeneratePlayers();
+
             PartySummaryVM partySummary = backService.GetPartySummary();
 
             return View(nameof(Summary), partySummary);
@@ -72,17 +74,50 @@ namespace MicroRPG.Controllers
         [Route("Backstory")]
         public IActionResult Backstory()
         {
-
-            return View(backService.GetPartyIDs());
+            return View(nameof(Backstory), JsonConvert.SerializeObject(backService.GetPartyIDs()));
         }
 
-        [Route("Backstory/{playerID}")]
-        public IActionResult Backstory(int playerID)
+        [HttpPost]
+        [Route("Backstory")]
+        public IActionResult Backstory([FromBody] PartyBackstoryPostVM data)
         {
-            PartyBackstoryVM pb = backService.GetValidCase(playerID);
+            PartyBackstoryVM ret;
+            if (data.CaseNumber == 0)
+            {
+                ret = backService.GetValidCase(data.ID); // Replace with relation
+            } else
+            {
+                ret = backService.GetValidCase(data.ID);
+            }
 
-            return Ok(pb);
+            return Json(ret);
         }
+
+        [HttpPost]
+        [Route("Backstory/{outcome}")]
+        public IActionResult Backstory(int outcome)
+        {
+            //PartyBackstoryVM ret;
+            //if (data.CaseNumber == 0)
+            //{
+            //    ret = backService.GetValidCase(data.ID); // Replace with relation
+            //}
+            //else
+            //{
+            //    ret = backService.GetValidCase(data.ID);
+            //}
+
+            //return Json(ret);
+            return Ok();
+        }
+
+        //[Route("Backstory/{playerID}")]
+        //public IActionResult Backstory(int playerID)
+        //{
+        //    PartyBackstoryVM pb = backService.GetValidCase(playerID);
+
+        //    return Ok(pb);
+        //}
 
         [Route("Spells")]
         public IActionResult Spells()

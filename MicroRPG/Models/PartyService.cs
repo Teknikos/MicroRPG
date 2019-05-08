@@ -35,8 +35,10 @@ namespace MicroRPG.Models
                 allCases = Case.GenerateCases();   
             }
 
+            Player player = GetPlayer(playerID);
+
             string usedIDs = accessor.HttpContext.Session.GetString(UsedCaseIDs);
-            List<Tag> tags = GetPlayerTags(playerID);
+            List<Tag> tags = player.Tags;
             Case validCase = allCases
                 .Where(c => string.IsNullOrEmpty(usedIDs) || !usedIDs.Split(',').Contains(c.ID.ToString()))
                 .Where(c => c.IsValid(tags, GetNumberOfPlayers()))
@@ -57,11 +59,35 @@ namespace MicroRPG.Models
                 accessor.HttpContext.Session.SetString(UsedCaseIDs, validCase.ID.ToString());
             }
 
+            List<Player> party = new List<Player>();
+            foreach (int id in GetPartyIDs())
+            {
+                party.Add(GetPlayer(id));
+            }
+
             return new PartyBackstoryVM
             {
-                Description = validCase.Description,
-                Outcomes = new string[6]
+                Description = validCase.GetAdjustedDescription(player, party),
+                Outcomes = validCase.GetAdjustedOutcomes(player, party),
+                CurrentPlayerName = player.Name
             };
+        }
+
+        public void GeneratePlayers()
+        {
+            AddPlayer(new PartyCreateVM
+            {
+                Name = "Hokanius Orkanius",
+                Age = 36,
+                Gender = "Male"
+            });
+
+            AddPlayer(new PartyCreateVM
+            {
+                Name = "Pontonius Maximus",
+                Age = 48,
+                Gender = "Male"
+            });
         }
 
         internal void AddPlayer(PartyCreateVM playerVM)
