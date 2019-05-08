@@ -13,6 +13,8 @@ namespace MicroRPG.Models.ViewModels
             Outcomes = new string[0];
         }
 
+        public int ID { get; set; }
+
         public string CurrentPlayerName { get; set; }
 
         public string Description { get; set; }
