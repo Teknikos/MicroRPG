@@ -64,7 +64,8 @@ namespace MicroRPG.Controllers
         [Route("Summary")]
         public IActionResult Summary()
         {
-            backService.GeneratePlayers();
+            if (backService.GetPartyIDs()?.Length == 0)
+                backService.GeneratePlayers();
 
             PartySummaryVM partySummary = backService.GetPartySummary();
 

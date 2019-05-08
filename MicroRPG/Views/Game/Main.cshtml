@@ -1,19 +1,22 @@
-﻿
+﻿@model GameMainVM
 @{
     ViewData["Title"] = "Main";
 }
 
     <div id="gameMain">
         <h1>Player Details</h1><br /><br />
-
-        <div>
-            <h1>Player 1</h1>
-            <h1>Player 2</h1><br />
-        </div>
-        <div>
-            <h1>Player 3</h1>
-            <h1>Player 4</h1><br />
-        </div><br /><br /><br />
+            <div class="playersLeft">
+                @for(int i = 0; i < Model.PlayerNames.Length; i += 2)
+                {
+                    <div data-id=@Model.PlayerIDs[i]><h1>@Model.PlayerNames[i]</h1></div>
+                }
+            </div>
+            <div class="playersRight">
+                @for (int i = 1; i < Model.PlayerNames.Length; i += 2)
+                {
+                    <div data-id=@Model.PlayerIDs[i]><h1>@Model.PlayerNames[i]</h1></div>
+                }
+            </div><br /><br /><br />
 
         <h1>Beautiful Background picture here :)</h1><br /><br /><br />
 
