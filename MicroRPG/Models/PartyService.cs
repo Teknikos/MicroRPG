@@ -20,6 +20,7 @@ namespace MicroRPG.Models
         const string UsedCaseIDs = "UsedCaseIDs";
         const string PlayerObj = "Player";
         const string PartyIDs = "PartyIDs";
+        const string RelationTagChoices = "RelationTagChoices";
 
         public GameMainVM GetGameMainVM()
         {
@@ -60,11 +61,67 @@ namespace MicroRPG.Models
             this.accessor = accessor;
         }
 
+
+        public PartyBackstoryVM GetRandomRelations(int playerID)
+        {
+            int[] ids = GetPartyIDs();
+            int relatedID = -1;
+            const int NumberOfOptions = 4;
+
+            for (int i = 0; i < ids.Length; i++)
+            {
+                if (ids[i] == playerID)
+                {
+                    if (i + 1 < ids.Length)
+                    {
+                        relatedID = ids[i + 1];
+                    }
+                    else if (playerID != 0)
+                    {
+                        relatedID = ids[0];
+                    }
+                }
+            }
+            if (relatedID == -1)
+                return null;
+            Player player = GetPlayer(playerID), relatesTo = GetPlayer(relatedID);
+            List<RelationTag> allRelationTags = RelationTag.GenerateRelationTags(player, relatesTo);
+            List<RelationTag> relationTags = allRelationTags.OrderBy(t => random.Next()).Take(NumberOfOptions).ToList();
+
+            accessor.HttpContext.Session.SetString(RelationTagChoices+playerID,
+                JsonConvert.SerializeObject(relationTags));
+
+            return new PartyBackstoryVM
+            {
+                Description = $"{player.Name} what is your relation to {relatesTo.Name}?",
+                Outcomes = relationTags.Select(t => t.Description).ToArray(),
+                CurrentPlayerName = player.Name,
+                ID = -1
+            };
+        }
+
+        internal void ApplyRelationTag(int outcomeIndex, int playerID)
+        {
+            string json = accessor.HttpContext.Session.GetString(RelationTagChoices + playerID);
+            if (string.IsNullOrEmpty(json))
+                return;
+            List<RelationTag> relationTags = JsonConvert.DeserializeObject<List<RelationTag>>(json);
+            Player player = GetPlayer(playerID),
+                relatesTo = GetPlayer(relationTags[outcomeIndex].RelatesToID);
+            relationTags[outcomeIndex].AttachRelation(player, relatesTo);
+            SavePlayerToSession(player);
+            if (relatesTo != null)
+            {
+                SavePlayerToSession(relatesTo);
+            }
+            
+        }
+
         public PartyBackstoryVM GetValidCase(int playerID)
         {
             if (allCases == null)
-            {   
-                allCases = Case.GenerateCases();   
+            {
+                allCases = Case.GenerateCases();
             }
 
             Player player = GetPlayer(playerID);
@@ -81,7 +138,7 @@ namespace MicroRPG.Models
             {
                 return new PartyBackstoryVM();
             }
-            
+
             if (!string.IsNullOrEmpty(usedIDs))
             {
                 accessor.HttpContext.Session.SetString(UsedCaseIDs, $"{usedIDs},{validCase.ID}");
@@ -91,11 +148,7 @@ namespace MicroRPG.Models
                 accessor.HttpContext.Session.SetString(UsedCaseIDs, validCase.ID.ToString());
             }
 
-            List<Player> party = new List<Player>();
-            foreach (int id in GetPartyIDs())
-            {
-                party.Add(GetPlayer(id));
-            }
+            List<Player> party = GetParty();
 
             return new PartyBackstoryVM
             {
@@ -138,7 +191,7 @@ namespace MicroRPG.Models
                 allCases = Case.GenerateCases();
             }
 
-            return allCases.FirstOrDefault( c => c.ID == id);
+            return allCases.FirstOrDefault(c => c.ID == id);
         }
 
         public void AddPlayer(PartyCreateVM playerVM)
@@ -156,7 +209,8 @@ namespace MicroRPG.Models
             SavePlayerToSession(player);
         }
 
-        public void SavePlayerToSession(Player player) {
+        public void SavePlayerToSession(Player player)
+        {
             accessor.HttpContext.Session.SetString(PlayerObj + player.ID,
                 JsonConvert.SerializeObject(player));
         }
@@ -211,6 +265,16 @@ namespace MicroRPG.Models
         private int GetNumberOfPlayers()
         {
             return GetPartyIDs().Length;
+        }
+
+        private List<Player> GetParty()
+        {
+            List<Player> party = new List<Player>();
+            foreach (int index in GetPartyIDs())
+            {
+                party.Add(GetPlayer(index));
+            }
+            return party;
         }
 
         private List<Tag> GetPlayerTags(int playerID)
