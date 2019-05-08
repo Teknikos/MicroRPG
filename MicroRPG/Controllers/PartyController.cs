@@ -100,7 +100,7 @@ namespace MicroRPG.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest();
-            backService.ApplyCase(outcomeVM.CaseID, outcomeVM.OutcomeIndex, outcomeVM.PlayerID);    
+            backService.ApplyCase(outcomeVM.CaseID, outcomeVM.OutcomeIndex, outcomeVM.PlayerID);
             //PartyBackstoryVM ret;
             //if (data.CaseNumber == 0)
             //{

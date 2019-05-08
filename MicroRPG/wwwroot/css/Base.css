@@ -325,6 +325,10 @@
     opacity: 0.75;
 }
 
+.getDetails:hover {
+    cursor: pointer;
+}
+
 .modal {
     display: none;
     position: fixed;

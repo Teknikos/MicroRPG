@@ -38,6 +38,21 @@ namespace MicroRPG.Models
             return mainVM;
         }
 
+        public PlayerDetailsVM GetPlayerDetailsVM(int id)
+        {
+            Player player = GetPlayer(id);
+            return new PlayerDetailsVM
+            {
+                Name = player.Name,
+                Attack = player.Stats.Attack,
+                HP = player.Stats.HP,
+                MP = player.Stats.MP,
+                DamageReduction = player.Stats.DamageReduction,
+                Speed = player.Stats.Speed,
+                Wisdom = player.Stats.Wisdom
+            };
+        }
+
         public object JsonContext { get; private set; }
 
         public PartyService(IHttpContextAccessor accessor)
