@@ -1,6 +1,15 @@
 ﻿body {
 }
 
+@font-face {
+    font-family: GotenborgFraktur;
+    src: url('../fonts/GotenborgFraktur.ttf')
+}
+
+h1, h2, h3 {
+    font-family: GotenborgFraktur;
+}
+
 .ViewHeader {
     text-align: center;
     font-size: 5vh;
@@ -87,7 +96,7 @@
         height: auto;
         padding: 10px;
     }
-#mainFooter > div:nth-child(1) > a > input[type="button"] {
+#gameHomeBtn {
     width: 100%;
 }
 
@@ -111,21 +120,31 @@
     background-color: aquamarine;
 }
 /* Spells View*/
-.spellsContainer {
-    width: 95%;
+#spellsContainer {
+    /*width: 95%;
     position: relative;
     clear: both;
     margin-top: 3%;
-    margin-left: 8%;
+    margin-left: 8%;*/
 }
 
 #spellsList li {
     list-style-type:none;
 }
 
+#spellsHeader {
+
+}
+
+#spellsContainer .InnerLeft {
+
+}
+
+#spellsContainer .InnerRight {
+
+}
 
 /* Obstacles and Puzzles View*/
-
 .Outer {
     margin-left: 5%;
     margin-top: 7%;
@@ -190,8 +209,12 @@
     display: inline-block;
 }
 
-#homeStartBtn {
+#homeStartBtn input{
     text-align: center;
+    background-color: rgb(177, 143, 112);
+    border-color: rgb(47, 35, 25);
+    border-radius: 4px;
+    font-size: 1.5em;
 }
 
 #homeTable img {
@@ -232,9 +255,6 @@
     justify-content: center;
 }
 
-.createForm {
-}
-
 .createRadio label {
     display: inline-block;
     margin-left: 1vw;
@@ -245,15 +265,15 @@
 }
 
 #createHeader {
-    background-color: gray;
+    /*background-color: gray;*/
     margin-top: 0;
     font-size: 2em;
 }
 
 /* Party Summary View*/
-#summaryHeader {
+/*#summaryHeader {
     background-color: gray;
-}
+}*/
 
 .summaryContainer {
     display: flex;
@@ -282,7 +302,10 @@
     }
 
     #summaryFooter #addBtn {
-        font-size: 24px;
+        background-color: rgb(177, 143, 112);
+        border-color: rgb(47, 35, 25);
+        border-radius: 4px;
+        font-size: 110%;
         margin-right: 4vw;
         margin-left: 4vw;
     }
@@ -297,9 +320,9 @@
     cursor: pointer;
 }
 
-#backstoryHeader {
+/*#backstoryHeader {
     background-color: gray;
-}
+}*/
 
 .backstoryContainer {
     display: flex;
@@ -332,10 +355,12 @@
     position: sticky;
     left: 45%;
     bottom: 10%;
-    background-color: lightgray;
+    background-color: rgb(177, 143, 112);
+    border-color: rgb(47, 35, 25);
+    border-radius: 4px;
+    font-size: 110%;
     width: 10vw;
     height: 5vh;
-    font-size: 110%;
     padding: 0;
     text-align: center;
     margin-top: 5vh;
@@ -408,7 +433,12 @@
 
 .buttons {
     margin: 0, 0, 20px, 20px;
+    background-color: white;
 }
+
+/*.footer button {
+    background-color: white;
+}*/
 
 .footer {
     margin: 10px;
@@ -469,3 +499,47 @@
     user-select: none;
     object-fit: scale-down;
 }
+
+/* Backgrounds */
+.backgroundEnvironment {
+    z-index: -999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size:cover;
+}
+
+.backgroundEnvironment .overlay{
+    z-index: -998;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.backgroundParchment {
+    z-index: -997;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('/img/textures/parchment6.jpg');
+    background-size: cover;
+}
+
+    .backgroundParchment .overlay {
+        z-index: -996;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        /*background-color: rgba(255, 255, 255, 0.5);*/
+        background-color: rgba(230, 200, 160, 0.5);
+    }
+

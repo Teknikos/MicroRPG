@@ -3,7 +3,10 @@
     ViewData["Title"] = "Main";
 }
 
-<div style="background-image:url('../img/environments/@(Model.CurrentEnvironment).jpg');  background-size:cover" id="gameMainBackground">
+<div class="backgroundEnvironment" style="background-image:url('../img/environments/@(Model.CurrentEnvironment).jpg')">
+    <div class="overlay"></div>
+</div>
+<div @*style="background-image:url('../img/environments/@(Model.CurrentEnvironment).jpg');  background-size:cover"*@ id="gameMainBackground">
     <div id="gameMain">
         <div class="playerContainer">
             <div class="playersLeft">
@@ -24,7 +27,7 @@
 
         <div id="mainFooter">
             <div class="mainFooterBtn">
-                <a asp-controller="Home" asp-action="Index"><input type="button" value="Back to Home" /></a>
+                <a asp-controller="Home" asp-action="Index"><input type="button" id="gameHomeBtn" value="Back to Home" /></a>
             </div>
             <div class="mainFooterBtn">
                 <input type="button" id="gameCreaturesBtn" value="Creatures">
