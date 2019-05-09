@@ -488,7 +488,7 @@
     top: 0;
     width: 100vw;
     height: 100vh;
-    background: url('/img/textures/parchment2.jpg');
+    background: url('/img/textures/parchment6.jpg');
     background-size: cover;
 }
 
@@ -499,5 +499,6 @@
         top: 0;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(127, 127, 127, 0.3);
+        /*background-color: rgba(255, 255, 255, 0.5);*/
+        background-color: rgba(230, 200, 160, 0.5);
     }
