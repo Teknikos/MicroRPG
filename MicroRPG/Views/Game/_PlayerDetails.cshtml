@@ -1,20 +1,30 @@
 ﻿@model PlayerDetailsVM
 
-<div class="container">
-    <header><button>Wolfgang</button><button>Cedrik</button><button>Hagrid</button></header>
-
-    <h1>@Model.Name</h1>
-    <div class="charRow" id="stats">
+<div class="playerDetailsContainer">
+    <div class="playerDetailsHeader">
+        <h1>@Model.Name</h1>
+    </div>
+    <div class="playerDetailsRow" id="stats">
         <ul>
             <li>Attack: @Model.Attack</li>
             <li>Wisdom: @Model.Wisdom</li>
             <li>Damage Reduction: @Model.DamageReduction</li>
         </ul>
     </div>
-    <div class="charRow crop" id="characterImg">
-        <img src="~/img/player/female-silhouette.png" alt="Female" />
+    <div class="playerDetailsRow" id="playerDetailsacterImg">
+        @if (string.Compare(Model.Gender,"female",true) == 0)
+        {
+            <img src="~/img/player/portrait-outline-female.png" alt="Female" />
+
+        }
+        @if (string.Compare(Model.Gender,"male",true) == 0)
+        {
+            <img src="~/img/player/portrait-outline-male.png" alt="Alternate Text" />
+        }
+        
+
     </div>
-    <div class="charRow" id="spells">
+    <div class="playerDetailsRow" id="spells">
         <ul>
             <li>Fireball</li>
             <li>Cure Light Wounds</li>
@@ -29,32 +39,3 @@
 
     </div>
 </div>
-<a asp-controller="Game" asp-action="Main">
-    <div> Done </div>
-</a>
-<style>
-    .container {
-        background-color: saddlebrown;
-    }
-    li{
-        list-style:none;
-    }
-    .container {
-        text-align: center;
-    }
-
-    .charRow {
-        display: inline-block;
-    }
-
-    .crop {
-        height: 300px;
-        width: 400px;
-        overflow: hidden;
-    }
-
-        .crop img {
-            height: 400px;
-            width: auto;
-        }
-</style>

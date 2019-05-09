@@ -46,6 +46,7 @@ namespace MicroRPG.Models
             return new PlayerDetailsVM
             {
                 Name = player.Name,
+                Gender= player.Gender,
                 Attack = player.Stats.Attack,
                 HP = player.Stats.HP,
                 MP = player.Stats.MP,
