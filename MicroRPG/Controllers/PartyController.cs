@@ -15,12 +15,12 @@ namespace MicroRPG.Controllers
     public class PartyController : Controller
     {
         IMemoryCache cache;
-        PartyService backService;
+        PartyService service;
 
         public PartyController(IMemoryCache cache, PartyService backService)
         {
             this.cache = cache;
-            this.backService = backService;
+            this.service = backService;
         }
 
         [Route("SignIn")]
@@ -56,7 +56,7 @@ namespace MicroRPG.Controllers
                 return View(playerVM);
             }
 
-            backService.AddPlayer(playerVM);
+            service.AddPlayer(playerVM);
 
             return RedirectToAction(nameof(Summary));
         }
@@ -64,10 +64,10 @@ namespace MicroRPG.Controllers
         [Route("Summary")]
         public IActionResult Summary()
         {
-            if (backService.GetPartyIDs()?.Length == 0)
-                backService.GeneratePlayers();
+            if (service.GetPartyIDs()?.Length == 0)
+                service.GeneratePlayers();
 
-            PartySummaryVM partySummary = backService.GetPartySummary();
+            PartySummaryVM partySummary = service.GetPartySummary();
 
             return View(nameof(Summary), partySummary);
         }
@@ -75,7 +75,7 @@ namespace MicroRPG.Controllers
         [Route("Backstory")]
         public IActionResult Backstory()
         {
-            return View(nameof(Backstory), JsonConvert.SerializeObject(backService.GetPartyIDs()));
+            return View(nameof(Backstory), JsonConvert.SerializeObject(service.GetPartyIDs()));
         }
 
         [HttpPost]
@@ -85,10 +85,10 @@ namespace MicroRPG.Controllers
             PartyBackstoryVM ret;
             if (data.CaseNumber == 0)
             {
-                ret = backService.GetRandomRelations(data.ID);
+                ret = service.GetRandomRelations(data.ID);
             } else
             {
-                ret = backService.GetValidCase(data.ID);
+                ret = service.GetValidCase(data.ID);
             }
 
             return Json(ret);
@@ -102,10 +102,10 @@ namespace MicroRPG.Controllers
                 return BadRequest();
             if (outcomeVM.CaseID == -1)
             {
-                backService.ApplyRelationTag(outcomeVM.OutcomeIndex, outcomeVM.PlayerID);
+                service.ApplyRelationTag(outcomeVM.OutcomeIndex, outcomeVM.PlayerID);
             } else
             {
-                backService.ApplyCase(outcomeVM.CaseID, outcomeVM.OutcomeIndex, outcomeVM.PlayerID);
+                service.ApplyCase(outcomeVM.CaseID, outcomeVM.OutcomeIndex, outcomeVM.PlayerID);
             }
             //PartyBackstoryVM ret;
             //if (data.CaseNumber == 0)

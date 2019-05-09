@@ -21,6 +21,11 @@ namespace MicroRPG.Controllers
         [Route("Main")]
         public IActionResult Main()
         {
+            if (service.GetPartyIDs()?.Length == 0)
+                service.GeneratePlayers();
+            string res = HttpContext.Session.GetString(SelectedEnvironment);
+            if (string.IsNullOrEmpty(res))
+                HttpContext.Session.SetString(SelectedEnvironment, "Village");
 
             return View(service.GetGameMainVM());
         }

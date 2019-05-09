@@ -33,7 +33,8 @@ namespace MicroRPG.Models
             GameMainVM mainVM = new GameMainVM
             {
                 PlayerIDs = IDs,
-                PlayerNames = playerNames
+                PlayerNames = playerNames,
+                CurrentEnvironment = accessor.HttpContext.Session.GetString(Constants.SelectedEnvironment)
             };
 
             return mainVM;
