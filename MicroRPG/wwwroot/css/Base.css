@@ -398,7 +398,12 @@
 
 .buttons {
     margin: 0, 0, 20px, 20px;
+    background-color: white;
 }
+
+/*.footer button {
+    background-color: white;
+}*/
 
 .footer {
     margin: 10px;
