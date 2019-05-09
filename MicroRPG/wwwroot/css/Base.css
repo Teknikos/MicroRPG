@@ -113,8 +113,17 @@ h1, h2, h3 {
     }
 }
 /* Player Details View*/
+.playerDetailsHeader{
 
-
+}
+.playerDetailsRow {
+    background-color: gray;
+}
+.playerImg {
+    width: 450px;
+    height: 450px;
+    background-color: aquamarine;
+}
 /* Spells View*/
 #spellsContainer {
     /*width: 95%;
@@ -330,6 +339,7 @@ h1, h2, h3 {
     align-items: center;
     margin-left: 15vw;
     margin-right: 15vw;
+    border:solid black 4px;
 }
 
 #descriptionContainer {
