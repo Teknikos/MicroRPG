@@ -179,8 +179,8 @@ namespace MicroRPG.Models
 
         public void ApplyCase(int id, int outcomeIndex, int playerID)
         {
-            Case @case = GetCaseByID(id);
             Player player = GetPlayer(playerID);
+            Case @case = GetCaseByID(id);
             @case.ApplyToPlayer(outcomeIndex, player);
             SavePlayerToSession(player);
         }
