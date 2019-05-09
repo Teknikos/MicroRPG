@@ -17,9 +17,10 @@
     <ul id="partyList">
         @for (int i = 0; i < Model.PlayerIDs.Length; i++)
         {
-            <li class="player">
-                <a asp-controller="Game" asp-action="_PlayerDetails" asp-route-id=@Model.PlayerIDs[i]>@Model.PlayerNames[i]</a>
-            </li>
+        <li id="summaryPlayer" style="font-family:'Times New Roman'">
+            <h2>@Model.PlayerNames[i]</h2>
+            @*<a asp-controller="Game" asp-action="_PlayerDetails" asp-route-id=@Model.PlayerIDs[i]>@Model.PlayerNames[i]</a>*@
+        </li>
         }
 
     </ul>
