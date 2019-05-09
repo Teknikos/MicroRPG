@@ -459,3 +459,45 @@
     user-select: none;
     object-fit: scale-down;
 }
+
+/* Backgrounds */
+.backgroundEnvironment {
+    z-index: -999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size:cover;
+}
+
+.backgroundEnvironment .overlay{
+    z-index: -998;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.backgroundParchment {
+    z-index: -997;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('/img/textures/parchment2.jpg');
+    background-size: cover;
+}
+
+    .backgroundParchment .overlay {
+        z-index: -996;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(127, 127, 127, 0.3);
+    }

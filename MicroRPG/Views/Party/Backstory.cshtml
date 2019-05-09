@@ -3,6 +3,11 @@
 @{
     ViewData["Title"] = "Backstory";
 }
+
+<div class="backgroundParchment">
+    <div class="overlay"></div>
+</div>
+
 <div class="ViewHeader" id="backstoryHeader">
     <h1>Backstory</h1>
 </div>
@@ -77,11 +82,10 @@
             contentType: "application/json",
             data: JSON.stringify({ caseID: currentCaseID, outcomeIndex: index, playerID: ids[currentPlayerIndex] }),
             success: function () {
-                alert("success");
                 if (++currentPlayerIndex >= ids.length) {
-                caseNumber++;
-                currentPlayerIndex = 0;
-                shuffleArray(ids);
+                    caseNumber++;
+                    currentPlayerIndex = 0;
+                    shuffleArray(ids);
                 }
                 if (caseNumber <= @numberOfCases) {
                     getNextCase();

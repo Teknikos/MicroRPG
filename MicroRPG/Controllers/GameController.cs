@@ -25,7 +25,7 @@ namespace MicroRPG.Controllers
                 service.GeneratePlayers();
             string res = HttpContext.Session.GetString(SelectedEnvironment);
             if (string.IsNullOrEmpty(res))
-                HttpContext.Session.SetString(SelectedEnvironment, "Village");
+                HttpContext.Session.SetString(SelectedEnvironment, "Forest");
 
             return View(service.GetGameMainVM());
         }
