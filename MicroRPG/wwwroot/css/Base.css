@@ -145,14 +145,26 @@ h1, h2, h3 {
     align-items:center;
     background-color:#001bff;
 }
-.detailsContent{
-    display:flex;
-    flex-flow:row wrap;
+.detailsHeader{
+    width:100%;
+    text-align:center;
+}
+.detailsContent {
+    display: flex;
+    flex-flow: row wrap;
+    
 }
 .detailsRow {
     background-color: gray;
     display:flex;
     justify-content:center;
+    
+}
+#stats, #spells{
+    align-items:center;
+    padding-left: 55px;
+    padding-right:55px;
+    
 }
 .detailsImg {
     width: 450px;
@@ -540,7 +552,7 @@ h1, h2, h3 {
         margin: auto;
         margin-top: 5%;
         display: block;
-        width: 90%;
+        width: 70%;
     }
 
 .modalContainer {
