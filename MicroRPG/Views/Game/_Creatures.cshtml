@@ -1,4 +1,4 @@
-﻿@model string
+﻿@model CreaturesVM
 <div id="environmentHeader">
     <img style="width: 24%; height:5%;" src="~/img/environments/desert.jpg" alt="Desert">
     <img style="width: 24%; height:5%;" src="~/img/environments/forest.jpg" alt="Forest">
@@ -6,24 +6,32 @@
     <img style="width: 24%; height:5%;" src="~/img/environments/village.jpg" alt="Village">
 </div>
 
-<h1>@Model</h1>
+<h1>@Model.SelectedEnvironment</h1>
 <div id="creatureTable">
-    <div class="row">
-        <div class="column">
-            <img src="~/img/monsters/beetle.jpg" alt="beetle" data-route="/Creatures/beetle" class="getDetails">
+    @for (int i = 0; i < Model.Names.Length; i++)
+    {
+        <div>
+            <img src="~/img/monsters/@(Model.DataNames[i]).png" alt="@Model.DataNames[i]" data-route="/Creatures/@Model.DataNames[i]" class="getDetails">
         </div>
-        <div class="column">
-            <img src="~/img/monsters/cougar.png" alt="cougar" data-route="/Creatures/cougar" class="getDetails">
+    }
+
+
+    @*<div class="row">
+            <div class="column">
+                <img src="~/img/monsters/beetle.jpg" alt="beetle" data-route="/Creatures/beetle" class="getDetails">
+            </div>
+            <div class="column">
+                <img src="~/img/monsters/cougar.png" alt="cougar" data-route="/Creatures/cougar" class="getDetails">
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="column">
-            <img src="~/img/monsters/ghost.png" alt="ghost" data-route="/Creatures/ghost" class="getDetails">
-        </div>
-        <div class="column">
-            <img src="~/img/monsters/giant-lizard.png" alt="giant-lizard" data-route="/Creatures/giant-lizard" class="getDetails">
-        </div>
-    </div>
+        <div class="row">
+            <div class="column">
+                <img src="~/img/monsters/ghost.png" alt="ghost" data-route="/Creatures/ghost" class="getDetails">
+            </div>
+            <div class="column">
+                <img src="~/img/monsters/giant-lizard.png" alt="giant-lizard" data-route="/Creatures/giant-lizard" class="getDetails">
+            </div>
+        </div>*@
 </div>
 
 <footer class="footer">
@@ -31,6 +39,7 @@
     <input class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px;" />
 
 </footer>
+
 
 
 

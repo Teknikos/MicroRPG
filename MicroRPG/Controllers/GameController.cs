@@ -39,8 +39,8 @@ namespace MicroRPG.Controllers
         [Route("Creatures")]
         public IActionResult _Creatures()
         {
-            string res = HttpContext.Session.GetString(SelectedEnvironment);
-            return PartialView(nameof(_Creatures), res);
+            CreaturesVM creaturesVM = WorldService.GetCreaturesVM(HttpContext.Session.GetString(SelectedEnvironment));
+            return PartialView(nameof(_Creatures), creaturesVM);
         }
 
         [Route("Creatures/{id}")]

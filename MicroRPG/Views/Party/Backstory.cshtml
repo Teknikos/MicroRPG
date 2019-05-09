@@ -13,7 +13,7 @@
     <p id="currentPlayerDisplay"></p>
 
     <ul id="outcomeList"><li class="option"></li></ul>
-    
+
 </div>
 
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
@@ -25,6 +25,7 @@
 
     var caseNumber = 0;
     var currentPlayerIndex = 0;
+    var previousPlayerIndex = 0;
     var currentCaseID = 0;
 
     getNextCase();
@@ -43,18 +44,12 @@
     function displayCase(resCase) {
         $("#descriptionContainer").html(resCase.description);
         var htmlList = "";
-        
+
         for (var i = 0; i < resCase.outcomes.length; i++) {
                 htmlList += "<li class='option' index="+i+">" + resCase.outcomes[i] + "</li>"
             }
         $("#outcomeList").html(htmlList);
         $("#currentPlayerDisplay").html(resCase.currentPlayerName);
-
-        if (++currentPlayerIndex >= ids.length) {
-            caseNumber++;
-            currentPlayerIndex = 0;
-            shuffleArray(ids);
-        }
     }
 
     function getNextCase() {
@@ -81,6 +76,21 @@
             type: "POST",
             contentType: "application/json",
             data: JSON.stringify({ caseID: currentCaseID, outcomeIndex: index, playerID: ids[currentPlayerIndex] }),
+            success: function () {
+                alert("success");
+                if (++currentPlayerIndex >= ids.length) {
+                caseNumber++;
+                currentPlayerIndex = 0;
+                shuffleArray(ids);
+                }
+                if (caseNumber <= @numberOfCases) {
+                    getNextCase();
+                } else {
+                    $("#outcomeList").html("");
+                    $("#currentPlayerDisplay").html("");
+                    window.location.href = "/Spells";
+                }
+            },
             error: function () {
                 alert("Error applying stats or connecting to server");
             }
@@ -94,14 +104,6 @@
     $("#outcomeList").click(function (event) {
         if ($(event.target).is(".option")) {
             applyStats($(event.target).attr("index"));
-            if (caseNumber <= @numberOfCases) {
-                getNextCase();
-            } else {
-                $("#outcomeList").html("");
-                $("#currentPlayerDisplay").html("");
-                //getCommonGoal();
-                window.location.href = "/Spells";
-            }
         }
     });
 

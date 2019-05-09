@@ -50,5 +50,10 @@ namespace MicroRPG.Models.Backstory
             };
         }
 
+        public override string ToString()
+        {
+            return $"{Name}, {Age}, ID: {ID}, #{StatGainCount}";
+        }
+
     }
 }

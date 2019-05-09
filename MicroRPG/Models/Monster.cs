@@ -14,5 +14,6 @@ namespace MicroRPG.Models
         public int HP { get; set; }
         public int Reduction { get; set; }
         public string Damage { get; set; }
+        public string DataName { get; set; }
     }
 }

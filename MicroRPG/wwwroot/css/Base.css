@@ -364,24 +364,26 @@
     }
 
 /* Creature View */
-#creatureTable .row {
+#creatureTable {
     display: flex;
     text-align: left;
     padding-right: 10%;
     padding-left: 10%;
 }
 
-#creatureTable .column {
+#creatureTable div {
     margin: 0;
     padding-right: 3px;
     padding-left: 3px;
     flex: 50%;
+    max-width: 25vh;
 }
 
 #creatureTable img {
-    width: 25vh;
-    /*max-height: 30vh;
-    object-fit: cover;*/
+    
+    height: 25vh;
+    /*max-height: 30vh;*/
+    object-fit: scale-down;
 }
 
 /* Obstacle View*/
