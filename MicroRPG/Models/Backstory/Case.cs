@@ -83,7 +83,7 @@ namespace MicroRPG.Models.Backstory
 
             for (int i = 0; i < 27; i++)
             {
-                c = new Case("Test case " + (i + 2));
+                c = new Case("Test case " + (i + 1));
                 c.AddOutCome("Warrior", StatsForClass[Class.Warrior]);
                 c.AddOutCome("Mage", StatsForClass[Class.Mage]);
                 c.AddOutCome("Cleric", StatsForClass[Class.Cleric]);
