@@ -11,5 +11,6 @@ namespace MicroRPG.Models.ViewModels
         public string[] PlayerNames { get; set; }
 
         public int[] PlayerIDs { get; set; }
+        public string CurrentEnvironment { get; set; }
     }
 }

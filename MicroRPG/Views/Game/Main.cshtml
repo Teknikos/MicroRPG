@@ -3,33 +3,21 @@
     ViewData["Title"] = "Main";
 }
 
-<div id="gameMain">
+<div  id="gameMain">
     <div class="playerContainer">
         <div class="playersLeft">
-            <div class="playerDetails">
-                <h1>PlayerStats1</h1>
-            </div>
-            <div class="playerDetails">
-                <h1>PlayerStats1</h1>
-            </div>
             @for (int i = 0; i < Model.PlayerNames.Length; i += 2)
             {
-            <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
+                <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
             }
 
         </div>
         <div class="playersRight">
-            <div class="playerDetails">
-                <h1>PlayerStats2</h1>
-            </div><div class="playerDetails">
-                <h1>PlayerStats2</h1>
-            </div>
             @for (int i = 1; i < Model.PlayerNames.Length; i += 2)
             {
-            <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
+                <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
             }
         </div>
-
 
     </div>
     <div id="mainFooter">
@@ -45,14 +33,28 @@
         <div class="mainFooterBtn">
             <input type="button" id="gamePuzzlesBtn" value="Puzzles">
         </div>
+        <div class="mainFooterBtn" id="musicControl">
+            <audio controls="controls" autoplay loop>
+                <source src="~/sound/@(Model.CurrentEnvironment).mp3" type="audio/mp3" />
+            </audio>
+        </div>
     </div>
 </div>
 
 <div id="gamePartialContainer"></div>
 
+
 <div class="modal">
     <div class="modalContainer"></div>
 </div>
+@*<style>
+    body{
+        background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANoAAADnCAMAAABPJ7iaAAAAdVBMVEX////ZGRjXAADWAADzx8frnZz76un64+Pvt7fura3xu7vtqKfYDArgX1///PzgVVX87e3dPz799vbjbGzqlpXzw8Poior54eH31tbtpKTyv7/vs7PfUFDgW1v1z87iZGTld3bcOTnbMTDaJSXcMzLmfXznh4d0EJI2AAADF0lEQVR4nO3d63aaQBRA4XHwLiHRxmtao9b2/R+xpnjBMI6DKOGc7P13coBv6VLjBYwhogqbRopqn9E6tqEmaBKDJjFoEoMmMWgSgyYxaBKDJjFoEoMmMWgSgyaxb06z4cXXB4MWfYUOBtBs1yRhtbvPUXawlR804/0e7Nix2Aqw2Z5jsOsYDKH1TXiz3yfcjpaveaA1HYuBtHxV0IwZHu+U6mjJaVAb7XjwCmlmHaulzQ9Hr4+21EvrQIMGDRo0aNCgQXswbe5YXNae1tsOP1qvPLTGZphve9hqbWkDG39kf/lojTjfcas1pqXH/uSl+Y4QGjRo0K7TYs+78yE053w0qAEtXi36n1u8Bj9lW/s+7+Y20O9Oa0Ar90Ir+jty/MWFRNHsMhwmixbNisgk0ZyjSmjFZIJodqKX5lpUQnM9dymhdaBBgwYNGjRo0KBVR5v8+N/7WB/t5/5jhjq8WXdn2nP6UQg0aNCgQYMGDRo0aNDU0NqOxapo8yj9PoDvO1q306KvpC1f01z7EU7z1dRLm+ilHbahjzZRS+sff+KrjTa/x4+Xa0hLxsPMBhTRXhZPUXZeEW3XaJU5U4AuWvZRRB3NLNQ+QhrzR+3zmhnppZmV3teQfb20qV6a4n9FodWVNmulvemjKX5H67HvQ0KDBg0aNGjQoEGDBg0aNGjQoEGDBg0aNGjQoEGDBg0aNGjQoEGDBg0aNGjQoEGDBg2aANr169TcmbY/Z130aNriPT3vn+tk4A+iVXWmQV8PovmCBu1y0ByL0PJBg3Y5aI5FaPnk0JxnP/NVFa38teltsStCVUdrlae5LrbqqyraJi5Li9cFd1kRbXHYRpnLXbn+KfNUDe14upEytEZc4JJ5piLa6HB3LEnbFLJVQRvb+DRYgtaI4yL3yVtpvZew2rP5Nju/oyWfy9Lyi62z8fVg1j7fwyjXfvLtNlrDRoHZzE12adAGLaY3nA3fs+OwQ2hCgyYxaBKDJjFoEoMmMWgSgyYxaBKDJjFoEoMmMWgSgyYxaBL7PrRp6Kc+EjqnJW1FJYaofv0DH2XTpU5GZKMAAAAASUVORK5CYII=');
+    }
+    #gamePartialContainer{
+        background-image:url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxMTEhUTExMWFRUXFxUXFxUXGBoXFxcXFRUXFxUVFxcYHSggGBolHRUVITEhJSkrLi4uFx8zODMtNygtLisBCgoKDg0OFQ8PFS0dFR0tLS0rLS0tLS0rLS0tLS0tLS0tKy0tLS0rLS0tLS0tLS0tKy0tKystLS0rLS0tLSstLf/AABEIAMIBAwMBIgACEQEDEQH/xAAbAAADAQEBAQEAAAAAAAAAAAAAAQIDBAUHBv/EACsQAQEBAQABAwMCBgIDAAAAAAABAhESAyFhMUHwUXGBkaHB4fEE0RMUsf/EABgBAQEBAQEAAAAAAAAAAAAAAAEAAgME/8QAGREBAQEAAwAAAAAAAAAAAAAAAAERAhJB/9oADAMBAAIRAxEAPwD650Ss/M86eGO7SU7pHmUrcZdEoRNHNEKBSn0ocBwqQE1ViL7lA+F+5wovEU6OIM/Go3mtuI1lJMHi0mf9DhSOCtJGe/f9gSlhWLkLWaEyqdRpcJ1hmllYzsbayjxBY300eHJ7N94Z6z7fT359P8slz7zLL7fVjrPHVZee/tf6MN4/h8MVqOa4JtfTAw69vp5rLyE79fq1xZrbquoist6yvOlROVTRgVDTm/K+lEKrpcSLh8n34Kny/VqAWewh2jpR5gtKUapA4Vh0ax1JONdOiROr+fqkNFxWYq1JBVVg8QUXKLGvGdjNSNIa+JWDCxGJPv8A1aXLPWQWXqen23nP7Oe+n+n+3ZqfaezHbNhlck9O/lgb9+CGHXXIficpyMQ1cXJGcVY6MrhxPFxqAZi+o6fSFzR9KGkOptVf2LrQLgg6cSI+CUijplICDK59+n0JCkY6kVI7RQkaia04SLOwrF+KdQVMehoLBhc277st1vtlqM2FlwNf4AYmtPOmUXHONVtmq6ymlStstZVSspVZrUC+nYk2kqH1HRak08iqIOkLkHUyndJKgR5H5LUqFR3qPfpC+mmKSHDEIogKAjiacg6kViblZWosrC1lWonWWUzsTY0LiLGYNfj+wSc80ryZyrzXCOlaZX5Muq63GWkqpUZp5rUDWVbGVUpDRNT07SlQUsdK6QVmBPkV/RJco6UolSHl9PZfUTS4YjzT6nyPpR+Q1ooOoCHDgpQK5UfAUZyLFChI4nWIuD3CY3Ka2sRqdBYWhV9K/rP5AaXn521zXJL8tca/Pz+LlG66cnIM5nO/H1T8t4y1y0jHFaSmCrV1lrSbv2/VoNxxEp9SXlTG6PyMR6z36/nFcLM6uIFmH0HfkoqUqdFEl9V1GVWlK6Y9OdLv1QVxVRKpE5ThSGkZcHAEOJ1lULWvskjScZ4s5lmlnwmnCY1p4GMtZEZxW/pyOcrVV6Mn3aa97+cKRpx01lK8lw5/NI/EYwodICd6PNPxKT8riZFyrQrN+DLNDSVIZcEITqF1pxUykz4qyrkVCmcyvn2+x8UkjhyK8RxIeI4Y4kID4KEjd90L3noCIjLjNaK0gGMLxvT41kY+npv6bEaq5VZJeeNgdPqvESEFmlo5kWIDEUjPt+zSUpPFQSjxKEqpE5i+oHwoV9hK0FxXWXkUpTaaV5OdeVqa9VKnEV4lDyOUvEklyn0uGkZcUAkwuGIEiwWLToFAPy/YDE/PY268Vy+nz/beX7OMdHRPdeWPkrLQbz6DMLNPFIPMO/nsB1IcHDyNRakHIcyqQwDxKxV1E3f51oCweK56nsv2v0KY2H6efzrXwaQyBlPRaZ9KLybWBMyagUgzoCKH0tHhE4AnVFRkXTCKub/kV0Wuf/ke/uxypji1fkFq/AcXRyZjaZPPptZBKU5xz8/+NMHz2L/x/wBK1GW2aJE+NOfxOpZ8KVS1Hw6qHY1AhGmkqNaITIUipehIjgXMyfLUDbg4mepBNt6FyKieqhRWpOo1r7BK40xGfp6+zWUwHciQ4OlFwqtnoUotK6FTqsEWo0Z2M4nJfR+SdNnwTHVrXGfFaiefrPZzkbqsnMjOfo042yrxK5VIOlDOWkiJVdQOQ7UylYtWFb7iY+Rck1KE38+qer1/KJsSHAeZRxI4coGWgryXLEcHf80xL3spOlmfyVk6BF+ZdORITTbNZKmjKmiNRGvUTdUWpdEyWdCVJHqRy+p6vHR6vqyf3ri9bTNMH/tfAc3mGdOO3xZzPGvRx55XRlK0mi9jMqV5FCVhrRisxQmVRahmHo4OIIlLUX4lxqJHCsa8Lh0FMjxVMqkIRMhoXCkyFcr4OEFFcSqGIwVVCBwcHStSTqIq9MtaFJXRa9ROrGXkzpL1L8uXe2+65vWrFrTPzCOENL2KdAcY1U6UQaCo0xADApQBR0wChRAGoyCASOKAagp5GiDQKpgC9IPgCgKKAKFToBJFRoAJh9kwBitM9OTf/ZhitJADKf/Z')
+    }
+</style>*@
 
 @section scripts
 {
