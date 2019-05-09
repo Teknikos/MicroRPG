@@ -11,17 +11,18 @@
             <li>Damage Reduction: @Model.DamageReduction</li>
         </ul>
     </div>
-    <div class="playerDetailsRow" id="playerDetailsacterImg">
-        @if (string.Compare(Model.Gender,"female",true) == 0)
+    <div class="playerDetailsRow" >
+        @if (string.Compare(Model.Gender, "female", true) == 0)
         {
-            <img src="~/img/player/portrait-outline-female.png" alt="Female" />
+            <img class="playerImg" src="~/img/player/woman-warrior-with-sword.png" alt="Alternate Text" />
 
         }
-        @if (string.Compare(Model.Gender,"male",true) == 0)
+        @if (string.Compare(Model.Gender, "male", true) == 0)
         {
-            <img src="~/img/player/portrait-outline-male.png" alt="Alternate Text" />
+            <img class="playerImg" src="~/img/player/male-warrior-silhouette-cropped.png" alt="Alternate Text" />
         }
-        
+
+
 
     </div>
     <div class="playerDetailsRow" id="spells">
