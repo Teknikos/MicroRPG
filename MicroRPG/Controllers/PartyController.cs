@@ -85,7 +85,7 @@ namespace MicroRPG.Controllers
             PartyBackstoryVM ret;
             if (data.CaseNumber == 0)
             {
-                ret = backService.GetValidCase(data.ID); // Replace with relation
+                ret = backService.GetRandomRelations(data.ID);
             } else
             {
                 ret = backService.GetValidCase(data.ID);
@@ -100,7 +100,13 @@ namespace MicroRPG.Controllers
         {
             if (!ModelState.IsValid)
                 return BadRequest();
-            backService.ApplyCase(outcomeVM.CaseID, outcomeVM.OutcomeIndex, outcomeVM.PlayerID);    
+            if (outcomeVM.CaseID == -1)
+            {
+                backService.ApplyRelationTag(outcomeVM.OutcomeIndex, outcomeVM.PlayerID);
+            } else
+            {
+                backService.ApplyCase(outcomeVM.CaseID, outcomeVM.OutcomeIndex, outcomeVM.PlayerID);
+            }
             //PartyBackstoryVM ret;
             //if (data.CaseNumber == 0)
             //{

@@ -3,55 +3,57 @@
     ViewData["Title"] = "Main";
 }
 
-    <div id="gameMain">
-        <h1>Player Details</h1><br /><br />
-            <div class="playersLeft">
-                @for(int i = 0; i < Model.PlayerNames.Length; i += 2)
-                {
-                    <div data-id=@Model.PlayerIDs[i]><h1>@Model.PlayerNames[i]</h1></div>
-                }
-            </div>
-            <div class="playersRight">
-                @for (int i = 1; i < Model.PlayerNames.Length; i += 2)
-                {
-                    <div data-id=@Model.PlayerIDs[i]><h1>@Model.PlayerNames[i]</h1></div>
-                }
-            </div><br /><br /><br />
 <div id="gameMain">
+    <div class="playerContainer">
+        <div class="playersLeft">
+            <div class="playerDetails">
+                <h1>PlayerStats1</h1>
+            </div>
+            <div class="playerDetails">
+                <h1>PlayerStats1</h1>
+            </div>
+            @for (int i = 0; i < Model.PlayerNames.Length; i += 2)
+            {
+            <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
+            }
 
-    <div class="playerStats">
-        <h1>Player 1</h1>
-    </div>
-    <div class="playerStats">
-        <h1>Player 2</h1><br />
-    </div>
-    <div class="playerStats">
-        <h1>Player 3</h1>
-    </div>
-    <div class="playerStats">
-        <h1>Player 4</h1><br />
-    </div>
-    <br />
-    <br />
-    <br />
+        </div>
+        <div class="playersRight">
+            <div class="playerDetails">
+                <h1>PlayerStats2</h1>
+            </div><div class="playerDetails">
+                <h1>PlayerStats2</h1>
+            </div>
+            @for (int i = 1; i < Model.PlayerNames.Length; i += 2)
+            {
+            <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
+            }
+        </div>
 
-    <h1>Beautiful Background picture here :)</h1><br /><br /><br />
 
-    <div>
-        <h1>Footer menu</h1><br />
-        <a asp-controller="Home" asp-action="Index">
-            <div> Back to Home </div>
-        </a>
-        <input type="button" id="gameCreaturesBtn" value="Creatures">
-        <input type="button" id="gameObstaclesBtn" value="Obstacles">
-        <input type="button" id="gamePuzzlesBtn" value="Puzzles">
+    </div>
+    <div id="mainFooter">
+        <div class="mainFooterBtn">
+            <a asp-controller="Home" asp-action="Index"><input type="button" value="Back to Home" /></a>
+        </div>
+        <div class="mainFooterBtn">
+            <input type="button" id="gameCreaturesBtn" value="Creatures">
+        </div>
+        <div class="mainFooterBtn">
+            <input type="button" id="gameObstaclesBtn" value="Obstacles">
+        </div>
+        <div class="mainFooterBtn">
+            <input type="button" id="gamePuzzlesBtn" value="Puzzles">
+        </div>
     </div>
 </div>
+
 <div id="gamePartialContainer"></div>
 
-<div class="modal" data-route="Creatures">
+<div class="modal">
     <div class="modalContainer"></div>
 </div>
+
 @section scripts
 {
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>

@@ -25,10 +25,10 @@ namespace MicroRPG.Controllers
             return View(service.GetGameMainVM());
         }
 
-        [Route("PlayerDetails")]
-        public IActionResult _PlayerDetails()
+        [Route("PlayerDetails/{id}")]
+        public IActionResult _PlayerDetails(int id)
         {
-            return PartialView();
+            return PartialView(service.GetPlayerDetailsVM(id));
         }
 
         [Route("Creatures")]

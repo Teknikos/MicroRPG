@@ -19,6 +19,10 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
 <script>
     var ids = JSON.parse("@Model");
+    if (ids.length == 0) {
+        window.location.replace("/Summary");
+    }
+
     var caseNumber = 0;
     var currentPlayerIndex = 0;
     var currentCaseID = 0;
@@ -39,8 +43,6 @@
     function displayCase(resCase) {
         $("#descriptionContainer").html(resCase.description);
         var htmlList = "";
-        
-            //alert(JSON.stringify(resCase));
         
         for (var i = 0; i < resCase.outcomes.length; i++) {
                 htmlList += "<li class='option' index="+i+">" + resCase.outcomes[i] + "</li>"
@@ -97,7 +99,8 @@
             } else {
                 $("#outcomeList").html("");
                 $("#currentPlayerDisplay").html("");
-                getCommonGoal();
+                //getCommonGoal();
+                window.location.href = "/Spells";
             }
         }
     });
