@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace MicroRPG.Models.ViewModels
 {
-    public class PlayerDetailsVM
+    public class PlayerDetailsVM 
     {
         public string Name { get; set; }
+        public string Gender { get; set; }
 
         public int Attack { get; set; }
         public int DamageReduction { get; set; }
