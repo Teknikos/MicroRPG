@@ -18,13 +18,13 @@
             <ul>
                 @for (int i = 0; i < @Model.Length; i++)
                 {
-                    <li class="DisplayDescription" data-index=@i>@Model[i].Name</li>
+                    <li class="DisplayDescription" data-index=@i><input class="spellIsChosen" name="@Model[i].Name" type="checkbox" value="false" />@Model[i].Name</li>
                 }
             </ul>
             <br />
         </div>
         <a asp-controller="Home" asp-action="Index">
-            <input id="spellsContinueBtn" class="buttons" type=button Text="Button" value="Continue" />
+            <input id="spellsContinueBtn" class="buttons" type=button Text="Button" value="Continue" onclick="getCheckedSpells()" />
         </a>
     </div>
 
@@ -57,4 +57,20 @@
         $("#manapoints" + i).css("display", "block");
         $("#reqwisdom" + i).css("display", "block");
     });
+</script>
+
+@*<form action="/action_page.php">
+
+        <input type="button" onclick="myFunction()" value="Send order">
+        <input type="submit" value="Continue">
+    </form>*@
+
+<script>
+
+    function getCheckedSpells() {
+        var checkedVals = $('.spellIsChosen:checkbox:checked').map(function () {
+            return this.name;
+        }).get();
+        alert(checkedVals.join(","));
+    }
 </script>

@@ -58,7 +58,13 @@
     position: relative;
     clear: both;
     margin-top: 3%;
+    margin-left: 8%;
 }
+
+#spellsList li {
+    list-style-type:none;
+}
+
 
 /* Obstacles and Puzzles View*/
 
@@ -77,12 +83,14 @@
     .InnerLeft li {
         margin-left: 2vw;
         cursor: pointer;
+        margin-right: 3vw;
     }
 
 .InnerRight {
-    width: 64%;
+    width: 65%;
     position: relative;
     float: right;
+    margin-right: 7%;
 }
 
 #spellsContinueBtn {
@@ -91,6 +99,10 @@
     font-size: 3vh;
     align-content: space-around;
     text-align: center;
+}
+
+.spellIsChosen {
+    margin-right:6%
 }
 
 /* Home View*/
@@ -336,6 +348,8 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    background-color: white;
+    width: 25%;
 }
 
 #partyList li {
