@@ -1,10 +1,8 @@
 ﻿@model MicroRPG.Models.Obstacle[]
 
-<h2 class="ViewHeader">Obstacles</h2>
-
 <div class="Outer">
     <div class="InnerLeft">
-        <h3>Obstacles</h3>
+        <h3 style="font-size: 3vh";>Obstacles</h3>
         <div style="height: 800px; overflow: auto;">
             <ul>
                 @for (int i = 0; i < @Model.Length; i++)
@@ -22,12 +20,12 @@
                 if (i == 0)
                 {
                     <li class="description" id=@("obstacleName" + i) style="font-size: 5vh; display:block">@Model[i].Name</li>
-                    <li class="description" id=@("description" + i) style="font-size: 4vh; display:block">@Model[i].Description</li>
+                    <li class="description" id=@("description" + i) style="font-size: 3vh; display:block">@Model[i].Description</li>
                 }
                 else
                 {
-                <li class="description" id=@("obstacleName" + i) style="font-size: 5vh; display:none">@Model[i].Name</li>
-                <li class="description" id=@("description" + i) style="font-size: 4vh; display:none">@Model[i].Description</li>
+                    <li class="description" id=@("obstacleName" + i) style="font-size: 5vh; display:none">@Model[i].Name</li>
+                    <li class="description" id=@("description" + i) style="font-size: 3vh; display:none">@Model[i].Description</li>
                 }
             }
         </ul>
@@ -42,10 +40,17 @@
     <div class="modalContainer"></div>
 </div>
 
+@*<style>
+    body {
+        background: url('https://www.onlygfx.com/wp-content/uploads/2015/10/old-paper-texture-stain1.jpg');
+        background-size: 100%;
+    }
+</style>*@
+
 <script>
     $(".DisplayDescription").click(function () {
         var i = $(this).attr("data-index");
-      $(".description").css("display", "none");
+        $(".description").css("display", "none");
         $("#obstacleName" + i).css("display", "block");
         $("#description" + i).css("display", "block");
     });

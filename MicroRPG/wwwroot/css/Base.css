@@ -23,6 +23,13 @@
     margin-top: 3%;
 }
 
+/* Obstacles and Puzzles View*/
+
+.Outer {
+    margin-left: 5%;
+    margin-top: 7%;
+}
+
 .InnerLeft {
     width: 25%;
     position: relative;
@@ -35,18 +42,18 @@
         cursor: pointer;
     }
 
+.InnerRight {
+    width: 64%;
+    position: relative;
+    float: right;
+}
+
 #spellsContinueBtn {
     width: auto;
     bottom: 5%;
     font-size: 3vh;
     align-content: space-around;
     text-align: center;
-}
-
-.InnerRight {
-    width: 64%;
-    position: relative;
-    float: right;
 }
 
 /* Home View*/
@@ -278,25 +285,6 @@
 .DisplayDescription {
     cursor: pointer;
 }
-
-#obstacleTable {
-    max-width: 80%;
-}
-
-    #obstacleTable img {
-        cursor: pointer;
-    }
-
-    #obstacleTable .crop {
-        height: 300px;
-        width: 200px;
-        overflow: hidden;
-    }
-
-        #obstacleTable .crop img {
-            height: 250px;
-            width: auto;
-        }
 
 .allDescriptions {
     font-size: 3vh;
