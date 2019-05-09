@@ -2,7 +2,7 @@
     if ($(event.target).is(".getDetails")) {
         $(".modal").css("display", "block");
         $.ajax({
-            url: "/" + $(".modal").attr('data-route') + "/" + $(event.target).attr('alt'),
+            url: $(event.target).attr('data-route'),
             type: "GET",
             success: function (result) {
                 $(".modal > *").html(result);

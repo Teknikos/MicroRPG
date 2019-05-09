@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
 
 namespace MicroRPG.Models.Backstory
@@ -16,6 +18,8 @@ namespace MicroRPG.Models.Backstory
         public string Description { get; set; }
         public int RelatesToID { get; set; }
 
+        [JsonIgnore]
+        [IgnoreDataMember]
         public RelationTag TagOtherBy { get; set; }
 
         public bool IsExclusive { get; set; }
@@ -151,12 +155,12 @@ namespace MicroRPG.Models.Backstory
             return res;
         }
 
-        //public void AttachRelation(Player player)
-        //{
-        //    player.Tags.Add(this);
-        //    if (TagOtherBy != null)
-        //        RelatesToID.Tags.Add(TagOtherBy);
-        //}
+        public void AttachRelation(Player player, Player relatesTo)
+        {
+            player.Tags.Add(this);
+            if (TagOtherBy != null && relatesTo != null)
+                relatesTo.Tags.Add(TagOtherBy);
+        }
 
 
     }

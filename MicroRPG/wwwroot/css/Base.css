@@ -8,14 +8,51 @@
 
 .SubHeader {
     margin-left: 5vh;
-    margin-top: 5vh
+    margin-top: 5vh;
 }
 
 .ViewHeader h1 {
     margin-top: 0;
 }
+/* Main View*/
+#gameMain{
+    border:dotted green 3px;
+}
+    #gameMain *{
+        margin:unset;
+    }
+.playerContainer {
+    border: solid red 2px;
+    display: flex;
+    justify-content: center;
+    justify-content: space-around;
+    height: 90vh;
+}
+.playersLeft {
+    border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-around;
+}
+.playersRight {
+    border: solid black 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.playerDetails{
+    border: solid magenta 2px;
+}
+#mainFooter {
+    border: solid black 2px;
+    display:flex;
+    justify-content:space-between;
+    height:8vh;
+}
+.mainFooterBtn{
+    
+}
 /* Spells View*/
-
 .spellsContainer {
     width: 95%;
     position: relative;
@@ -311,6 +348,10 @@
 .enlargeImg:hover img {
     cursor: pointer;
     opacity: 0.75;
+}
+
+.getDetails:hover {
+    cursor: pointer;
 }
 
 .modal {

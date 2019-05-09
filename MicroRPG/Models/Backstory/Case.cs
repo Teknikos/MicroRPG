@@ -70,15 +70,15 @@ namespace MicroRPG.Models.Backstory
             //cases.Add(c);
 
 
-            c = new Case(
-                   $"An argument has broken out between {OtherPlayer}{1} and {OtherPlayer}{2}" +
-                   $"\n{ThisPlayer} decides to act.",
-                   minPartySize: 3
-                   );
-            c.AddOutCome($"I say: Screw you guys!", StatsForClass[Class.Mage]);
-            c.AddOutCome($"I cut myself.", StatsForClass[Class.Rogue], LawfulTag);
-            c.AddOutCome($"I walk away, my brotha {RelatedPlayer}", StatsForClass[Class.Cleric]);
-            cases.Add(c);
+            //c = new Case(
+            //       $"An argument has broken out between {OtherPlayer}{1} and {OtherPlayer}{2}" +
+            //       $"\n{ThisPlayer} decides to act.",
+            //       minPartySize: 3
+            //       );
+            //c.AddOutCome($"I say: Screw you guys!", StatsForClass[Class.Mage]);
+            //c.AddOutCome($"I cut myself.", StatsForClass[Class.Rogue], LawfulTag);
+            //c.AddOutCome($"I walk away, my brotha {RelatedPlayer}", StatsForClass[Class.Cleric]);
+            //cases.Add(c);
 
 
             for (int i = 0; i < 27; i++)

@@ -1,12 +1,14 @@
-﻿<div class="container">
+﻿@model PlayerDetailsVM
+
+<div class="container">
     <header><button>Wolfgang</button><button>Cedrik</button><button>Hagrid</button></header>
 
-    <h1>Potato Man</h1>
+    <h1>@Model.Name</h1>
     <div class="charRow" id="stats">
         <ul>
-            <li>Attack: 15</li>
-            <li>Wizdom: 10</li>
-            <li>Armor: 2</li>
+            <li>Attack: @Model.Attack</li>
+            <li>Wisdom: @Model.Wisdom</li>
+            <li>Damage Reduction: @Model.DamageReduction</li>
         </ul>
     </div>
     <div class="charRow crop" id="characterImg">
@@ -21,8 +23,8 @@
     </div>
     <div id="resourceBars">
         <ul>
-            <li>Health bar</li>
-            <li>Mana bar</li>
+            <li>Health: @Model.HP</li>
+            <li>Mana: @Model.MP</li>
         </ul>
 
     </div>
