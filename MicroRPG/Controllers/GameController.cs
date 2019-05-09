@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MicroRPG.Models;
+using MicroRPG.Models.ViewModels;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using static MicroRPG.Models.Constants;
@@ -11,16 +12,17 @@ namespace MicroRPG.Controllers
 {
     public class GameController : Controller
     {
-        //WorldService service;
-        //public GameController(WorldService service)
-        //{
-        //    this.service = service;
-        //}
+        PartyService service;
+        public GameController(PartyService service)
+        {
+            this.service = service;
+        }
 
         [Route("Main")]
         public IActionResult Main()
         {
-            return View ();
+
+            return View(service.GetGameMainVM());
         }
 
         [Route("PlayerDetails")]

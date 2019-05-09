@@ -21,6 +21,23 @@ namespace MicroRPG.Models
         const string PlayerObj = "Player";
         const string PartyIDs = "PartyIDs";
 
+        public GameMainVM GetGameMainVM()
+        {
+            int[] IDs = GetPartyIDs();
+            string[] playerNames = new string[IDs.Length];
+            for (int i = 0; i < IDs.Length; i++)
+            {
+                playerNames[i] = GetPlayer(IDs[i]).Name;
+            }
+            GameMainVM mainVM = new GameMainVM
+            {
+                PlayerIDs = IDs,
+                PlayerNames = playerNames
+            };
+
+            return mainVM;
+        }
+
         public object JsonContext { get; private set; }
 
         public PartyService(IHttpContextAccessor accessor)
@@ -94,7 +111,9 @@ namespace MicroRPG.Models
         public void ApplyCase(int id, int outcomeIndex, int playerID)
         {
             Case @case = GetCaseByID(id);
-            @case.ApplyToPlayer(outcomeIndex, GetPlayer(playerID));
+            Player player = GetPlayer(playerID);
+            @case.ApplyToPlayer(outcomeIndex, player);
+            SavePlayerToSession(player);
         }
 
         private Case GetCaseByID(int id)
@@ -107,7 +126,7 @@ namespace MicroRPG.Models
             return allCases.FirstOrDefault( c => c.ID == id);
         }
 
-        internal void AddPlayer(PartyCreateVM playerVM)
+        public void AddPlayer(PartyCreateVM playerVM)
         {
             Player player = new Player(playerVM.Name, playerVM.Age)
             {
@@ -119,6 +138,10 @@ namespace MicroRPG.Models
 
             accessor.HttpContext.Session.SetString(PartyIDs,
                 JsonConvert.SerializeObject(IDs));
+            SavePlayerToSession(player);
+        }
+
+        public void SavePlayerToSession(Player player) {
             accessor.HttpContext.Session.SetString(PlayerObj + player.ID,
                 JsonConvert.SerializeObject(player));
         }
