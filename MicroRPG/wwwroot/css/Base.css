@@ -108,7 +108,13 @@
 .homeContainer {
     display: flex;
     flex-flow: row wrap;
-    padding-top: 20vh;
+    padding-top: 10vh;
+}
+
+#homeIndexHeader {
+    text-align:center; 
+    font-size: 10vh; 
+    margin-top: 0
 }
 
 .homeContainer {
