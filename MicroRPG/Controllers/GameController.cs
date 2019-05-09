@@ -21,8 +21,8 @@ namespace MicroRPG.Controllers
         [Route("Main")]
         public IActionResult Main()
         {
-            //if (service.GetPartyIDs()?.Length == 0)
-            //    service.GeneratePlayers();
+            if (service.GetPartyIDs()?.Length == 0)
+                service.GeneratePlayers();
             string res = HttpContext.Session.GetString(SelectedEnvironment);
             if (string.IsNullOrEmpty(res))
                 HttpContext.Session.SetString(SelectedEnvironment, "Village");
@@ -39,8 +39,8 @@ namespace MicroRPG.Controllers
         [Route("Creatures")]
         public IActionResult _Creatures()
         {
-            string res = HttpContext.Session.GetString(SelectedEnvironment);
-            return PartialView(nameof(_Creatures), res);
+            CreaturesVM creaturesVM = WorldService.GetCreaturesVM(HttpContext.Session.GetString(SelectedEnvironment));
+            return PartialView(nameof(_Creatures), creaturesVM);
         }
 
         [Route("Creatures/{id}")]

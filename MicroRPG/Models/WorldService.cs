@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MicroRPG.Models.ViewModels;
 
 namespace MicroRPG.Models
 {
@@ -38,6 +39,15 @@ namespace MicroRPG.Models
                 new Monster {Name="Ogre", Tags=new List<string>{"Desert, Ruins" }, Special="Special: Ogres are many times bigger than a normal human.Those unlucky enough to disturb an ogre better run or get crushed by its massive strength. Does massive damage on hit.", Speed=4, HP=30, Reduction=2, Damage="5d6"},
                 new Monster {Name="Town Guard", Tags=new List<string>{"Forest, Village" }, Special="Special: Humans are very organized and good planners. If you attack them, they will likely warn others and ask for help if any other people are nearby.", Speed=6, HP=12, Reduction=3, Damage="1d6"},
                 new Monster {Name="Werewolf", Tags=new List<string>{"Forest, Village" }, Special="Special: Whenever a player is hit by this creature, roll 1d6. On a result of 1, the player become feverish and begins the first step of transformation…", Speed=9, HP=12, Reduction=2, Damage="2d6"}
+            };
+        }
+
+        internal static CreaturesVM GetCreaturesVM(string environment)
+        {
+            return new CreaturesVM()
+            {
+                SelectedEnvironment = environment,
+                Names = GetMonsters().Select(m => m.Name).ToArray()
             };
         }
 
