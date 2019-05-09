@@ -3,7 +3,10 @@
     ViewData["Title"] = "Main";
 }
 
-<div style="background-image:url('../img/environments/@(Model.CurrentEnvironment).jpg');  background-size:cover" id="gameMainBackground">
+<div class="backgroundEnvironment" style="background-image:url('../img/environments/@(Model.CurrentEnvironment).jpg')">
+    <div class="overlay"></div>
+</div>
+<div @*style="background-image:url('../img/environments/@(Model.CurrentEnvironment).jpg');  background-size:cover"*@ id="gameMainBackground">
     <div id="gameMain">
         <div class="playerContainer">
             <div class="playersLeft">
