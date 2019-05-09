@@ -47,7 +47,8 @@ namespace MicroRPG.Models
             return new CreaturesVM()
             {
                 SelectedEnvironment = environment,
-                Names = GetMonsters().Select(m => m.Name).ToArray()
+                Names = GetMonsters().Select(m => m.Name).ToArray(),
+                DataNames = GetMonsters().Select(m => m.DataName).ToArray()
             };
         }
 

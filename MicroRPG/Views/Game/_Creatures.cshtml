@@ -11,7 +11,7 @@
     @for (int i = 0; i < Model.Names.Length; i++)
     {
         <div>
-            <img src="~/img/monsters/@(Model.Names[i]).png" alt="@Model.Names[i]" data-route="/Creatures/@Model.Names[i]" class="getDetails">
+            <img src="~/img/monsters/@(Model.DataNames[i]).png" alt="@Model.DataNames[i]" data-route="/Creatures/@Model.DataNames[i]" class="getDetails">
         </div>
     }
 

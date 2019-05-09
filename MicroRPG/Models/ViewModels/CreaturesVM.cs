@@ -8,6 +8,7 @@ namespace MicroRPG.Models.ViewModels
     public class CreaturesVM
     {
         public string[] Names { get; set; }
+        public string[] DataNames { get; set; }
         public string SelectedEnvironment { get; set; }
     }
 }
