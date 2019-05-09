@@ -1,42 +1,46 @@
 ﻿@model PlayerDetailsVM
 
-<div class="playerDetailsContainer">
-    <div class="playerDetailsHeader">
+<div class="detailsContainer">
+    <div class="detailsHeader">
         <h1>@Model.Name</h1>
     </div>
-    <div class="playerDetailsRow" id="stats">
-        <ul>
-            <li>Attack: @Model.Attack</li>
-            <li>Wisdom: @Model.Wisdom</li>
-            <li>Damage Reduction: @Model.DamageReduction</li>
-        </ul>
-    </div>
-    <div class="playerDetailsRow" >
-        @if (string.Compare(Model.Gender, "female", true) == 0)
-        {
-            <img class="playerImg" src="~/img/player/woman-warrior-with-sword.png" alt="Alternate Text" />
+    <div class="detailsContent">
+        <div class="detailsRow" id="stats">
+            <ul>
+                <li>Attack: @Model.Attack</li>
+                <li>Wisdom: @Model.Wisdom</li>
+                <li>Damage Reduction: @Model.DamageReduction</li>
+                <li>Health: @Model.HP</li>
+                <li>Mana: @Model.MP</li>
+            </ul>
+        </div>
+        <div class="detailsRow">
+            @if (string.Compare(Model.Gender, "female", true) == 0)
+            {
+                <img class="detailsImg" src="~/img/player/woman-warrior-with-sword.png" alt="Alternate Text" />
 
-        }
-        @if (string.Compare(Model.Gender, "male", true) == 0)
-        {
-            <img class="playerImg" src="~/img/player/male-warrior-silhouette-cropped.png" alt="Alternate Text" />
-        }
+            }
+            @if (string.Compare(Model.Gender, "male", true) == 0)
+            {
+                <img class="detailsImg" src="~/img/player/male-warrior-silhouette-cropped.png" alt="Alternate Text" />
+            }
 
 
 
-    </div>
-    <div class="playerDetailsRow" id="spells">
-        <ul>
-            <li>Fireball</li>
-            <li>Cure Light Wounds</li>
-            <li>Control Weather</li>
-        </ul>
-    </div>
-    <div id="resourceBars">
-        <ul>
-            <li>Health: @Model.HP</li>
-            <li>Mana: @Model.MP</li>
-        </ul>
+        </div>
+        <div class="detailsRow" id="spells">
+            <ul>
+                <li>Fireball</li>
+                <li>Cure Light Wounds</li>
+                <li>Control Weather</li>
+            </ul>
+        </div>
+        @*<div id="resourceBars">
+            <ul>
+                <li>Health: @Model.HP</li>
+                <li>Mana: @Model.MP</li>
+            </ul>
 
+        </div>*@
     </div>
 </div>
