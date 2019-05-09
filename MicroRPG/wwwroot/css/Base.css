@@ -295,8 +295,9 @@ h1, h2, h3 {
     justify-content: center;
 }
 
-#summaryPlayer * {
-    font-family: Garamond;
+.createForm * {
+font-family:'Times New Roman';
+font-size: 1.5vw;
 }
 
 .createRadio label {
@@ -318,6 +319,10 @@ h1, h2, h3 {
 /*#summaryHeader {
     background-color: gray;
 }*/
+
+#summaryPlayer * {
+    font-family: Garamond;
+}
 
 .summaryContainer {
     display: flex;
