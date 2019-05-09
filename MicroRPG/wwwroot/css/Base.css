@@ -15,49 +15,103 @@
     margin-top: 0;
 }
 /* Main View*/
-#gameMain{
-    border:dotted green 3px;
+#gameMainBackground{
+
 }
-    #gameMain *{
-        margin:unset;
+#gameMain {
+    /*border: dotted green 3px;*/
+    height: 100vh;
+    /*opacity:0.3;*/
+}
+
+    #gameMain * {
+        margin: unset;
     }
+
 .playerContainer {
-    border: solid red 2px;
+    /*border: solid red 2px;*/
     display: flex;
     justify-content: center;
-    justify-content: space-around;
-    height: 90vh;
+    justify-content: space-between;
+    height: 91vh;
 }
+
 .playersLeft {
-    border: solid black 2px;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-}
-.playersRight {
-    border: solid black 2px;
+    /*border: solid black 2px;*/
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    text-align:left;
+    padding-left:10px;
 }
-.playerDetails{
-    border: solid magenta 2px;
+    .playersLeft h1, .playersRight h1 {
+        background-color: rgba(200, 200, 200,0.7);
+        border-radius: 10px;
+        padding:10px;
+    }
+
+.playersRight {
+    /*border: solid black 2px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: right;
+    padding-right:10px;
 }
+
+.playerDetails {
+    /*border: solid magenta 2px;*/
+}
+
 #mainFooter {
-    border: solid black 2px;
-    display:flex;
-    justify-content:space-between;
-    height:8vh;
+    /*border: solid magenta 2px;*/
+    
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    margin-top:3px;
+    background-color:rgb(241,243,244);
+    border: solid rgb(187,187,187) 2px;
 }
-.mainFooterBtn{
+
+.mainFooterBtn {
+    /*border: solid green 2px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1;
 }
+
+    .mainFooterBtn input {
+        height: auto;
+        padding: 10px;
+    }
+#mainFooter > div:nth-child(1) > a > input[type="button"] {
+    width: 100%;
+}
+
+@media all and (max-width: 744px) {
+    #mainFooter {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: unset;
+    }
+}
+
 /* Spells View*/
 .spellsContainer {
     width: 95%;
     position: relative;
     clear: both;
     margin-top: 3%;
+    margin-left: 8%;
 }
+
+#spellsList li {
+    list-style-type:none;
+}
+
 
 /* Obstacles and Puzzles View*/
 
@@ -76,12 +130,14 @@
     .InnerLeft li {
         margin-left: 2vw;
         cursor: pointer;
+        margin-right: 3vw;
     }
 
 .InnerRight {
-    width: 64%;
+    width: 65%;
     position: relative;
     float: right;
+    margin-right: 7%;
 }
 
 #spellsContinueBtn {
@@ -92,11 +148,21 @@
     text-align: center;
 }
 
+.spellIsChosen {
+    margin-right:6%
+}
+
 /* Home View*/
 .homeContainer {
     display: flex;
     flex-flow: row wrap;
-    padding-top: 20vh;
+    padding-top: 10vh;
+}
+
+#homeIndexHeader {
+    text-align:center; 
+    font-size: 10vh; 
+    margin-top: 0
 }
 
 .homeContainer {
@@ -335,6 +401,8 @@
     position: fixed;
     left: 0;
     bottom: 0;
+    background-color: white;
+    width: 25%;
 }
 
 #partyList li {
