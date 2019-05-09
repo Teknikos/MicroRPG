@@ -74,31 +74,55 @@ h1, h2, h3 {
 
 #mainFooter {
     /*border: solid magenta 2px;*/
-    
     display: flex;
     justify-content: space-between;
     height: auto;
-    margin-top:3px;
-    background-color:rgb(241,243,244);
-    border: solid rgb(187,187,187) 2px;
+    margin-top: 3px;
+    background-color: rgb(241, 243, 244);
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    align-content: stretch;
 }
 
 .mainFooterBtn {
     /*border: solid green 2px;*/
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: stretch;
     flex: 1;
+    background-color: rgb(241, 243, 244);
+    font-size: 110%;
+    height: 100%;
+}
+#musicControl {
+    color: rgb(177, 143, 112);
+    border-radius: 0px;
+    border: solid rgb(50, 50, 50) 1px;
+    font-size: 110%;
+    max-height: 58px;
 }
 
-    .mainFooterBtn input {
-        height: auto;
-        padding: 10px;
-    }
+.mainFooterBtn input {
+    height: auto;
+    padding: 10px;
+}
+
 #gameHomeBtn {
     width: 100%;
+    border-color: rgb(50, 50, 50);
+    border-radius: 0px;
+    font-size: 110%;
 }
+#gameCreaturesBtn, #gamePuzzlesBtn, #gameObstaclesBtn {
+    background-color: rgb(241, 243, 244);
+    border-color: rgb(50, 50, 50);
+    border-radius: 0px;
+    font-size: 110%;
+    
+}
+
+
 
 @media all and (max-width: 744px) {
     #mainFooter {
@@ -281,15 +305,15 @@ h1, h2, h3 {
 #summaryFooter {
     position: absolute;
     align-content: center;
-    bottom: 0;
+    bottom: 10%;
     flex-flow: row wrap;
     justify-content: space-around;
 }
 
     #summaryFooter * {
         display: inline-block;
-        font-size: 3vh;
-        justify-content: space-between;
+        /*font-size: 3vh;
+        justify-content: space-between;*/
     }
 
     #summaryFooter #addBtn {
@@ -302,7 +326,10 @@ h1, h2, h3 {
     }
 
     #summaryFooter #continueBtn {
-        font-size: 24px;
+        background-color: rgb(177, 143, 112);
+        border-color: rgb(47, 35, 25);
+        border-radius: 4px;
+        font-size: 110%;
         margin-right: 4vw;
         margin-left: 4vw;
     }

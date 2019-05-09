@@ -90,9 +90,11 @@
                 if (caseNumber <= @numberOfCases) {
                     getNextCase();
                 } else {
+                    $("#descriptionContainer").html("");
                     $("#outcomeList").html("");
                     $("#currentPlayerDisplay").html("");
-                    window.location.href = "/Spells";
+                    //window.location.href = "/Spells";
+                    window.location.href = "/";
                 }
             },
             error: function () {
