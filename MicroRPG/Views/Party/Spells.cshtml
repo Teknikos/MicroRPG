@@ -16,10 +16,10 @@
 </div>
 
 @* Left side: partial view spell list  *@
-<div class="spellsContainer">
+<div id="#spellsContainer">
     <div class="InnerLeft">
-        <h3 style="font-size: 5vh">Spells</h3>
-        <div id="spellsList" style="height: 800px; overflow: auto;">
+        <h3>Spells</h3>
+        <div id="spellsList" style="height: 50vh; overflow: auto;">
             <ul>
                 @for (int i = 0; i < @Model.Length; i++)
                 {
@@ -35,20 +35,20 @@
 
     @* Right side: partial view spell description  *@
     <div class="InnerRight">
-        <ul>
+        
             @for (int i = 0; i < @Model.Length; i++)
             {
                 if (i == 0)
                 {
-                    <li class="allDescriptions" id=@("allDescriptions" + i) style="font-size: 5vh; display:block">@Model[i].Name</li>
-                    <li class="allDescriptions" id=@("manapoints" + i) style="font-size: 4vh; display:block">@Model[i].ReqWisdom Wisdom Required, Costs @Model[i].ManaPoints Mana Points</li>
-                    <li class="allDescriptions" id=@("description" + i) style="display:block">@Model[i].Description</li>
+                    <h2 class="allDescriptions" id=@("allDescriptions" + i) >@Model[i].Name</h2>
+                    <h4 class="allDescriptions" id=@("manapoints" + i) >@Model[i].ReqWisdom Wisdom Required, Costs @Model[i].ManaPoints Mana Points</h4>
+                    <p class="allDescriptions" id=@("description" + i) >@Model[i].Description</p>
                 }
-                <li class="allDescriptions" id=@("allDescriptions" + i) style="font-size: 5vh; display:none">@Model[i].Name</li>
-                <li class="allDescriptions" id=@("manapoints" + i) style="font-size: 4vh; display:none">@Model[i].ReqWisdom Wisdom Required, Costs @Model[i].ManaPoints Mana Points</li>
-                <li class="allDescriptions" id=@("description" + i) style="display:none">@Model[i].Description</li>
+                <h2 class="allDescriptions" id=@("allDescriptions" + i) style="display:none">@Model[i].Name</h2>
+                <h4 class="allDescriptions" id=@("manapoints" + i) style="display:none">@Model[i].ReqWisdom Wisdom Required, Costs @Model[i].ManaPoints Mana Points</h4>
+                <p class="allDescriptions" id=@("description" + i) style="display:none">@Model[i].Description</p>
             }
-        </ul>
+        
     </div>
 </div>
 
