@@ -15,42 +15,80 @@
     margin-top: 0;
 }
 /* Main View*/
-#gameMain{
-    border:dotted green 3px;
+#gameMain {
+    /*border: dotted green 3px;*/
+    background-image: url('../img/environments/forest.jpg');
+    height: 100vh;
 }
-    #gameMain *{
-        margin:unset;
+
+    #gameMain * {
+        margin: unset;
     }
+
 .playerContainer {
-    border: solid red 2px;
+    /*border: solid red 2px;*/
     display: flex;
     justify-content: center;
-    justify-content: space-around;
-    height: 90vh;
+    justify-content: space-between;
+    height: 91vh;
 }
+
 .playersLeft {
-    border: solid black 2px;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-around;
-}
-.playersRight {
-    border: solid black 2px;
+    /*border: solid black 2px;*/
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    text-align:left;
+    padding-left:10px;
 }
-.playerDetails{
-    border: solid magenta 2px;
+
+.playersRight {
+    /*border: solid black 2px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: right;
+    padding-right:10px;
 }
+
+.playerDetails {
+    /*border: solid magenta 2px;*/
+}
+
 #mainFooter {
-    border: solid black 2px;
-    display:flex;
-    justify-content:space-between;
-    height:8vh;
+    /*border: solid magenta 2px;*/
+    
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    margin-top:3px;
 }
-.mainFooterBtn{
+
+.mainFooterBtn {
+    /*border: solid green 2px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    flex: 1;
 }
+
+    .mainFooterBtn input {
+        height: auto;
+        padding: 10px;
+    }
+#mainFooter > div:nth-child(1) > a > input[type="button"] {
+    width: 100%;
+}
+
+@media all and (max-width: 744px) {
+    #mainFooter {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: unset;
+    }
+}
+
 /* Spells View*/
 .spellsContainer {
     width: 95%;

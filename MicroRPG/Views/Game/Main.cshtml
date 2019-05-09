@@ -3,43 +3,44 @@
     ViewData["Title"] = "Main";
 }
 
-<div  id="gameMain">
-    <div class="playerContainer">
-        <div class="playersLeft">
-            @for (int i = 0; i < Model.PlayerNames.Length; i += 2)
-            {
-                <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
-            }
+    <div style="background-image:url('../img/environments/@(Model.CurrentEnvironment).jpg'); background-size:cover" id="gameMain">
+        <div class="playerContainer">
+            <div class="playersLeft">
+                @for (int i = 0; i < Model.PlayerNames.Length; i += 2)
+                {
+                    <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
+                }
+
+            </div>
+            <div class="playersRight">
+                @for (int i = 1; i < Model.PlayerNames.Length; i += 2)
+                {
+                    <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
+                }
+            </div>
 
         </div>
-        <div class="playersRight">
-            @for (int i = 1; i < Model.PlayerNames.Length; i += 2)
-            {
-                <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
-            }
-        </div>
 
+        <div id="mainFooter">
+            <div class="mainFooterBtn">
+                <a asp-controller="Home" asp-action="Index"><input type="button" value="Back to Home" /></a>
+            </div>
+            <div class="mainFooterBtn">
+                <input type="button" id="gameCreaturesBtn" value="Creatures">
+            </div>
+            <div class="mainFooterBtn">
+                <input type="button" id="gameObstaclesBtn" value="Obstacles">
+            </div>
+            <div class="mainFooterBtn">
+                <input type="button" id="gamePuzzlesBtn" value="Puzzles">
+            </div>
+            <div class="mainFooterBtn" id="musicControl">
+                <audio controls="controls" autoplay loop>
+                    <source src="~/sound/@(Model.CurrentEnvironment).mp3" type="audio/mp3" />
+                </audio>
+            </div>
+        </div>
     </div>
-    <div id="mainFooter">
-        <div class="mainFooterBtn">
-            <a asp-controller="Home" asp-action="Index"><input type="button" value="Back to Home" /></a>
-        </div>
-        <div class="mainFooterBtn">
-            <input type="button" id="gameCreaturesBtn" value="Creatures">
-        </div>
-        <div class="mainFooterBtn">
-            <input type="button" id="gameObstaclesBtn" value="Obstacles">
-        </div>
-        <div class="mainFooterBtn">
-            <input type="button" id="gamePuzzlesBtn" value="Puzzles">
-        </div>
-        <div class="mainFooterBtn" id="musicControl">
-            <audio controls="controls" autoplay loop>
-                <source src="~/sound/@(Model.CurrentEnvironment).mp3" type="audio/mp3" />
-            </audio>
-        </div>
-    </div>
-</div>
 
 <div id="gamePartialContainer"></div>
 
