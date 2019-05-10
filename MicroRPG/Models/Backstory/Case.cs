@@ -227,29 +227,29 @@ namespace MicroRPG.Models.Backstory
 
             //Case 15
 
-            c = new Case(
-            $"{ThisPlayer} were hired as help to an adventure expedition. While returning from a hunt {ThisPlayer} spot raiders wreaking havoc in your camp. " +
-            $"{ThisPlayer} saw friends slaughtered and maimed around the campfire. {ThisPlayer} managed to save his colleague {OtherPlayer}{1} by executing vengeance on the raiders."
-            );
-            c.AddOutCome($"Through a quick prayer to your deity, I blade burst into flames and the blade finds it’s targets with ease. After the battle, I soothe the wounds of {OtherPlayer}{1}.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"Arcane sparks shoot out from my fingertips which strikes my enemies.", StatsForClass[Class.Mage]);
-            c.AddOutCome($"I ready my blade and sneak up behind my foes to deliver the killing blow.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"The brutal sight of my slain companions invokes an uncontrollable rage. I charge forward!", StatsForClass[Class.Warrior]);
-            cases.Add(c);
+            //c = new Case(
+            //$"{ThisPlayer} were hired as help to an adventure expedition. While returning from a hunt {ThisPlayer} spot raiders wreaking havoc in your camp. " +
+            //$"{ThisPlayer} saw friends slaughtered and maimed around the campfire. {ThisPlayer} managed to save his colleague {OtherPlayer}{1} by executing vengeance on the raiders."
+            //);
+            //c.AddOutCome($"Through a quick prayer to your deity, I blade burst into flames and the blade finds it’s targets with ease. After the battle {ThisPlayer} soothes the wounds of {OtherPlayer}{1}.", StatsForClass[Class.Cleric]);
+            //c.AddOutCome($"Arcane sparks shoot out from my fingertips which strikes my enemies.", StatsForClass[Class.Mage]);
+            //c.AddOutCome($"I ready my blade and sneak up behind my foes to deliver the killing blow.", StatsForClass[Class.Rogue]);
+            //c.AddOutCome($"The brutal sight of my slain companions invokes an uncontrollable rage. I charge forward!", StatsForClass[Class.Warrior]);
+            //cases.Add(c);
 
 
             //Cases end -----------------------------------------------------------------------------------------------------------------------------------
 
 
-            for (int i = 0; i < 27; i++)
-            {
-                c = new Case("Test case " + (i + 1));
-                c.AddOutCome("Warrior", StatsForClass[Class.Warrior]);
-                c.AddOutCome("Mage", StatsForClass[Class.Mage]);
-                c.AddOutCome("Cleric", StatsForClass[Class.Cleric]);
-                c.AddOutCome("Rogue", StatsForClass[Class.Rogue]);
-                cases.Add(c);
-            }
+            //for (int i = 0; i < 27; i++)
+            //{
+            //    c = new Case("Test case " + (i + 1));
+            //    c.AddOutCome("Warrior", StatsForClass[Class.Warrior]);
+            //    c.AddOutCome("Mage", StatsForClass[Class.Mage]);
+            //    c.AddOutCome("Cleric", StatsForClass[Class.Cleric]);
+            //    c.AddOutCome("Rogue", StatsForClass[Class.Rogue]);
+            //    cases.Add(c);
+            //}
             return cases;
         }
 
