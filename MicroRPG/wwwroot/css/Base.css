@@ -60,9 +60,10 @@ h1, h2, h3 {
     text-align:left;
     padding-left:10px;
 }
-    .playersLeft h1, .playersRight h1 {
+    .playersLeft h4, .playersRight h4 {
         background-color: rgba(200, 200, 200, 0.75);
         border-radius: 10px;
+        font-family: 'Times New Roman';
         padding:10px;
     }
 
@@ -428,7 +429,6 @@ font-size: 1.5vw;
     align-items: center;
     margin-left: 15vw;
     margin-right: 15vw;
-    border:solid black 4px;
 }
 
 #descriptionContainer {
@@ -444,7 +444,7 @@ font-size: 1.5vw;
     margin-top: 5%;
     margin-left: 8vw;
     margin-right: 8vw;
-    text-align: center;
+    /*text-align: center;*/
     font-size: 2vw;
 }
 

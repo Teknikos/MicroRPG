@@ -95,7 +95,7 @@ namespace MicroRPG.Models
 
             return new PartyBackstoryVM
             {
-                Description = $"{player.Name} what is your relation to {relatesTo.Name}?",
+                Description = $"What is your relation to {relatesTo.Name}?",
                 Outcomes = relationTags.Select(t => t.Description).ToArray(),
                 CurrentPlayerName = player.Name,
                 ID = -1
