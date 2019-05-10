@@ -380,20 +380,29 @@ font-size: 1.5vw;
 }*/
 
 #summaryPlayer * {
-    font-family: Garamond;
+    font-family: 'Times New Roman';
 }
 
 .summaryContainer {
     display: flex;
     /*padding-top: 10vh;*/
+    flex-direction: column;
     justify-content: center;
+    padding-left: 30%;
 }
 
 #partyList {
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 50vw;
+    padding-left: 5%;
+    /*flex-wrap: wrap;*/
     list-style: none;
 }
+
+    #partyList li {
+        flex-flow: row;
+        flex: 50%;
+        display: flex;
+    }
 
 #summaryFooter {
     position: absolute;
