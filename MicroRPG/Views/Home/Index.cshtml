@@ -1,16 +1,38 @@
-﻿
-<div>
-    <a asp-controller="Environment" asp-action="Choose">
-        <div class="Grid"> Environment </div>
-    </a>
-    <a asp-controller="Party" asp-action="SignIn">
-        <div class="Grid"> Party </div>
-    </a>
+﻿<div class="backgroundParchment">
+    <div class="overlay"></div>
 </div>
 
-<a asp-controller="Game" asp-action="Main">
-    <div> Start </div>
-</a>
-<a asp-controller="Game" asp-action="_PlayerDetails">
-    <div> Join </div>
-    </a>
+<div class="homeContainer">
+    <h1 id="homeIndexHeader">MicroRPG</h1>
+    <div id="homeTable">
+        <div class="row">
+            <div class="column">
+                <div>
+                    <a asp-controller="Environment" asp-action="Choose">
+                        <img src="~/img/home/Your Environment.jpg" alt="Alternate Text" />
+                    </a>
+                    <h4>Environment</h4>
+                </div>
+            </div>
+            <div class="column">
+                <a asp-controller="Party" asp-action="Summary">
+                    <img src="~/img/home/Your Party 2.png" alt="Alternate Text" />
+                </a>
+                <h4>Party</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="homeFooter">
+        <div id="homeStartBtn">
+            <a asp-controller="Game" asp-action="Main"><input type="button" value="Start" /></a>
+        </div>
+        <br />
+        <br />
+        @*<div class="homeSession">
+                <label >ID:</label>
+                <input type="text" name="sessionId" value="" />
+                <a asp-controller="Game" asp-action="_PlayerDetails"><input type="button" value="Join" /></a>
+            </div>*@
+    </div>
+</div>

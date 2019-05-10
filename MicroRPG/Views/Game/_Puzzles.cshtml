@@ -1,11 +1,67 @@
-﻿
-<h1>Puzzle Details</h1><br />
+﻿@model MicroRPG.Models.Puzzle[]
 
-<h1>Puzzle 1</h1>
-<h1>Puzzle 2</h1>
-<h1>Puzzle 3</h1>
+<div class="backgroundParchment">
+    <div class="overlay"></div>
+</div>
 
+<div class="ViewHeader" id="puzzlesHeader">
+    <h1>Puzzles</h1>
+</div>
 
-<a asp-controller="Game" asp-action="Main">
-    <div> Done </div>
-</a>
+<div class="Outer">
+    <div class="InnerLeft">
+        <h2>Puzzles</h2>
+        <div class="innerList">
+            <ul>
+                @for (int i = 0; i < @Model.Length; i++)
+                {
+                    <li class="DisplayDescription" data-index=@i>@Model[i].Name</li>
+                }
+            </ul>
+        </div>
+        <input id="puzzlesBackBtn" class="buttons backBtn" type=button Text="Button" value="Back"  />
+    </div>
+
+    <div class="InnerRight">
+        
+            @for (int i = 0; i < @Model.Length; i++)
+            {
+                if (i == 0)
+                {
+                    <h2 class="description" id=@("puzzleName" + i) style="font-size: 5vh; display:block">@Model[i].Name</h2>
+                    <p class="description" id=@("description" + i) style="font-size: 3vh; display:block">@Model[i].Description</p>
+                }
+                else
+                {
+                <h2 class="description" id=@("puzzleName" + i) style="font-size: 5vh; display:none">@Model[i].Name</h2>
+                <p class="description" id=@("description" + i) style="font-size: 3vh; display:none">@Model[i].Description</p>
+                }
+            }
+        
+    </div>
+</div>
+
+@*<footer class="footer">
+    <input id="puzzlesBackBtn" class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px; width:100%" />
+</footer>*@
+
+<div class="modal" data-route="Puzzles">
+    <div class="modalContainer"></div>
+</div>
+
+@*<style>
+    body {
+        background: url('http://images.easyfreeclipart.com/760/parchment-paper-background-sunny-760357.jpg');
+        background-size: 100%;
+    }
+</style>*@
+
+<script>
+    $(".DisplayDescription").click(function () {
+        var i = $(this).attr("data-index");
+      $(".description").css("display", "none");
+        $("#puzzleName" + i).css("display", "block");
+        $("#description" + i).css("display", "block");
+    });
+</script>
+

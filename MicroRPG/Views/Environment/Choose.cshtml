@@ -1,18 +1,55 @@
-﻿<h1>ENVIRONMENT</h1>
+﻿<div class="backgroundParchment">
+    <div class="overlay"></div>
+</div>
 
-<a asp-controller="Environment" asp-action="Zoomed">
-    <div class="Grid"> Insert Picture Here </div>
-</a><br />
-<a asp-controller="Environment" asp-action="Zoomed">
-    <div class="Grid"> Insert Picture Here </div>
-</a><br />
-<a asp-controller="Environment" asp-action="Zoomed">
-    <div class="Grid"> Insert Picture Here </div>
-</a><br />
-<a asp-controller="Environment" asp-action="Zoomed">
-    <div class="Grid"> Insert Picture Here </div>
-</a><br />
+<div class="ViewHeader" >
+    <h1>Choose Environmeant</h1>
+</div>
+
+<div id="environmentTable">
+    <div class="row">
+        <div class="enlargeImg column">
+            <input type="radio" name="group1" />
+            <img src="~/img/environments/desert.jpg" alt="Desert">
+        </div>
+        <div class="enlargeImg column">
+            <input type="radio" name="group1" />
+            <img src="~/img/environments/forest.jpg" alt="Forest">
+        </div>
+    </div>
+    <div class="row">
+        <div class="enlargeImg column">
+            <input type="radio" name="group1" />
+            <img src="~/img/environments/ruins.jpg" alt="Ruins">
+        </div>
+        <div class="enlargeImg column">
+            <input type="radio" name="group1" />
+            <img src="~/img/environments/village.jpg" alt="Village">
+        </div>
+    </div>
+
+</div>
 
 <a asp-controller="Home" asp-action="Index">
-    <div class="Grid"> Go back to Home </div>
+    <input id="environmentAcceptBtn" class="buttons" type=button Text="Button" value="Done" />
 </a>
+
+<div class="modal">
+    <div class="imgContainer"></div>
+</div>
+
+
+
+@section Scripts
+{
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+    <script src="~/scripts/EnlargeImage.js"></script>
+    <script>
+        $("input[type='radio']").change(function () {
+            $.ajax({
+                url: "/environment/" + $(this).siblings("img").attr('alt'),
+                type: "GET"
+            });
+        });
+    </script>
+}

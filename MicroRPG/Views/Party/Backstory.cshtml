@@ -1,20 +1,116 @@
-﻿
+﻿@model string
+@using static MicroRPG.Models.Constants
 @{
     ViewData["Title"] = "Backstory";
 }
 
-<h1>Backstory</h1>
+<div class="backgroundParchment">
+    <div class="overlay"></div>
+</div>
 
-<p>Backstory bla bla bla Backstory bla bla bla Backstory bla bla bla Backstory bla bla bla</p>
+<div class="ViewHeader" id="backstoryHeader">
+    <h1>Backstory</h1>
+</div>
+<div class="backstoryContainer">
+    <p id="currentPlayerDisplay"></p>
+    <div class="caseDescription">
+        <p id="descriptionContainer"></p>
+    </div>
 
-<p>Player 1 make a choice</p>
+    <ul id="outcomeList"><li class="option"></li></ul>
 
-<a asp-controller="Party" asp-action="Spells">
-    <ul>
-        <li>Choice 1</li>
-        <li>Choice 2</li>
-        <li>Choice 3</li>
-        <li>Choice 4</li>
-        <li>Choice 5</li>
-    </ul>
-    </a>
+</div>
+
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+<script>
+    var ids = JSON.parse("@Model");
+    if (ids.length == 0) {
+        window.location.replace("/Summary");
+    }
+
+    var caseNumber = 0;
+    var currentPlayerIndex = 0;
+    var previousPlayerIndex = 0;
+    var currentCaseID = 0;
+
+    getNextCase();
+
+    function shuffleArray(a) {
+        var i, j, temp;
+        for (i = a.length - 1; i > 0; i--) {
+            j = Math.floor(Math.random() * (i + 1));
+            temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
+        return a;
+    }
+
+    function displayCase(resCase) {
+        $("#descriptionContainer").html(resCase.description);
+        var htmlList = "";
+
+        for (var i = 0; i < resCase.outcomes.length; i++) {
+                htmlList += "<li class='option' index="+i+">" + resCase.outcomes[i] + "</li>"
+            }
+        $("#outcomeList").html(htmlList);
+        $("#currentPlayerDisplay").html(resCase.currentPlayerName);
+    }
+
+    function getNextCase() {
+        $("#outcomeList").css("pointer-events", "none");
+        $.ajax({
+            url: "/backstory/getcase",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ caseNumber: caseNumber, id: ids[currentPlayerIndex] }),
+            success: function (result) {
+                $("#outcomeList").css("pointer-events", "auto");
+                currentCaseID = result.id;
+                displayCase(result);
+            },
+            error: function () {
+                $("#outcomeList").css("pointer-events", "auto");
+            }
+        });
+    }
+
+    function applyStats(index) {
+        $.ajax({
+            url: "/backstory/selectoutcome",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify({ caseID: currentCaseID, outcomeIndex: index, playerID: ids[currentPlayerIndex] }),
+            success: function () {
+                if (++currentPlayerIndex >= ids.length) {
+                    caseNumber++;
+                    currentPlayerIndex = 0;
+                    shuffleArray(ids);
+                }
+                if (caseNumber <= @numberOfCases) {
+                    getNextCase();
+                } else {
+                    $("#descriptionContainer").html("");
+                    $("#outcomeList").html("");
+                    $("#currentPlayerDisplay").html("");
+                    //window.location.href = "/Spells";
+                    window.location.href = "/";
+                }
+            },
+            error: function () {
+                alert("Error applying stats or connecting to server");
+            }
+        });
+    }
+
+    function getCommonGoal() {
+
+    }
+
+    $("#outcomeList").click(function (event) {
+        if ($(event.target).is(".option")) {
+            applyStats($(event.target).attr("index"));
+        }
+    });
+
+</script>

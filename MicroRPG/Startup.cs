@@ -17,7 +17,11 @@ namespace MicroRPG
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSingleton<PlayersService>();
+            services.AddSession();
+            services.AddSingleton<PartyService>();
+            //services.AddSingleton<WorldService>();
+            services.AddHttpContextAccessor();
+            services.AddMemoryCache();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,6 +31,7 @@ namespace MicroRPG
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSession();
             app.UseStaticFiles();
             app.UseMvc();
         }

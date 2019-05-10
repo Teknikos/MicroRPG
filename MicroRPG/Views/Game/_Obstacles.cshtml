@@ -1,12 +1,59 @@
-﻿
+﻿@model MicroRPG.Models.Obstacle[]
 
-<h1>Obstacles</h1><br />
+<div class="backgroundParchment">
+    <div class="overlay"></div>
+</div>
 
-<h1>Obstacle 1</h1>
-<h1>Obstacle 2</h1>
-<h1>Obstacle 3</h1>
+<div class="backgroundParchment">
+    <div class="overlay"></div>
+</div>
 
+<div class="ViewHeader" id="obstaclesHeader">
+    <h1>Obstacles</h1>
+</div>
 
-<a asp-controller="Game" asp-action="Main">
-    <div> Done </div>
-</a>
+<div class="Outer">
+    <div class="InnerLeft">
+        <h2>Obstacles</h2>
+        <div class="innerList">
+            <ul>
+                @for (int i = 0; i < @Model.Length; i++)
+                {
+                    <li class="DisplayDescription" data-index=@i>@Model[i].Name</li>
+                }
+            </ul>
+        </div>
+        <input id="obstaclesBackBtn" class="buttons backBtn" type=button Text="Button" value="Back" />
+    </div>
+
+    <div class="InnerRight">
+
+        @for (int i = 0; i < @Model.Length; i++)
+        {
+            if (i == 0)
+            {
+                <h2 class="description" id=@("obstacleName" + i) style="font-size: 5vh; display:block">@Model[i].Name</h2>
+                <p class="description" id=@("description" + i) style="font-size: 3vh; display:block">@Model[i].Description</p>
+            }
+            else
+            {
+                <h2 class="description" id=@("obstacleName" + i) style="font-size: 5vh; display:none">@Model[i].Name</h2>
+                <p class="description" id=@("description" + i) style="font-size: 3vh; display:none">@Model[i].Description</p>
+            }
+        }
+
+    </div>
+</div>
+
+<div class="modal" data-route="Obstacles">
+    <div class="modalContainer"></div>
+</div>
+
+<script>
+    $(".DisplayDescription").click(function () {
+        var i = $(this).attr("data-index");
+        $(".description").css("display", "none");
+        $("#obstacleName" + i).css("display", "block");
+        $("#description" + i).css("display", "block");
+    });
+</script>

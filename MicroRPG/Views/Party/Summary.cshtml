@@ -1,19 +1,44 @@
-﻿
+﻿@model PartySummaryVM
+@using MicroRPG.Models.Backstory
 @{
     ViewData["Title"] = "Summary";
 }
 
-<h1>Summary of your group</h1>
-
-<h1>Player 1 </h1>
-<h1>Player 2 </h1>
-<h1>Player 3 </h1>
+<div class="backgroundParchment">
+    <div class="overlay"></div>
+</div>
 
 
-<a asp-controller="Party" asp-action="Create">
-    <div> Add Party Member </div>
-</a>
+<div class="ViewHeader" id="summaryHeader">
+    <h1>Party Summary</h1>
+</div>
+<div class="summaryContainer">
 
-<a asp-controller="Party" asp-action="Backstory">
-    <div> Done </div>
-</a>
+    <ul id="partyList">
+        @for (int i = 0; i < Model.PlayerIDs.Length; i++)
+        {
+            <li id="summaryPlayer" style="font-family:'Times New Roman'">
+                <h2>@Model.PlayerNames[i]</h2>
+                @*<a asp-controller="Game" asp-action="_PlayerDetails" asp-route-id=@Model.PlayerIDs[i]>@Model.PlayerNames[i]</a>*@
+            </li>
+        }
+
+    </ul>
+
+    <div id="summaryFooter">
+        <div id="summaryCreateBtn">
+            <a asp-controller="Party" asp-action="Create">
+                <input id="addBtn" type=button value="Add Party Member" />
+            </a>
+        </div>
+
+        @if (Model.PlayerIDs.Length >= BSConstants.MininumPlayers)
+        {
+            <div id="summaryContinueBtn">
+                <a asp-controller="Party" asp-action="Backstory">
+                    <input id="continueBtn" type=button value="Continue" />
+                </a>
+            </div>
+        }
+    </div>
+</div>

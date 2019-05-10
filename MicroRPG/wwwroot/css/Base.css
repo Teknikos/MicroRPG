@@ -1,0 +1,656 @@
+﻿body {
+    font-family:'Times New Roman';
+}
+
+body *{
+    font-family: 'Times New Roman';
+}
+
+@font-face {
+    font-family: GotenborgFraktur;
+    src: url('../fonts/GotenborgFraktur.ttf')
+}
+
+h1, h2, h3 {
+    font-family: GotenborgFraktur;
+}
+
+.ViewHeader {
+    text-align: center;
+    font-size: 5vh;
+}
+
+.SubHeader {
+    margin-left: 5vw;
+    margin-top: 5vw;
+    font-size: 4vh;
+
+}
+
+.ViewHeader h1 {
+    margin-top: 0;
+}
+/* Main View*/
+#gameMainBackground{
+
+}
+#gameMain {
+    /*border: dotted green 3px;*/
+    height: 100vh;
+    /*opacity:0.3;*/
+}
+
+    #gameMain * {
+        margin: unset;
+    }
+
+.playerContainer {
+    /*border: solid red 2px;*/
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    height: 91vh;
+}
+
+.playersLeft {
+    /*border: solid black 2px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align:left;
+    padding-left:10px;
+}
+    .playersLeft h4, .playersRight h4 {
+        background-color: rgba(200, 200, 200, 0.75);
+        border-radius: 10px;
+        font-family: 'Times New Roman';
+        padding:10px;
+    }
+
+.playersRight {
+    /*border: solid black 2px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: right;
+    padding-right:10px;
+}
+
+.playerDetails {
+    /*border: solid magenta 2px;*/
+}
+
+#mainFooter {
+    /*border: solid magenta 2px;*/
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    margin-top: 3px;
+    background-color: rgba(241, 243, 244, 0.5);
+    position: absolute;
+    bottom: 0;
+    width: 100vw;
+    align-content: stretch;
+}
+
+.mainFooterBtn {
+    /*border: solid green 2px;*/
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex: 1;
+    background-color: rgba(241, 243, 244, 0);
+    font-size: 110%;
+    height: 100%;
+}
+#musicControl {
+    color: rgb(177, 143, 112);
+    border-radius: 0px;
+    border: solid rgb(50, 50, 50) 1px;
+    background-color: rgb(241, 243, 244);
+    font-size: 110%;
+    max-height: 58px;
+}
+
+.mainFooterBtn input {
+    height: auto;
+    padding: 10px;
+}
+
+#gameHomeBtn {
+    width: 100%;
+    border-color: rgb(50, 50, 50);
+    border-radius: 0px;
+    font-size: 110%;
+}
+#gameCreaturesBtn, #gamePuzzlesBtn, #gameObstaclesBtn {
+    background-color: rgba(241, 243, 244, 0);
+    border-color: rgb(50, 50, 50);
+    border-radius: 0px;
+    font-size: 110%;
+}
+
+
+
+@media all and (max-width: 744px) {
+    #mainFooter {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: unset;
+    }
+}
+/* Player Details View*/
+.detailsContainer {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    /*background-color: #001bff;*/
+    background: url('/img/textures/parchment5.jpg');
+    background-size: cover;
+}
+.detailsHeader{
+    width:100%;
+    text-align:center;
+}
+.detailsContent {
+    display: flex;
+    flex-flow: row;
+    align-items:stretch;
+    justify-content:space-between;
+    width:100%;
+    height:100%;
+    align-content:stretch;
+    
+}
+.detailsRow {
+    /*background-color: gray;*/
+    display:flex;
+    justify-content:center;
+    
+}
+#stats, #spells{
+    align-items:center;
+    padding-left: 55px;
+    
+}
+#spells {
+    align-items: center;
+    padding-right: 55px;
+}
+.detailsImg {
+    width: 280px;
+    height: 450px;
+    object-fit:cover;
+    /*background-color: aquamarine;*/
+}
+/* Spells, Puzzles, Obstacles Views*/
+
+.spellIsChosen {
+    margin-right: 5%
+}
+
+#spellsList {
+    border: solid rgb(82, 60, 42) 2px;
+    background-color: rgba(116, 85, 59, 0.40);
+    height: 55vh;
+    overflow: auto;
+}
+
+#spellsContinueBtn, #puzzlesBackBtn, #obstaclesBackBtn, #monstersBackBtn {
+    width: 100%;
+    align-content: space-around;
+    text-align: center;
+    background-color: rgb(177, 143, 112);
+    border-color: rgb(47, 35, 25);
+    border-radius: 4px;
+    font-size: 1.5em;
+    height: 5vh;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+}
+
+#spellsContainer {
+    display: flex;
+    flex-direction: row;
+}
+
+#spellsContainer h2 {
+    margin-left: 2vw;
+    font-size: 4.5vh;
+}
+
+.Outer img {
+    max-height: 58vh;
+    max-width: 40vw;
+    margin-left: 7vw;
+}
+
+.Outer {
+    display: flex;
+    flex-direction: row;
+    /*margin-top: 3%;*/
+}
+
+    .Outer h2 {
+        margin-left: 2vw;
+        font-size: 4.5vh;
+    }
+
+.innerList {
+    border: solid rgb(82, 60, 42) 2px;
+    background-color: rgba(116, 85, 59, 0.40);
+    height: 65vh;
+    overflow: auto;
+}
+
+.InnerLeft {
+    flex: 25%;
+    font-size: 24px;
+    margin-left: 1%;
+    /*margin-right: 5%*/
+}
+    .InnerLeft li {
+        list-style-type: none;
+        margin-left: 5%;
+    }
+
+
+.InnerRight {
+    margin-left: 2%;
+    margin-right: 5%;
+    flex: 75%;
+}
+
+
+.DisplayDescription {
+    cursor: pointer;
+}
+
+.allDescriptions {
+    font-size: 3vh;
+}
+
+/* Home View*/
+.homeContainer {
+    display: flex;
+    flex-flow: row wrap;
+    padding-top: 10vh;
+}
+
+#homeIndexHeader {
+    text-align:center; 
+    font-size: 10vh; 
+    margin-top: 0
+}
+
+.homeContainer {
+    justify-content: center;
+}
+
+.homeFooter {
+    justify-content: center;
+    top: 500px;
+    bottom: 0;
+}
+
+.homeSession label {
+    display: inline-block;
+}
+
+#homeStartBtn input{
+    text-align: center;
+    background-color: rgb(177, 143, 112);
+    border-color: rgb(47, 35, 25);
+    border-radius: 4px;
+    font-size: 1.5em;
+}
+
+#homeTable img {
+    width: 100%;
+    max-height: 80vh;
+    object-fit: cover;
+    border: solid rgb(47, 35, 25) 2px;
+}
+
+#homeTable .row {
+    display: flex;
+    text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+#homeTable .column {
+    margin: 0;
+    padding-right: 5px;
+    padding-left: 5px;
+    flex: 50%;
+}
+
+@media all and (max-width: 600px) {
+
+    #homeTable .row {
+        flex-direction: column;
+    }
+
+    .homeContainer {
+        padding-top: 5vh;
+        margin-top: 0;
+    }
+}
+/* Create Player View */
+.createContainer {
+    display: flex;
+    padding-top: 10vh;
+    justify-content: center;
+}
+
+.createForm * {
+font-family:'Times New Roman';
+font-size: 1.5vw;
+}
+
+.createRadio label {
+    display: inline-block;
+    margin-left: 1vw;
+}
+
+#doneCreateBtn {
+    text-align: center;
+}
+
+#doneCreateBtn * {
+    background-color: rgb(177, 143, 112);
+    border-color: rgb(47, 35, 25);
+    border-radius: 4px;
+    font-size: 110%;
+}
+
+#createHeader {
+    /*background-color: gray;*/
+    margin-top: 0;
+    font-size: 2em;
+}
+
+/* Party Summary View*/
+/*#summaryHeader {
+    background-color: gray;
+}*/
+
+#summaryPlayer * {
+    font-family: Garamond;
+}
+
+.summaryContainer {
+    display: flex;
+    /*padding-top: 10vh;*/
+    justify-content: center;
+}
+
+#partyList {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+#summaryFooter {
+    position: absolute;
+    align-content: center;
+    bottom: 10%;
+    flex-flow: row wrap;
+    justify-content: space-around;
+}
+
+    #summaryFooter * {
+        display: inline-block;
+        /*font-size: 3vh;
+        justify-content: space-between;*/
+    }
+
+    #summaryFooter #addBtn {
+        background-color: rgb(177, 143, 112);
+        border-color: rgb(47, 35, 25);
+        border-radius: 4px;
+        font-size: 110%;
+        margin-right: 4vw;
+        margin-left: 4vw;
+    }
+
+    #summaryFooter #continueBtn {
+        background-color: rgb(177, 143, 112);
+        border-color: rgb(47, 35, 25);
+        border-radius: 4px;
+        font-size: 110%;
+        margin-right: 4vw;
+        margin-left: 4vw;
+    }
+/* Backstory View */
+#outcomeList .option {
+    cursor: pointer;
+}
+
+/*#backstoryHeader {
+    background-color: gray;
+}*/
+
+.backstoryContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 15vw;
+    margin-right: 15vw;
+}
+
+#descriptionContainer {
+    font-size: 3vw;
+}
+
+#currentPlayerDisplay {
+    margin-bottom: 4%;
+    font-size: 4vw;
+}
+
+#outcomeList {
+    margin-top: 5%;
+    margin-left: 8vw;
+    margin-right: 8vw;
+    /*text-align: center;*/
+    font-size: 2vw;
+}
+
+.caseDescription {
+    text-align: center;
+}
+/* Environment Choose view */
+#environmentTable [type="radio"] {
+    position: absolute;
+    top: initial;
+    left: initial;
+    margin-left: 1%;
+    margin-top: 1%;
+    z-index: 1;
+}
+
+#environmentAcceptBtn {
+    position: sticky;
+    left: 45%;
+    bottom: 10%;
+    background-color: rgb(177, 143, 112);
+    border-color: rgb(47, 35, 25);
+    border-radius: 4px;
+    font-size: 110%;
+    width: 10vw;
+    height: 5vh;
+    padding: 0;
+    text-align: center;
+    margin-top: 5vh;
+}
+
+#environmentTable .row {
+    display: flex;
+    text-align: center;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+#environmentTable .column {
+    margin: 0;
+    padding-right: 3px;
+    padding-left: 3px;
+    flex: 50%;
+}
+
+#environmentTable img {
+    width: 100%;
+    max-height: 30vh;
+    object-fit: cover;
+    border: solid rgb(47, 35, 25) 2px;
+}
+/*
+    Header for creatures/obstacles/puzzles 
+    --OBS! Detta id, 'environmentHeader', bör döpas om men vi ska ändå flytta detta till en partiell vy sen
+*/
+#environmentHeader {
+    width: auto;
+    height: 15%;
+}
+
+    #environmentHeader img {
+        width: 25%;
+    }
+
+/* Creature View */
+#creatureTable {
+    display: flex;
+    text-align: left;
+    padding-right: 10%;
+    padding-left: 10%;
+}
+
+#creatureTable div {
+    margin: 0;
+    padding-right: 3px;
+    padding-left: 3px;
+    flex: 50%;
+    max-width: 25vh;
+}
+
+#creatureTable img {
+    
+    height: 25vh;
+    /*max-height: 30vh;*/
+    object-fit: scale-down;
+}
+
+.buttons {
+    margin: 0, 0, 20px, 20px;
+    background-color: white;
+}
+
+/*.footer button {
+    background-color: white;
+}*/
+
+.footer {
+    margin: 10px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background-color: white;
+    width: 25%;
+}
+
+#partyList li {
+    font-size: 45px;
+    margin: 20px;
+    margin-left: 10%;
+}
+
+/* Modals */
+.enlargeImg:hover img {
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.getDetails:hover {
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+    .modal > * {
+        margin: auto;
+        /*margin-top: 5%;*/
+        display: block;
+        width: 70%;
+    }
+
+.modalContainer {
+    background-color: white;
+}
+
+.modal .imgContainer img {
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    user-select: none;
+    object-fit: scale-down;
+}
+
+/* Backgrounds */
+.backgroundEnvironment {
+    z-index: -999;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-size:cover;
+}
+
+.backgroundEnvironment .overlay{
+    z-index: -998;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.backgroundParchment {
+    z-index: -997;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: url('/img/textures/parchment5.jpg');
+    background-size: cover;
+}
+
+    .backgroundParchment .overlay {
+        z-index: -996;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        /*background-color: rgba(255, 255, 255, 0.5);*/
+        background-color: rgba(230, 200, 160, 0.5);
+    }
+
