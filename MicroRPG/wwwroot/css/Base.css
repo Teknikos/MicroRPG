@@ -367,14 +367,15 @@ font-size: 1.5vw;
 
 #doneCreateBtn {
     text-align: center;
-}
-
-#doneCreateBtn * {
     background-color: rgb(177, 143, 112);
     border-color: rgb(47, 35, 25);
     border-radius: 4px;
     font-size: 110%;
 }
+
+/*#doneCreateBtn * {
+    
+}*/
 
 #createHeader {
     /*background-color: gray;*/
@@ -388,20 +389,29 @@ font-size: 1.5vw;
 }*/
 
 #summaryPlayer * {
-    font-family: Garamond;
+    font-family: 'Times New Roman';
 }
 
 .summaryContainer {
     display: flex;
     /*padding-top: 10vh;*/
+    flex-direction: column;
     justify-content: center;
+    padding-left: 30%;
 }
 
 #partyList {
-    display: flex;
-    flex-wrap: wrap;
+    max-width: 50vw;
+    padding-left: 5%;
+    /*flex-wrap: wrap;*/
     list-style: none;
 }
+
+    #partyList li {
+        flex-flow: row;
+        flex: 50%;
+        display: flex;
+    }
 
 #summaryFooter {
     position: absolute;
@@ -452,16 +462,17 @@ font-size: 1.5vw;
 }
 
 #descriptionContainer {
-    font-size: 3vw;
+    font-size: 2.5vw;
 }
 
 #currentPlayerDisplay {
-    margin-bottom: 4%;
+    margin-bottom: 2%;
+    margin-top: -1%;
     font-size: 4vw;
 }
 
 #outcomeList {
-    margin-top: 5%;
+    margin-top: 4%;
     margin-left: 8vw;
     margin-right: 8vw;
     /*text-align: center;*/

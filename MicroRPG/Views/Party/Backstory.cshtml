@@ -94,7 +94,16 @@
                     $("#outcomeList").html("");
                     $("#currentPlayerDisplay").html("");
                     //window.location.href = "/Spells";
-                    window.location.href = "/";
+                    $.ajax({
+                        url: "/backstory/finalizecases",
+                        type: "POST",
+                        //contentType: "application/json",
+                        //data: JSON.stringify({ caseID: currentCaseID, outcomeIndex: index, playerID: ids[currentPlayerIndex] }),
+                        success: function () {
+                            window.location.href = "/";
+                        }
+                    });
+                    
                 }
             },
             error: function () {
