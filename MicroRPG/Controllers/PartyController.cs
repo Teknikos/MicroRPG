@@ -121,6 +121,15 @@ namespace MicroRPG.Controllers
             return Ok();
         }
 
+        [HttpPost]
+        [Route("Backstory/finalizecases")]
+        public IActionResult BackstoryFinalizeCases()
+        {
+            service.FinalizeCases();
+            return Ok();
+        }
+
+
         //[Route("Backstory/{playerID}")]
         //public IActionResult Backstory(int playerID)
         //{

@@ -60,9 +60,10 @@ h1, h2, h3 {
     text-align:left;
     padding-left:10px;
 }
-    .playersLeft h1, .playersRight h1 {
+    .playersLeft h4, .playersRight h4 {
         background-color: rgba(200, 200, 200, 0.75);
         border-radius: 10px;
+        font-family: 'Times New Roman';
         padding:10px;
     }
 
@@ -357,14 +358,15 @@ font-size: 1.5vw;
 
 #doneCreateBtn {
     text-align: center;
-}
-
-#doneCreateBtn * {
     background-color: rgb(177, 143, 112);
     border-color: rgb(47, 35, 25);
     border-radius: 4px;
     font-size: 110%;
 }
+
+/*#doneCreateBtn * {
+    
+}*/
 
 #createHeader {
     /*background-color: gray;*/
@@ -439,23 +441,23 @@ font-size: 1.5vw;
     align-items: center;
     margin-left: 15vw;
     margin-right: 15vw;
-    border:solid black 4px;
 }
 
 #descriptionContainer {
-    font-size: 3vw;
+    font-size: 2.5vw;
 }
 
 #currentPlayerDisplay {
-    margin-bottom: 4%;
+    margin-bottom: 2%;
+    margin-top: -1%;
     font-size: 4vw;
 }
 
 #outcomeList {
-    margin-top: 5%;
+    margin-top: 4%;
     margin-left: 8vw;
     margin-right: 8vw;
-    text-align: center;
+    /*text-align: center;*/
     font-size: 2vw;
 }
 

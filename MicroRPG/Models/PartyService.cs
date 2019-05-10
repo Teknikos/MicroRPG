@@ -95,7 +95,7 @@ namespace MicroRPG.Models
 
             return new PartyBackstoryVM
             {
-                Description = $"{player.Name} what is your relation to {relatesTo.Name}?",
+                Description = $"What is your relation to {relatesTo.Name}?",
                 Outcomes = relationTags.Select(t => t.Description).ToArray(),
                 CurrentPlayerName = player.Name,
                 ID = -1
@@ -117,6 +117,16 @@ namespace MicroRPG.Models
                 SavePlayerToSession(relatesTo);
             }
             
+        }
+
+        public void FinalizeCases()
+        {
+            List<Player> party = GetParty();
+            foreach (Player player in party)
+            {
+                player.Stats.MultiplyStats(1.0 / player.StatGainCount);
+                SavePlayerToSession(player);
+            }
         }
 
         public PartyBackstoryVM GetValidCase(int playerID)

@@ -12,14 +12,14 @@
             <div class="playersLeft">
                 @for (int i = 0; i < Model.PlayerNames.Length; i += 2)
                 {
-                    <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
+                    <div class="playerDetails"><h4 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h4></div>
                 }
 
             </div>
             <div class="playersRight">
                 @for (int i = 1; i < Model.PlayerNames.Length; i += 2)
                 {
-                    <div class="playerDetails"><h1 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h1></div>
+                    <div class="playerDetails"><h4 class="getDetails" data-route="/PlayerDetails/@Model.PlayerIDs[i]">@Model.PlayerNames[i]</h4></div>
                 }
             </div>
 
