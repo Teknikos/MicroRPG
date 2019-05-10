@@ -63,10 +63,10 @@ namespace MicroRPG.Models.Backstory
                 $"{ThisPlayer} is dreaming that you, {OtherPlayer}{1} and several strangers are running past a bridge as it starts collapsing. " +
                 $"\nYou get to the end first, while the others stumble and cry for help."
                 );
-            c.AddOutCome($"{ThisPlayer} I go back and try to help all of them.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I turn back to help {OtherPlayer}{1}, only.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I stay at a safe distance and try pull them to the ledge.", StatsForClass[Class.Mage]);
-            c.AddOutCome($"{ThisPlayer} I throw down a thick rope down the pit and try to pull them all up.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I go back and try to help all of them.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I turn back to help {OtherPlayer}{1}, only.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I stay at a safe distance and try pull them to the ledge.", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I throw down a thick rope down the pit and try to pull them all up.", StatsForClass[Class.Warrior]);
             cases.Add(c);
 
             //Case 2
@@ -79,10 +79,10 @@ namespace MicroRPG.Models.Backstory
                        LawfulTag, ReligiousTag
                    }
            );
-            c.AddOutCome($"{ThisPlayer} I wipe off the spit and leave the bar.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I decide to win him over with kindness and give him enough coins to stay the night.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I have had enough of this low-life and smash him off his chair.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} I go past the man as an show of submission, while grabbing his purse of coins before I exit.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I wipe off the spit and leave the bar.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I decide to win him over with kindness and give him enough coins to stay the night.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I have had enough of this low-life and smash him off his chair.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I go past the man as an show of submission, while grabbing his purse of coins before I exit.", StatsForClass[Class.Rogue]);
             cases.Add(c);
 
             //Case 3
@@ -95,10 +95,10 @@ namespace MicroRPG.Models.Backstory
                        HonorableTag
                    }
             );
-            c.AddOutCome($"{ThisPlayer} I stop the abuse and intimidate the men.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} I avoid the men entirely and try to reform the woman in the name of my deity.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I walk away and ask the group to do the same, she is not worth bloodshed.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I cast “Hold person” on the group of men and search them for magical possessions.", StatsForClass[Class.Mage], UnlawfulTag);
+            c.AddOutCome($"I stop the abuse and intimidate the men.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I avoid the men entirely and try to reform the woman in the name of my deity.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I walk away and ask the group to do the same, she is not worth bloodshed.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I cast “Hold person” on the group of men and search them for magical possessions.", StatsForClass[Class.Mage], UnlawfulTag);
             cases.Add(c);
 
             //Case 4
@@ -106,10 +106,10 @@ namespace MicroRPG.Models.Backstory
             c = new Case(
             $"{ThisPlayer} sets up camp near the city. In the pitch dark, {ThisPlayer} stumbles into an orc. {ThisPlayer} had no choice but to engage the orc in combat."
             );
-            c.AddOutCome($"{ThisPlayer} I try my best to reason with the creature in its own language.", StatsForClass[Class.Warrior], OutcastTag);
-            c.AddOutCome($"{ThisPlayer} After the orc has been slain, I give it its last rites. Every creature has an eternal soul.", StatsForClass[Class.Cleric], HonorableTag, ReligiousTag);
-            c.AddOutCome($"{ThisPlayer} I stab it in the gut multiple times with my dagger and run off.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I cast a shielding spell and back off while the orc savagely swings at me.", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I try my best to reason with the creature in its own language.", StatsForClass[Class.Warrior], OutcastTag);
+            c.AddOutCome($"After the orc has been slain, I give it its last rites. Every creature has an eternal soul.", StatsForClass[Class.Cleric], HonorableTag, ReligiousTag);
+            c.AddOutCome($"I stab it in the gut multiple times with my dagger and run off.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I cast a shielding spell and back off while the orc savagely swings at me.", StatsForClass[Class.Mage]);
             cases.Add(c);
 
             //Case 5
@@ -117,10 +117,10 @@ namespace MicroRPG.Models.Backstory
             c = new Case(
             $"{ThisPlayer} is visiting a temple of Talos and stumbles upon a sacrificial ritual."
             );
-            c.AddOutCome($"{ThisPlayer} I shout at the people in the ritual to stop.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} I sneak into the shadows to see more clearly what is happening.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I immediately leave and let the leader of my temple deal with them.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I walk forward and try to blend in.", StatsForClass[Class.Mage], OutcastTag);
+            c.AddOutCome($"I shout at the people in the ritual to stop.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I sneak into the shadows to see more clearly what is happening.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I immediately leave and let the leader of my temple deal with them.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I walk forward and try to blend in.", StatsForClass[Class.Mage], OutcastTag);
             cases.Add(c);
 
             //Case 6
@@ -129,9 +129,9 @@ namespace MicroRPG.Models.Backstory
             $"{ThisPlayer}, {OtherPlayer}{1} and {OtherPlayer}{2} are together and planning how to approach their mission. You are offered some wine.",
             minPartySize: 3
             );
-            c.AddOutCome($"{ThisPlayer} I rather keep my wits sharp.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I gladly accept.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} I do not drink spirits.", StatsForClass[Class.Cleric], ReligiousTag);
+            c.AddOutCome($"I rather keep my wits sharp.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I gladly accept.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I do not drink spirits.", StatsForClass[Class.Cleric], ReligiousTag);
             cases.Add(c);
 
             //Case 7
@@ -139,11 +139,11 @@ namespace MicroRPG.Models.Backstory
             c = new Case(
             $"{ThisPlayer} witnesses a merchant being robbed by several thieves."
             );
-            c.AddOutCome($"{ThisPlayer} I help the victim.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I thwart the thieves.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} I watch the scene unfold to learn how to better protect myself.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} I make notes on the members of the gang to increase my knowledge of the criminal underworld.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I ignore the entire incident.", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I help the victim.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I thwart the thieves.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I watch the scene unfold to learn how to better protect myself.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I make notes on the members of the gang to increase my knowledge of the criminal underworld.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I ignore the entire incident.", StatsForClass[Class.Mage]);
             cases.Add(c);
 
             //Case 8
@@ -151,10 +151,10 @@ namespace MicroRPG.Models.Backstory
             c = new Case(
             $"{ThisPlayer} meets an old childhood friend, and finds out that the supplies {ThisPlayer} has been buying, are black market goods."
             );
-            c.AddOutCome($"{ThisPlayer} I urge my friend to stop selling stolen goods, and return them to the owner.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I do not bother, it is a win-win situation. Gold for both of us.", StatsForClass[Class.Rogue], UnlawfulTag);
-            c.AddOutCome($"{ThisPlayer} Threaten your friend to stop, otherwise you will inform the garrison of his crimes.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} This does not concern me, I do not have use for trinkets and common supplies anyway.", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I urge my friend to stop selling stolen goods, and return them to the owner.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I do not bother, it is a win-win situation. Gold for both of us.", StatsForClass[Class.Rogue], UnlawfulTag);
+            c.AddOutCome($"Threaten your friend to stop, otherwise you will inform the garrison of his crimes.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"This does not concern me, I do not have use for trinkets and common supplies anyway.", StatsForClass[Class.Mage]);
             cases.Add(c);
 
             //Case 9
@@ -162,11 +162,11 @@ namespace MicroRPG.Models.Backstory
             c = new Case(
             $"A woman is fleeing from an angry mob of torch - wielding villagers at night. { ThisPlayer } could try to help her, but risk getting attacked by the villagers."
             );
-            c.AddOutCome($"{ThisPlayer} I try to shield the woman, then try to reason for her release.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I ask what she has done, perhaps she is guilty of a crime.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} If I could get a hold of the woman, her secrets might lead to personal power or knowledge.", StatsForClass[Class.Mage]);
-            c.AddOutCome($"{ThisPlayer} I stand ready to fend off the pursuers, no matter the consequences.", StatsForClass[Class.Cleric], HonorableTag);
-            c.AddOutCome($"{ThisPlayer} I try to divert the crowd's attention to let the woman escape.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I try to shield the woman, then try to reason for her release.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I ask what she has done, perhaps she is guilty of a crime.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"If I could get a hold of the woman, her secrets might lead to personal power or knowledge.", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I stand ready to fend off the pursuers, no matter the consequences.", StatsForClass[Class.Cleric], HonorableTag);
+            c.AddOutCome($"I try to divert the crowd's attention to let the woman escape.", StatsForClass[Class.Rogue]);
             cases.Add(c);
 
             //Case 10
@@ -174,10 +174,10 @@ namespace MicroRPG.Models.Backstory
             c = new Case(
             $"{ ThisPlayer} spots a strange ring on the ground. As { ThisPlayer} grabs it, a strong presence of magic emanates from it…."
             );
-            c.AddOutCome($"{ThisPlayer} I immediately put it in my pocket, it could be very valuable.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I show it to my group and try to find its rightful owner.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} I study its magical essence as best as I can.", StatsForClass[Class.Mage]);
-            c.AddOutCome($"{ThisPlayer} I decide to bring it to a high priest or arcane practitioner to have it examined, it could be of use for greater good .", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I immediately put it in my pocket, it could be very valuable.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I show it to my group and try to find its rightful owner.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I study its magical essence as best as I can.", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I decide to bring it to a high priest or arcane practitioner to have it examined, it could be of use for greater good .", StatsForClass[Class.Cleric]);
             cases.Add(c);
 
             //Case 11
@@ -186,10 +186,10 @@ namespace MicroRPG.Models.Backstory
             $"{ ThisPlayer} and the rest of the group enters a temple garden in the kingdom capitol. Several men in plate armor with matching sigils, are restraining a group of noblemen. " +
             $"\nThe armored men accuse the noblemen of being vampires, and declare that they must be destroyed."
             );
-            c.AddOutCome($"{ThisPlayer} I side with the paladin order.", StatsForClass[Class.Cleric], LawfulTag);
-            c.AddOutCome($"{ThisPlayer} I side with the noblemen.", StatsForClass[Class.Cleric], UnlawfulTag);
-            c.AddOutCome($"{ThisPlayer} I turn around and gesture to back off.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I do not side with any side but wait to see what will happen.", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I side with the paladin order.", StatsForClass[Class.Cleric], LawfulTag);
+            c.AddOutCome($"I side with the noblemen.", StatsForClass[Class.Cleric], UnlawfulTag);
+            c.AddOutCome($"I turn around and gesture to back off.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I do not side with any side but wait to see what will happen.", StatsForClass[Class.Mage]);
             cases.Add(c);
 
             //Case 12
@@ -197,10 +197,10 @@ namespace MicroRPG.Models.Backstory
             c = new Case(
             $"{ ThisPlayer} watches as {OtherPlayer}{1} and {OtherPlayer}{2} get into a heated debate, and a confrontation seems inevitable."
             );
-            c.AddOutCome($"{ThisPlayer} I side with {OtherPlayer}{1} because {OtherPlayer}{1} seems like a kind, wise and honourable person.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"{ThisPlayer} I side with {OtherPlayer}{2} because I believe {OtherPlayer}{2} is stronger and more assertive.", StatsForClass[Class.Warrior]);
-            c.AddOutCome($"{ThisPlayer} I let them deal with it by themselves.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"{ThisPlayer} I do not side with anyone, but wait to see what will happen.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I side with {OtherPlayer}{1} because {OtherPlayer}{1} seems like a kind, wise and honourable person.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"I side with {OtherPlayer}{2} because I believe {OtherPlayer}{2} is stronger and more assertive.", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"I let them deal with it by themselves.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"I do not side with anyone, but wait to see what will happen.", StatsForClass[Class.Warrior]);
             cases.Add(c);
 
             //Case 13
@@ -231,10 +231,10 @@ namespace MicroRPG.Models.Backstory
             $"{ThisPlayer} were hired as help to an adventure expedition. While returning from a hunt {ThisPlayer} spot raiders wreaking havoc in your camp. " +
             $"{ThisPlayer} saw friends slaughtered and maimed around the campfire. {ThisPlayer} managed to save his colleague {OtherPlayer}{1} by executing vengeance on the raiders."
             );
-            c.AddOutCome($"Through a quick prayer to your deity, {ThisPlayer} blade burst into flames and the blade finds it’s targets with ease. After the battle {ThisPlayer} soothes the wounds of {OtherPlayer}{1}.", StatsForClass[Class.Cleric]);
-            c.AddOutCome($"Arcane sparks shoot out from {ThisPlayer}’s fingertips and transforms into missiles seeking {ThisPlayer}’s enemies.", StatsForClass[Class.Mage]);
-            c.AddOutCome($"{ThisPlayer} readies the blade and sneak up behind their foes to deliver the killing blow.", StatsForClass[Class.Rogue]);
-            c.AddOutCome($"The brutal sight of {ThisPlayer}’s slain companions invokes an uncontrollable inner rage. {ThisPlayer} charges forward!", StatsForClass[Class.Warrior]);
+            c.AddOutCome($"Through a quick prayer to your deity, I blade burst into flames and the blade finds it’s targets with ease. After the battle {ThisPlayer} soothes the wounds of {OtherPlayer}{1}.", StatsForClass[Class.Cleric]);
+            c.AddOutCome($"Arcane sparks shoot out from my fingertips which strikes my enemies.", StatsForClass[Class.Mage]);
+            c.AddOutCome($"I ready my blade and sneak up behind my foes to deliver the killing blow.", StatsForClass[Class.Rogue]);
+            c.AddOutCome($"The brutal sight of my slain companions invokes an uncontrollable rage. I charge forward!", StatsForClass[Class.Warrior]);
             cases.Add(c);
 
 
