@@ -41,7 +41,7 @@ h1, h2, h3 {
 }
 
     #gameMain * {
-        margin: unset;
+        /*margin: unset;*/
     }
 
 .playerContainer {
@@ -77,7 +77,8 @@ h1, h2, h3 {
 }
 
 .playerDetails {
-    /*border: solid magenta 2px;*/
+    margin-bottom:auto;
+    margin-top:50px;
 }
 
 #mainFooter {
