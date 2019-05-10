@@ -1,0 +1,73 @@
+﻿@model MicroRPG.Models.Monster[]
+
+<div class="backgroundParchment">
+    <div class="overlay"></div>
+</div>
+
+<div class="ViewHeader" id="monstersHeader">
+    <h1>Monsters</h1>
+</div>
+
+<div class="Outer">
+    <div class="InnerLeft">
+        <h2>Monsters</h2>
+        <div class="innerList">
+            <ul>
+                @for (int i = 0; i < @Model.Length; i++)
+                {
+                    <li class="DisplayDescription" data-index=@i>@Model[i].Name</li>
+                }
+            </ul>
+        </div>
+        <input id="monstersBackBtn" class="buttons backBtn" type=button Text="Button" value="Back" />
+    </div>
+
+    <div class="InnerRight">
+
+        @for (int i = 0; i < @Model.Length; i++)
+        {
+            if (i == 0)
+            {
+                <h2 class="description" id=@("monsterName" + i) style="display:block">@Model[i].Name</h2>
+                <h4 class="description" id=@("stats" + i) style="display:block">HP: @Model[i].HP, DamageReduction: @Model[i].Reduction, Attack: @Model[i].Damage</h4>
+                <p class="description" id=@("description" + i) style="display:block">@Model[i].Special</p>
+                <img class="description" src="~/img/monsters/@(Model[i].DataName).png" id=@("image" + i) alt="@Model[i].DataName" style="display:block" />
+            }
+            else
+            {
+                <h2 class="description" id=@("monsterName" + i) style="display:none">@Model[i].Name</h2>
+                <h4 class="description" id=@("stats" + i) style="display:none">HP: @Model[i].HP, DamageReduction: @Model[i].Reduction, Attack: @Model[i].Damage</h4>
+                <p class="description" id=@("description" + i) style="display:none">@Model[i].Special</p>
+                <img class="description" src="~/img/monsters/@(Model[i].DataName).png" id=@("image" + i) alt="@Model[i].DataName" style="display:none" />
+            }
+        }
+
+    </div>
+</div>
+
+@*<footer class="footer">
+        <input id="monstersBackBtn" class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px; width:100%" />
+    </footer>*@
+
+<div class="modal" data-route="Monsters">
+    <div class="modalContainer"></div>
+</div>
+
+@*<style>
+        body {
+            background: url('http://images.easyfreeclipart.com/760/parchment-paper-background-sunny-760357.jpg');
+            background-size: 100%;
+        }
+    </style>*@
+
+<script>
+    $(".DisplayDescription").click(function () {
+        var i = $(this).attr("data-index");
+      $(".description").css("display", "none");
+        $("#monsterName" + i).css("display", "block");
+        $("#stats" + i).css("display", "block");
+        $("#description" + i).css("display", "block");
+        $("#image" + i).css("display", "block");
+    });
+</script>
+

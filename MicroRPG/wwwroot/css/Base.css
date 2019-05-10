@@ -61,7 +61,7 @@ h1, h2, h3 {
     padding-left:10px;
 }
     .playersLeft h1, .playersRight h1 {
-        background-color: rgba(200, 200, 200,0.75);
+        background-color: rgba(200, 200, 200, 0.75);
         border-radius: 10px;
         padding:10px;
     }
@@ -85,7 +85,7 @@ h1, h2, h3 {
     justify-content: space-between;
     height: auto;
     margin-top: 3px;
-    background-color: rgb(241, 243, 244);
+    background-color: rgba(241, 243, 244, 0.5);
     position: absolute;
     bottom: 0;
     width: 100vw;
@@ -98,7 +98,7 @@ h1, h2, h3 {
     flex-direction: column;
     align-items: stretch;
     flex: 1;
-    background-color: rgb(241, 243, 244);
+    background-color: rgba(241, 243, 244, 0);
     font-size: 110%;
     height: 100%;
 }
@@ -106,6 +106,7 @@ h1, h2, h3 {
     color: rgb(177, 143, 112);
     border-radius: 0px;
     border: solid rgb(50, 50, 50) 1px;
+    background-color: rgb(241, 243, 244);
     font-size: 110%;
     max-height: 58px;
 }
@@ -122,11 +123,10 @@ h1, h2, h3 {
     font-size: 110%;
 }
 #gameCreaturesBtn, #gamePuzzlesBtn, #gameObstaclesBtn {
-    background-color: rgb(241, 243, 244);
+    background-color: rgba(241, 243, 244, 0);
     border-color: rgb(50, 50, 50);
     border-radius: 0px;
     font-size: 110%;
-    
 }
 
 
@@ -186,7 +186,7 @@ h1, h2, h3 {
     overflow: auto;
 }
 
-#spellsContinueBtn, #puzzlesBackBtn, #obstaclesBackBtn {
+#spellsContinueBtn, #puzzlesBackBtn, #obstaclesBackBtn, #monstersBackBtn {
     width: 100%;
     align-content: space-around;
     text-align: center;
@@ -207,6 +207,12 @@ h1, h2, h3 {
 #spellsContainer h2 {
     margin-left: 2vw;
     font-size: 4.5vh;
+}
+
+.Outer img {
+    max-height: 58vh;
+    max-width: 40vw;
+    margin-left: 7vw;
 }
 
 .Outer {
@@ -245,7 +251,14 @@ h1, h2, h3 {
     flex: 75%;
 }
 
-/* Obstacles and Puzzles View*/
+
+.DisplayDescription {
+    cursor: pointer;
+}
+
+.allDescriptions {
+    font-size: 3vh;
+}
 
 /* Home View*/
 .homeContainer {
@@ -286,6 +299,7 @@ h1, h2, h3 {
     width: 100%;
     max-height: 80vh;
     object-fit: cover;
+    border: solid rgb(47, 35, 25) 2px;
 }
 
 #homeTable .row {
@@ -480,6 +494,7 @@ font-size: 1.5vw;
     width: 100%;
     max-height: 30vh;
     object-fit: cover;
+    border: solid rgb(47, 35, 25) 2px;
 }
 /*
     Header for creatures/obstacles/puzzles 
@@ -515,16 +530,6 @@ font-size: 1.5vw;
     height: 25vh;
     /*max-height: 30vh;*/
     object-fit: scale-down;
-}
-
-/* Obstacle View*/
-
-.DisplayDescription {
-    cursor: pointer;
-}
-
-.allDescriptions {
-    font-size: 3vh;
 }
 
 .buttons {

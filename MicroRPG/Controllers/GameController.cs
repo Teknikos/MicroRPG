@@ -39,8 +39,21 @@ namespace MicroRPG.Controllers
         [Route("Creatures")]
         public IActionResult _Creatures()
         {
+            return _CreaturesAlternate();
             CreaturesVM creaturesVM = WorldService.GetCreaturesVM(HttpContext.Session.GetString(SelectedEnvironment));
             return PartialView(nameof(_Creatures), creaturesVM);
+        }
+
+        [Route("CreaturesAlt")]
+        public IActionResult _CreaturesAlternate()
+        {
+            string env = HttpContext.Session.GetString(SelectedEnvironment);
+            Monster[] monsters = WorldService.GetMonsters();
+            if (string.IsNullOrEmpty(env))
+            {
+                monsters = monsters.Where(m => m.Tags.Contains(env)).ToArray();
+            }
+            return PartialView(nameof(_CreaturesAlternate), monsters);
         }
 
         [Route("Creatures/{id}")]

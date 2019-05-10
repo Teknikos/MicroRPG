@@ -42,7 +42,7 @@ namespace MicroRPG.Models
             };
         }
 
-        internal static CreaturesVM GetCreaturesVM(string environment)
+        public static CreaturesVM GetCreaturesVM(string environment)
         {
             return new CreaturesVM()
             {
