@@ -4,10 +4,14 @@
     <div class="overlay"></div>
 </div>
 
+<div class="ViewHeader" id="puzzlesHeader">
+    <h1>Puzzles</h1>
+</div>
+
 <div class="Outer">
     <div class="InnerLeft">
-        <h3 style="font-size: 4vh";>Puzzles</h3>
-        <div style="height: 800px; overflow: auto;">
+        <h2>Puzzles</h2>
+        <div class="innerList">
             <ul>
                 @for (int i = 0; i < @Model.Length; i++)
                 {
@@ -15,30 +19,31 @@
                 }
             </ul>
         </div>
+        <input id="puzzlesBackBtn" class="buttons backBtn" type=button Text="Button" value="Back"  />
     </div>
 
     <div class="InnerRight">
-        <ul>
+        
             @for (int i = 0; i < @Model.Length; i++)
             {
                 if (i == 0)
                 {
-                    <li class="description" id=@("puzzleName" + i) style="font-size: 5vh; display:block">@Model[i].Name</li>
-                    <li class="description" id=@("description" + i) style="font-size: 3vh; display:block">@Model[i].Description</li>
+                    <h2 class="description" id=@("puzzleName" + i) style="font-size: 5vh; display:block">@Model[i].Name</h2>
+                    <p class="description" id=@("description" + i) style="font-size: 3vh; display:block">@Model[i].Description</p>
                 }
                 else
                 {
-                <li class="description" id=@("puzzleName" + i) style="font-size: 5vh; display:none">@Model[i].Name</li>
-                <li class="description" id=@("description" + i) style="font-size: 3vh; display:none">@Model[i].Description</li>
+                <h2 class="description" id=@("puzzleName" + i) style="font-size: 5vh; display:none">@Model[i].Name</h2>
+                <p class="description" id=@("description" + i) style="font-size: 3vh; display:none">@Model[i].Description</p>
                 }
             }
-        </ul>
+        
     </div>
 </div>
 
-<footer class="footer">
-    <input class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px; width:100%" />
-</footer>
+@*<footer class="footer">
+    <input id="puzzlesBackBtn" class="buttons backBtn" type=button Text="Button" value="Back" style="font-size: 24px; width:100%" />
+</footer>*@
 
 <div class="modal" data-route="Puzzles">
     <div class="modalContainer"></div>
