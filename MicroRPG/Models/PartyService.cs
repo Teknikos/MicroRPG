@@ -119,6 +119,16 @@ namespace MicroRPG.Models
             
         }
 
+        public void FinalizeCases()
+        {
+            List<Player> party = GetParty();
+            foreach (Player player in party)
+            {
+                player.Stats.MultiplyStats(1.0 / player.StatGainCount);
+                SavePlayerToSession(player);
+            }
+        }
+
         public PartyBackstoryVM GetValidCase(int playerID)
         {
             if (allCases == null)
